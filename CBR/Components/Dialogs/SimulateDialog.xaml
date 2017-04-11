@@ -1,0 +1,296 @@
+﻿<Window x:Class="CBR.Components.Dialogs.SimulateDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" 
+		WindowStyle="None" WindowStartupLocation="CenterOwner" AllowsTransparency="True" Background="{x:Null}"
+        Title="SimulateView" Height="400" Width="680" MouseLeftButtonDown="Window_MouseLeftButtonDown" ShowInTaskbar="False" ResizeMode="NoResize">
+
+	<Window.Resources>
+
+		<Style TargetType="{x:Type Button}" x:Key="WindowChromeButton">
+			<Setter Property="OverridesDefaultStyle" Value="True"/>
+			<Setter Property="IsTabStop" Value="True"/>
+			<Setter Property="Focusable" Value="True"/>
+			<Setter Property="Width" Value="30"/>
+			<Setter Property="Height" Value="30"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="Margin" Value="0,0,7,0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="Transparent" SnapsToDevicePixels="True">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="closeButton" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowChromeButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Canvas x:Name="Layer_4" Background="Transparent">
+							<Path x:Name="Path" Width="30.7453" Height="30.559" Canvas.Left="9.53674e-006" Canvas.Top="-1.90735e-006" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 5.37268,0.372669L 25.3727,0.372669C 28.1341,0.372669 30.3727,2.61124 30.3727,5.37267L 30.3727,25.1864C 30.3727,27.9478 28.1341,30.1864 25.3727,30.1864L 5.37268,30.1864C 2.61125,30.1864 0.372681,27.9478 0.372681,25.1864L 0.372681,5.37267C 0.372681,2.61124 2.61125,0.372669 5.37268,0.372669 Z "/>
+							<Path x:Name="Path_0" Width="18.4147" Height="18.4147" Canvas.Left="5.97897" Canvas.Top="5.90134" Stretch="Fill" StrokeThickness="0.789385" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 7.08316,7.00553L 7.08316,7.00553C 8.02914,6.05954 9.5629,6.05954 10.5089,7.00553L 23.2895,19.7862C 24.2355,20.7321 24.2355,22.2659 23.2895,23.2119L 23.2895,23.2119C 22.3435,24.1579 20.8098,24.1579 19.8638,23.2119L 7.08316,10.4313C 6.13716,9.48527 6.13716,7.95152 7.08316,7.00553 Z "/>
+							<Path x:Name="Path_1" Width="18.4147" Height="18.4147" Canvas.Left="5.60631" Canvas.Top="5.90135" Stretch="Fill" StrokeThickness="0.789385" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 22.9168,7.00554L 22.9168,7.00554C 23.8628,7.95152 23.8628,9.48527 22.9168,10.4313L 10.1362,23.2119C 9.19025,24.1579 7.65649,24.1579 6.71049,23.2119L 6.71049,23.2119C 5.7645,22.2659 5.76451,20.7321 6.71049,19.7862L 19.4911,7.00554C 20.4371,6.05954 21.9709,6.05954 22.9168,7.00554 Z "/>
+						</Canvas>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Path_0" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_1" Property="Stroke" Value="Gray"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="RenderTransform" TargetName="Layer_4">
+									<Setter.Value>
+										<TranslateTransform X="1" Y="1"/>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="swapButton" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowChromeButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Canvas x:Name="Layer_1_copy" Background="Transparent">
+							<Path x:Name="Path" Width="30.7453" Height="30.559" Canvas.Left="-2.38419e-007" Canvas.Top="-2.38419e-007" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 5.37267,0.372671L 25.3727,0.372671C 28.1341,0.372671 30.3727,2.61125 30.3727,5.37267L 30.3727,25.1864C 30.3727,27.9478 28.1341,30.1864 25.3727,30.1864L 5.37267,30.1864C 2.61125,30.1864 0.372671,27.9478 0.372671,25.1864L 0.372671,5.37267C 0.372671,2.61125 2.61125,0.372671 5.37267,0.372671 Z "/>
+							<Viewbox x:Name="Group" Width="9.5739" Height="10.9303" Canvas.Left="2.85128" Canvas.Top="15.1001">
+								<Canvas Width="9.5739" Height="10.9303">
+									<Path x:Name="Path_0" Width="6.48167" Height="7.67675" Canvas.Left="0.291922" Canvas.Top="1.47631" Stretch="Fill" StrokeThickness="0.894673" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 1.60871,1.92364C 0.477738,3.39995 0.447336,5.44282 1.53388,6.95213C 2.62042,8.46143 4.56738,9.08081 6.32625,8.47673"/>
+									<Path x:Name="Path_1" Width="4.44518" Height="5.05063" Canvas.Left="5.12872" Canvas.Top="5.87963" Stretch="Fill" StrokeThickness="0.894673" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 5.57606,6.32697L 6.95367,10.4829L 9.12656,7.60349L 5.57606,6.32697 Z "/>
+								</Canvas>
+							</Viewbox>
+							<Path x:Name="Path_2" Width="22.1447" Height="8.64467" Canvas.Left="5.49615" Canvas.Top="5.35513" Stretch="Fill" StrokeThickness="0.894673" StrokeLineJoin="Round" Stroke="#FF545454" Data="F1 M 9.81849,5.80246L 23.3185,5.80246C 25.4586,5.80246 27.1935,7.53736 27.1935,9.67746L 27.1935,9.67746C 27.1935,11.8176 25.4586,13.5525 23.3185,13.5525L 9.81849,13.5525C 7.67839,13.5525 5.94349,11.8176 5.94349,9.67746L 5.94349,9.67746C 5.94349,7.53736 7.67839,5.80246 9.81849,5.80246 Z "/>
+							<Path x:Name="Path_3" Width="8.64467" Height="20.6447" Canvas.Left="18.6962" Canvas.Top="5.1551" Stretch="Fill" StrokeThickness="0.894673" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 23.0185,5.60244L 23.0185,5.60244C 25.1586,5.60244 26.8935,7.33733 26.8935,9.47744L 26.8935,21.4774C 26.8935,23.6175 25.1586,25.3524 23.0185,25.3524L 23.0185,25.3524C 20.8784,25.3524 19.1435,23.6175 19.1435,21.4774L 19.1435,9.47744C 19.1435,7.33733 20.8784,5.60244 23.0185,5.60244 Z "/>
+						</Canvas>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Path" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_0" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_1" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_2" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_3" Property="Stroke" Value="Gray"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="RenderTransform" TargetName="Layer_1_copy">
+									<Setter.Value>
+										<TranslateTransform X="1" Y="1"/>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="playButton" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowChromeButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Canvas x:Name="Layer_3" Background="Transparent">
+							<Path x:Name="Path" Width="17.7019" Height="19.8758" Canvas.Left="6.42858" Canvas.Top="5.23294" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 6.80125,5.60561L 23.7578,15.4814L 6.8323,24.736L 6.80125,5.60561 Z "/>
+							<Path x:Name="Path_0" Width="30.7453" Height="30.559" Canvas.Left="2.26498e-006" Canvas.Top="2.26498e-006" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 5.37267,0.372673L 25.3727,0.372673C 28.1341,0.372673 30.3727,2.61125 30.3727,5.37267L 30.3727,25.1864C 30.3727,27.9478 28.1341,30.1864 25.3727,30.1864L 5.37267,30.1864C 2.61125,30.1864 0.372673,27.9478 0.372673,25.1864L 0.372673,5.37267C 0.372673,2.61125 2.61125,0.372673 5.37267,0.372673 Z "/>
+						</Canvas>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Path" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_0" Property="Stroke" Value="Gray"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="RenderTransform" TargetName="Layer_3">
+									<Setter.Value>
+										<TranslateTransform X="1" Y="1"/>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="pauseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowChromeButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Canvas x:Name="Layer_5" Background="Transparent">
+							<Path x:Name="Path" Width="7.81418" Height="19.519" Canvas.Left="16.0229" Canvas.Top="5.81502" Stretch="Fill" StrokeThickness="0.885546" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 19.93,6.25779L 19.93,6.25779C 21.8433,6.25779 23.3943,7.80882 23.3943,9.72211L 23.3943,21.427C 23.3943,23.3402 21.8433,24.8913 19.93,24.8913L 19.93,24.8913C 18.0167,24.8913 16.4656,23.3402 16.4656,21.427L 16.4656,9.72211C 16.4656,7.80882 18.0167,6.25779 19.93,6.25779 Z "/>
+							<Path x:Name="Path_0" Width="7.81417" Height="19.5191" Canvas.Left="6.55398" Canvas.Top="5.81502" Stretch="Fill" StrokeThickness="0.885546" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 10.4611,6.25779L 10.4611,6.25779C 12.3744,6.25779 13.9254,7.80881 13.9254,9.7221L 13.9254,21.427C 13.9254,23.3403 12.3744,24.8913 10.4611,24.8913L 10.4611,24.8913C 8.54778,24.8913 6.99676,23.3403 6.99676,21.427L 6.99676,9.7221C 6.99676,7.80881 8.54778,6.25779 10.4611,6.25779 Z "/>
+							<Path x:Name="Path_1" Width="30.7453" Height="30.559" Canvas.Left="2.02656e-006" Canvas.Top="-3.57628e-007" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 5.37267,0.372671L 25.3727,0.372671C 28.1341,0.372671 30.3727,2.61125 30.3727,5.37267L 30.3727,25.1864C 30.3727,27.9478 28.1341,30.1864 25.3727,30.1864L 5.37267,30.1864C 2.61124,30.1864 0.372673,27.9478 0.372673,25.1864L 0.372673,5.37267C 0.372673,2.61125 2.61124,0.372671 5.37267,0.372671 Z "/>
+						</Canvas>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Path" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_0" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_1" Property="Stroke" Value="Gray"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="RenderTransform" TargetName="Layer_5">
+									<Setter.Value>
+										<TranslateTransform X="1" Y="1"/>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="nextButton" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowChromeButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Canvas x:Name="Layer_6" Background="Transparent">
+							<Path x:Name="Path" Width="17.7019" Height="19.8758" Canvas.Left="5.9938" Canvas.Top="5.29505" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 6.36647,5.66772L 23.323,15.5435L 6.39752,24.7982L 6.36647,5.66772 Z "/>
+							<Path x:Name="Path_0" Width="7.81417" Height="19.519" Canvas.Left="19.4159" Canvas.Top="5.47342" Stretch="Fill" StrokeThickness="0.885546" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 23.323,5.91619L 23.323,5.91619C 25.2362,5.91619 26.7873,7.46723 26.7873,9.38052L 26.7873,21.0854C 26.7873,22.9987 25.2362,24.5497 23.323,24.5497L 23.323,24.5497C 21.4097,24.5497 19.8586,22.9987 19.8586,21.0854L 19.8586,9.38052C 19.8586,7.46723 21.4097,5.91619 23.323,5.91619 Z "/>
+							<Path x:Name="Path_1" Width="30.7453" Height="30.559" Canvas.Left="9.65595e-006" Canvas.Top="-3.57628e-007" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 5.37268,0.372671L 25.3727,0.372671C 28.1341,0.372671 30.3727,2.61125 30.3727,5.37267L 30.3727,25.1864C 30.3727,27.9478 28.1341,30.1864 25.3727,30.1864L 5.37268,30.1864C 2.61127,30.1864 0.372681,27.9478 0.372681,25.1864L 0.372681,5.37267C 0.372681,2.61125 2.61127,0.372671 5.37268,0.372671 Z "/>
+						</Canvas>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Path" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_0" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_1" Property="Stroke" Value="Gray"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="RenderTransform" TargetName="Layer_6">
+									<Setter.Value>
+										<TranslateTransform X="1" Y="1"/>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="previousButton" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowChromeButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Canvas x:Name="Layer_1" Background="Transparent">
+							<Path x:Name="Path" Width="30.7453" Height="30.559" Canvas.Left="9.65595e-006" Canvas.Top="2.02656e-006" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 5.37268,0.372673L 25.3727,0.372673C 28.1341,0.372673 30.3727,2.61125 30.3727,5.37267L 30.3727,25.1864C 30.3727,27.9478 28.1341,30.1864 25.3727,30.1864L 5.37268,30.1864C 2.61127,30.1864 0.372681,27.9478 0.372681,25.1864L 0.372681,5.37267C 0.372681,2.61125 2.61127,0.372673 5.37268,0.372673 Z "/>
+							<Path x:Name="Path_0" Width="7.81418" Height="19.519" Canvas.Left="4.49814" Canvas.Top="5.70633" Stretch="Fill" StrokeThickness="0.885546" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 8.40524,24.7826L 8.40524,24.7826C 6.49194,24.7826 4.94092,23.2316 4.94092,21.3183L 4.94092,9.61342C 4.94092,7.70013 6.49194,6.14911 8.40524,6.14911L 8.40524,6.14911C 10.3185,6.14911 11.8696,7.70013 11.8696,9.61342L 11.8696,21.3183C 11.8696,23.2316 10.3185,24.7826 8.40524,24.7826 Z "/>
+							<Path x:Name="Path_1" Width="17.7019" Height="19.8758" Canvas.Left="8.03251" Canvas.Top="5.52796" Stretch="Fill" StrokeThickness="0.745342" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF545454" Data="F1 M 25.3617,25.0311L 8.40518,15.1553L 25.3307,5.90063L 25.3617,25.0311 Z "/>
+						</Canvas>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Path" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_0" Property="Stroke" Value="Gray"/>
+								<Setter TargetName="Path_1" Property="Stroke" Value="Gray"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="RenderTransform" TargetName="Layer_1">
+									<Setter.Value>
+										<TranslateTransform X="1" Y="1"/>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="PhoneGridContainer" TargetType="{x:Type ContentControl}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ContentControl}">
+						<Grid>
+							<Grid.Background>
+								<ImageBrush ImageSource="/CBR;component/Resources/Images/phone_horizontal.png" />
+							</Grid.Background>
+							<Grid Margin="52,28,118,32">
+								<ContentPresenter />
+							</Grid>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="TabletGridContainer" TargetType="{x:Type ContentControl}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ContentControl}">
+						<Grid>
+							<Grid.Background>
+								<DrawingBrush>
+									<DrawingBrush.Drawing>
+										<DrawingGroup>
+											<DrawingGroup.Children>
+												<GeometryDrawing Geometry="F1 M 20.0028,3.05176e-005L 697.097,3.05176e-005C 708.144,3.05176e-005 717.1,8.9556 717.1,20.0028L 717.1,366.051C 717.1,377.098 708.144,386.054 697.097,386.054L 20.0028,386.054C 8.95555,386.054 0,377.098 0,366.051L 0,20.0028C 0,8.9556 8.95555,3.05176e-005 20.0028,3.05176e-005 Z ">
+													<GeometryDrawing.Brush>
+														<RadialGradientBrush RadiusX="0.5" RadiusY="0.928756" Center="0.5,0.5" GradientOrigin="0.5,0.5">
+															<RadialGradientBrush.GradientStops>
+																<GradientStop Color="#FFB1B1B1" Offset="0"/>
+																<GradientStop Color="#FF6F6F6F" Offset="0.753247"/>
+																<GradientStop Color="#FF2D2D2D" Offset="1"/>
+															</RadialGradientBrush.GradientStops>
+															<RadialGradientBrush.RelativeTransform>
+																<TransformGroup/>
+															</RadialGradientBrush.RelativeTransform>
+														</RadialGradientBrush>
+													</GeometryDrawing.Brush>
+												</GeometryDrawing>
+												<GeometryDrawing Brush="#FF000000" Geometry="F1 M 18.5035,19.0039L 694.597,19.0039L 694.597,368.051L 18.5035,368.051L 18.5035,19.0039 Z "/>
+											</DrawingGroup.Children>
+										</DrawingGroup>
+									</DrawingBrush.Drawing>
+								</DrawingBrush>
+							</Grid.Background>
+							<Grid Margin="20">
+								<ContentPresenter />
+							</Grid>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+	</Window.Resources>
+	
+	<Grid Name="mainGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<DockPanel Margin="5" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+			<Grid>
+				<Rectangle Fill="LightGray" RadiusX="12" RadiusY="12" StrokeThickness="2" Stroke="DarkGray" />
+				<StackPanel Orientation="Horizontal" Margin="5" >
+					<Button Style="{StaticResource closeButton}" x:Name="btnClose" Click="btnClose_Click" />
+					<Button Style="{StaticResource swapButton}" x:Name="btnSwapLandscape" Click="btnSwapLandscape_Click"/>
+					
+					<Button Style="{StaticResource playButton}" Name="btnPlay" />
+					<Button Style="{StaticResource pauseButton}" Name="btnPause" />
+					<Button Style="{StaticResource previousButton}" Name="btnPrevious" Click="btnPrevious_Click">Previous</Button>
+					<Button  Style="{StaticResource nextButton}" Name="btnNext" Click="btnNext_Click">Next</Button>
+					<Label VerticalAlignment="Center" HorizontalAlignment="Stretch" x:Name="lblDebugInfo" FontSize="9" />
+				</StackPanel>
+			</Grid>
+		</DockPanel>
+
+		<ContentControl Grid.Row="1" Style="{StaticResource TabletGridContainer}" x:Name="Content">
+				<ScrollViewer Name="_ScrollContainer" ClipToBounds="True"
+							  VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
+					<Image Name="_ImgContent"
+						   MouseLeftButtonDown="_ImgContent_PreviewMouseLeftButtonDown"
+						   MouseLeftButtonUp="_ImgContent_PreviewMouseLeftButtonUp"
+						   MouseMove="_ImgContent_PreviewMouseMove">
+					</Image>
+				</ScrollViewer>
+		</ContentControl>
+	</Grid>
+</Window>

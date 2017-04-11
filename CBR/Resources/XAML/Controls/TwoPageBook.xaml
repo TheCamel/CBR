@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:local="clr-namespace:CBR.Components.Controls" >
+
+	<Style x:Key="{x:Type local:TwoPageBook}" TargetType="{x:Type local:TwoPageBook}">
+		<Setter Property="VerticalAlignment" Value="Stretch" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="ClipToBounds" Value="False" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type local:TwoPageBook}">
+					<ScrollViewer Style="{DynamicResource CbrScrollViewer}" Name="PART_ScrollViewer" Focusable="True"
+								  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+						<Grid Name="PART_Content">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="50*" />
+								<ColumnDefinition Width="50*" />
+							</Grid.ColumnDefinitions>
+							<local:TripleSheet Grid.Column="0" x:Name="sheet0" HorizontalAlignment="Right"
+											   IsTopRightCornerEnabled="false" IsBottomRightCornerEnabled="false" />
+							<local:TripleSheet Grid.Column="1" x:Name="sheet1" HorizontalAlignment="Left"
+											   IsTopLeftCornerEnabled="false" IsBottomLeftCornerEnabled="false" />
+						</Grid>
+					</ScrollViewer>	
+				</ControlTemplate>
+			</Setter.Value>	
+		</Setter>
+	</Style>
+	
+</ResourceDictionary>

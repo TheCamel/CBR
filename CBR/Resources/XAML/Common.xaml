@@ -1,0 +1,212 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:Controls="clr-namespace:CBR.Components.Controls"
+					xmlns:Converters="clr-namespace:CBR.Components.Converters"
+                    xmlns:Views="clr-namespace:CBR.Views"
+                    xmlns:ViewModels="clr-namespace:CBR.ViewModels"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+					xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+					mc:Ignorable="d"
+                    >
+    <ResourceDictionary.MergedDictionaries>
+
+		<!-- Designer controls -->
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/Designer/DesignerItem.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/Designer/ResizeChrome.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/Designer/SizeChrome.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/Designer/DrawingLayer.xaml" />
+
+		<!-- Style and templates for internal controls -->
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/FilterControl.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/MagnifyGlass.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/PageControl.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/RatingControl.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/WaitSpin.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/ZoomFlyer.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/ThumbView.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/ExtendedListView.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/TwoPageBook.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/BrowseForControl.xaml"/>
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/ProcessPanel.xaml"/>
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Controls/SpinBox.xaml"/>
+		
+		<!-- Custom styles for wpf elements -->
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/ScrollBar.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/Slider.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/Button.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/ComboBox.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/DataGrid.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/GroupBox.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/ListBox.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/Menu.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/TextBox.xaml" />
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/System/TabControl.xaml" />
+
+	</ResourceDictionary.MergedDictionaries>
+
+	<!-- ################################################################################# -->
+	<!--  MENU ITEM STYLES -->
+
+	<!--  style for menu items in sort/group dropdown buttons -->
+	<Style x:Key="PropertyViewModel">
+		<Setter Property="MenuItem.Header" Value="{Binding DisplayName}"/>
+		<Setter Property="MenuItem.Command" Value="{Binding GenericCommand}" />
+	</Style>
+
+	<!--  parameter is the same as the view model message in ViewModelMessages.cs -->
+	<Style x:Key="GroupMenuItemStyle" BasedOn="{StaticResource PropertyViewModel}" >
+		<Setter Property="MenuItem.CommandParameter" Value="FeedGroup" />
+	</Style>
+	<Style x:Key="CheckableGroupMenuItemStyle" BasedOn="{StaticResource PropertyViewModel}" >
+		<Setter Property="MenuItem.CommandParameter" Value="FeedGroup" />
+		<Setter Property="MenuItem.IsCheckable" Value="true" />
+	</Style>
+
+	<!--  parameter is the same as the view model message in ViewModelMessages.cs -->
+	<Style x:Key="SortMenuItemStyle" BasedOn="{StaticResource PropertyViewModel}" >
+		<Setter Property="MenuItem.CommandParameter" Value="RssSortChanged" />
+	</Style>
+	<Style x:Key="CheckableSortMenuItemStyle" BasedOn="{StaticResource PropertyViewModel}" >
+		<Setter Property="MenuItem.CommandParameter" Value="RssSortChanged" />
+		<Setter Property="MenuItem.IsCheckable" Value="true" />
+	</Style>
+
+	<!-- ################################################################################# -->
+	<!--  TEXT & SEPARATOR STYLES -->
+
+	<Style x:Key="CbrLabel" TargetType="{x:Type Label}">
+		<Setter Property="Foreground" Value="{DynamicResource CbrForegroundBrush}" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+
+	<Style x:Key="CbrLabelValue" TargetType="{x:Type Label}">
+		<Setter Property="Foreground" Value="{DynamicResource CbrBackgroundSelected}" />
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="FontWeight" Value="Bold" />
+	</Style>
+	
+	<Style x:Key="CbrTextBlock" TargetType="{x:Type TextBlock}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="Foreground" Value="{DynamicResource CbrForegroundBrush}" />
+		<Setter Property="TextWrapping" Value="WrapWithOverflow" />
+	</Style>
+
+	<Style x:Key="CbrTextBlockSmall" TargetType="{x:Type TextBlock}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="Foreground" Value="{DynamicResource CbrForegroundBrush}" />
+		<Setter Property="TextWrapping" Value="WrapWithOverflow" />
+	</Style>
+
+	<Style x:Key="CbrTitleLabel" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontWeight" Value="ExtraBold" />
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="Foreground" Value="{DynamicResource CbrForegroundBrush}" />
+		<Setter Property="TextWrapping" Value="WrapWithOverflow" />
+	</Style>
+
+	<Style x:Key="CbrSubTitleLabel" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CbrTitleLabel}">
+		<Setter Property="FontSize" Value="16" />
+		<Setter Property="FontStyle" Value="Italic" />
+		<Setter Property="TextWrapping" Value="WrapWithOverflow" />
+	</Style>
+
+	<Style x:Key="CbrDashedSeparator" TargetType="{x:Type Line}">
+		<Setter Property="SnapsToDevicePixels" Value="true" />
+		<Setter Property="Stretch" Value="Fill" />
+		<Setter Property="Stroke" Value="{DynamicResource CbrBorderBrushSelected}" />
+		<Setter Property="Margin" Value="10" />
+	</Style>
+
+	<Style x:Key="CbrVerticalSeparator" TargetType="{x:Type Line}">
+		<Setter Property="IsHitTestVisible" Value="false" />
+		<Setter Property="StrokeThickness" Value="2" />
+		<Setter Property="Stretch" Value="Fill" />
+		<Setter Property="X1" Value="0" />
+		<Setter Property="Y2" Value="1" />
+		<Setter Property="Stroke">
+			<Setter.Value>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="{DynamicResource CbrDarkBackgroundColor}" Offset="0" />
+					<GradientStop Color="{DynamicResource CbrForegroundColor}" Offset="0.5" />
+					<GradientStop Color="{DynamicResource CbrDarkBackgroundColor}" Offset="1" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- ################################################################################# -->
+	<!--  ITEM STYLES -->
+
+	<DataTemplate x:Key="LanguageTemplate" DataType="{x:Type ViewModels:LanguageMenuItemViewModel }">
+		<StackPanel Orientation="Horizontal">
+			<Image Source="{Binding Icon}" Width="16" Height="16" />
+			<TextBlock Text="{Binding ToDisplay}" />
+		</StackPanel>
+	</DataTemplate>
+	
+	<!-- ################################################################################# -->
+	<!--  TOOL DATA TEMPLATES -->
+
+	<DataTemplate DataType="{x:Type ViewModels:ExplorerViewModel}">
+		<Views:ExplorerView />
+	</DataTemplate>
+
+	<DataTemplate DataType="{x:Type ViewModels:TocViewModel}">
+		<Views:TocView />
+	</DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModels:DriveExplorerViewModel}">
+        <Views:DriveExplorerView />
+    </DataTemplate>
+
+    <!-- ################################################################################# -->
+    <!--  DOCUMENTS DATA TEMPLATES -->
+
+	<!--  This template applies a cbr/cbz document in the main window -->
+	<DataTemplate DataType="{x:Type ViewModels:TwoPageViewModel}">
+		<Views:TwoPageView />
+	</DataTemplate>
+	
+	<!--  This template applies a cbr/cbz document in the main window -->
+    <DataTemplate DataType="{x:Type ViewModels:ComicViewModel}">
+        <Views:BookView />
+    </DataTemplate>
+
+    <!-- This template applies an xps document in the main window -->
+    <DataTemplate DataType="{x:Type ViewModels:XpsBookViewModel}">
+		<Views:XpsBookView This="{Binding InjectedView, Mode=OneWayToSource}" />
+    </DataTemplate>
+
+    <!-- This template applies an epub document in the main window -->
+    <DataTemplate DataType="{x:Type ViewModels:ePUBBookViewModel}">
+        <Views:ePUBBookView />
+    </DataTemplate>
+
+    <!-- This template applies an epub document in the main window -->
+    <DataTemplate DataType="{x:Type ViewModels:ePUBBookViewModel2}">
+        <Views:ePUBBookView2 This="{Binding InjectedView, Mode=OneWayToSource}" />
+    </DataTemplate>
+
+    <!--  This template applies a cbr/cbz document in the main window -->
+    <DataTemplate DataType="{x:Type ViewModels:DriveViewModel}">
+        <Views:DriveView />
+    </DataTemplate>
+
+    <!--  This template applies a cbr/cbz document in the main window -->
+    <DataTemplate DataType="{x:Type ViewModels:HomeViewModel}">
+        <Views:HomeView />
+    </DataTemplate>
+
+	<!--  This template applies a cbr/cbz document in the main window -->
+	<DataTemplate DataType="{x:Type ViewModels:FeedViewModel}">
+		<Views:FeedView />
+	</DataTemplate>
+
+    <!--  This template applies a cbr/cbz document in the main window -->
+    <DataTemplate DataType="{x:Type ViewModels:LibraryViewModel}">
+        <Views:LibraryView />
+    </DataTemplate>
+
+</ResourceDictionary>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFeedItemInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<FeedItemInfo Name="Ebooks libres et gratuits" Url="http://www.ebooksgratuits.com/opds/" Language="fr-FR"/>
+	<FeedItemInfo Name="Feedbooks" Url="http://www.feedbooks.com/catalog.atom" Language="fr-FR"/>
+
+	<FeedItemInfo Name="arXiv" Url="http://arXiv-opds.heroku.com/catalog.atom" Language="en-US"/>
+	<FeedItemInfo Name="O'Reilly Media Ebook Store for Stanza" Url="http://catalog.oreilly.com/stanza/main.xml" Language="en-US"/>
+	<FeedItemInfo Name="All Romance Ebooks Online Catalog" Url="http://allromanceebooks.com/epub-feed.xml" Language="en-US"/>
+	<FeedItemInfo Name="Smashwords Online Catalog" Url="http://www.smashwords.com/lexcycle/" Language="en-US"/>
+	<FeedItemInfo Name="BookGlutton" Url="http://bookglutton.com/api/stanza" Language="en-US"/>
+	<FeedItemInfo Name="BooksOnBoard" Url="http://www.booksonboard.com/xml/catalog.atom" Language="en-US"/>
+	<FeedItemInfo Name="Internet Archive Catalog" Url="http://bookserver.archive.org/catalog/" Language="en-US"/>
+	<FeedItemInfo Name="ManyBooks.net" Url="http://www.manybooks.net/opds/index.php" Language="en-US"/>
+	<FeedItemInfo Name="Legimi" Url="http://www.legimi.com/opds/root.atom" Language="en-US"/>
+	<FeedItemInfo Name="beam-eBooks" Url="http://stanza.beam-ebooks.de/" Language="en-US"/>
+
+	<FeedItemInfo Name="PragPub Magazine | The Pragmatic Bookshelf" Url="http://pragprog.com/magazines.opds" Language="en-US"/>
+	<FeedItemInfo Name="Revues.org" Url="http://bookserver.revues.org/" Language="en-US"/>
+	<FeedItemInfo Name="Gutenberg" Url="http://m.gutenberg.org/" Language="en-US"/>
+	<FeedItemInfo Name="Atramenta" Url="http://www.atramenta.net/opds/catalog.atom" Language="en-US"/>
+	<FeedItemInfo Name="Catalog of Free Ebooks from Plough Publishing" Url="http://www.plough.com/ploughCatalog_opds.xml" Language="en-US"/>
+
+
+	<FeedItemInfo Name="云中书城" Url="http://opds.yzsc.com.cn/" Language="en-US"/>
+	<FeedItemInfo Name="OPDS Catalogs | 達人出版会" Url="http://tatsu-zine.com/catalogs.opds" Language="en-US"/>
+	<FeedItemInfo Name="Shucang" Url="http://www.shucang.org/s/index.php" Language="en-US"/>
+
+	<FeedItemInfo Name="Либрусек" Url="http://lib.rus.ec/opds" Language="ru-RU"/>
+
+</ArrayOfFeedItemInfo>

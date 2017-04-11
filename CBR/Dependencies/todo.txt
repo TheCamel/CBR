@@ -1,0 +1,153 @@
+########################################################################################
+
+IN THE TODO LIST, IDEAS
+
+EPUB
+- make navigation on xps and epub
+- make epub to book converter
+- make epub to xaml converter
+- make epub to html converter
+- make an epub editor that goes with creating
+
+GENERAL
+- add web/xaml editor - use the editor in Reflection studio for html/ and flow document for editing
+
+MARKETING
+- test and take good ideas in the others soft (see file info
+- improve the web site
+- improve codeplex
+- publish article
+- submit on cnet...
+
+BUGS 
+
+
+########################################################################################
+
+VERSION 1.0
+
+VERSION .9
+ 
+VERSION .8
+TODO
+DONE
+
+
+VERSION .75
+
+DEPENDENCIES
+new AvalonDock = 2.0 from 
+new iTextSharp = 5.3.3.0
+new Fluent = 2.1.0.0 from fluent-c419ffc48fb9 from 27/10/2012
+SevenZipSharp = 0.64.3890.29348
+
+
+VERSION .7 ==> objective : finish first rss, improve epub, complete localize + tooltips
+
+TODO
+- finish and pass test cases
+
+DONE
+- Issues : 
+- Support for multidocument display through visual studio tabs like
+- New, Any CPU compilation to run on x32 and x64 platforms with 7ZipSharp related libraries
+- New, complete the PDF image conversion when contains splitted images. they can now be combined in the destination format
+- New Installer project available 
+- New OPDS rss viewer with management and lot of functionnalities like direct donwload
+- New BrowserForControl to manage browse for file or folder, with binding and events
+
+- Improved MVVM frames designer for dynamic book
+- Improved simulation
+- Improved localize engine and management view, use IETFCode
+- Better WaitSpin control, See http://www.codeproject.com/Articles/382417/WaitSpin-ProgresPanel-and-threads
+- Improved backstage panel with scroll
+- A lot of issues have been solved
+
+VERSION .6
+
+- Extract ListView control from explorer, manage image header, sorting with arrow, style and grouping, simple thumb view with wrap panel
+	Issue = 11698, 11663
+- List view - All mode, make a group header like comicrack with line and counter
+- Convert - output format not updated with single file selection
+	Issue=11697+11693+11694+11695+11696
+- supress wmi traces in release
+	Issue=11673
+- backstage - new input/output format choice control for the conversion
+	Issue=11673+11675
+- Localize view is now MVVM, delete with refresh is working. Button row needs Auto sizing to get the images ok
+	Added the unused flag ==> take care that it goes to true only when displaying screen elements !	
+	Issue=11681+11680+11682
+
+########################################################################################
+
+VERSION .5
+
+Added
+
+- New explorer based on listview (previous listbox with wrap panel loose virtualization)
+	- 3 views : grid, simple thumb, extended thumb
+- New "home" page with actions and headlines feed (xaml from web)
+- New extended options dialog (not enough place in backstage panel)
+	- Extended options - Registering CBR with file types
+	- Extended options - Move dynamic properties
+- Add "file open" from explorer and shell registering
+
+- Add a help button that display an online page
+- Add translation(FR+ENG) and management + a dropdown button to choose available languages
+- Add a localization window to manage languages
+- Make xml and binary localization providers
+- Add an option "start with" language
+
+- Move new search box to explorer and device info view
+- Disable sort/group/search in explorer if no books
+- Rework style in search box control
+- Create white shadowed button style to apply on backstage buttons like office
+
+Bugs
+- New catalog was not added in the recent file list after close/save
+- Replace new WeakAction and Mediator as Sacha Barber point out the not-garbaged references (thanks -:))
+
+########################################################################################
+
+VERSION .4
+
+Note : Mouse management on the image 
+- left mouse button = move the image
+- CTRL + left mouse button = display the magnifier
+- mouse wheeel = scroll up/down
+- CTRL + mouse wheel = zoom
+Note that CBR has got several parts that can get the focus : the ribbon, the library explorer or the zoom slider.
+Don't be surprised if they anwser to mouse events...Click on the image to put the focus on the pages !
+
+Added
+- Added/renew images, Add icons in context menu
+- Finish the page navigation commands on comics
+- Rework on device and usb ribbon, moved the combo, organize it
+- Highlight on item view is working with drag and drop
+- Book double-click in explorer to open
+- Ribbon tags 'book' and 'device' becomes contextual ('book' visible only when a book is open, 'device' only when something is detected)
+- Key management while reading : arrows and page up/down (was lost in rewriting)
+- New command : Remove book from library
+- ePUB format support (file and memory, icon, cover preview, etc...)
+- New Document view with Toc explorer and WebBrowser
+- Usb event detection and new USB device view in the ribbon device group with drag & drop support from/to explorer
+- Device config in backstage to list supported devices, this will help when transfering data to a device to know about the needed transformation
+
+Tech
+- Rework like a ZipHelper to centralize 7zip init and functions
+- Added a Drag & drop helper to manage automatically D&D in the application
+
+Bugs :
+- Scrolling disappear after group/ungroup in library explorer
+- Indexing images from pdf conversion was not ok + evol when reading to order pages correctly when number are not well formatted
+- BeginInvoke not compatible with stream (not possible to open books....)
+- Ribbon if tabs are not visible => can allways clic and display them, need to change to collapsed instead of hidden
+- Deleted file where not removed from the library
+- Added the *.* for file open
+- Commands were not disabled when no book view model
+- remove file not existing in the recent file lists
+- preloading images was lost in rewriting
+
+########################################################################################
+
+ 

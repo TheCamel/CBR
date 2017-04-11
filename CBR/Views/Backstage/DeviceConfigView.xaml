@@ -1,0 +1,157 @@
+﻿<UserControl x:Class="CBR.Views.DeviceConfigView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Models="clr-namespace:CBR.Core.Models;assembly=CBR.Core"
+             xmlns:Controls="clr-namespace:CBR.Components.Controls"
+             mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="800"
+			 Background="{DynamicResource CbrDarkBackgroundBrush}">
+    
+    <UserControl.Resources>
+
+		<DataTemplate x:Key="DeviceItemTemplate" DataType="{x:Type Models:DeviceInfo }">
+            <Grid Margin="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" SharedSizeGroup="LabelCol" />
+                    <ColumnDefinition Width="2*" SharedSizeGroup="ValueCol" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+				<Label Style="{DynamicResource CbrLabel}" Grid.Column="0" Grid.Row="0" Margin="2" 
+					   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Model, DefaultValue=Device model}" />
+				<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Text="{Binding Model}" FontWeight="Bold"></TextBlock>
+				<Label Style="{DynamicResource CbrLabel}" Grid.Column="0" Grid.Row="1" Margin="2"
+					   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Manufacturer, DefaultValue=by manufacturer}" />
+				<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Text="{Binding Manufacturer}" FontWeight="Bold"></TextBlock>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{DynamicResource CbrScrollViewer}">
+	<Grid Margin="15" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<StackPanel>
+			<TextBlock Style="{DynamicResource CbrTitleLabel}" Margin="5" 
+                       Text="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Title, DefaultValue=Supported device configuration}" />
+			<Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+		</StackPanel>
+		
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+			<StackPanel Orientation="Vertical" Margin="10" Name="stack1">
+				<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						   Text="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Devices, DefaultValue=Device(s)}" />
+            
+				<Controls:FilterControl MinHeight="29" Margin="5" FilterText="{Binding SearchedText, Mode=TwoWay}"
+						  Header="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Filter, DefaultValue=Type your criteria}"/>
+
+					<ListBox Style="{DynamicResource CbrStandardListBox}" Name="lbDevices" Margin="5" Padding="5" MinHeight="300" MaxHeight="450"
+						  ItemsSource="{Binding SupportedDevices}"
+						  ItemTemplate="{StaticResource DeviceItemTemplate}" />
+
+					<Button Style="{DynamicResource CbrStandardButton}" Margin="30,10,30,10"
+						Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Delete, DefaultValue=Delete}"
+						Name="btnDeleteDevice" Click="btnDeleteDevice_Click" />
+
+			</StackPanel>
+
+			<Line Grid.Column="1" X1="0" Y2="1" Style="{DynamicResource CbrVerticalSeparator}" />
+
+			<StackPanel Grid.Column="2" Margin="10" Name="stack2">
+
+				<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						  Text ="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.DeviceInfo, DefaultValue=Device informations}" />
+            
+				<Grid Margin="5">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" SharedSizeGroup="LabelCol" />
+							<ColumnDefinition Width="*" SharedSizeGroup="ValueCol" />
+						</Grid.ColumnDefinitions>
+						<Label Style="{DynamicResource CbrLabel}" Margin="5"
+							   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Model, DefaultValue=Model}" />
+						<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1"
+								 Text="{Binding ElementName=lbDevices, Path=SelectedItem.Model}" />
+						<Label Style="{DynamicResource CbrLabel}" Margin="5" Grid.Row="1"
+							   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Manufacturer, DefaultValue=Manufacturer}" />
+						<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Row="1" Grid.Column="1"
+								 Text="{Binding ElementName=lbDevices, Path=SelectedItem.Manufacturer}" />
+				</Grid>
+				<Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+            
+				<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						  Text="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.SupportedFormat, DefaultValue=Supported format(s)}" />
+				<UniformGrid Columns="4" Margin="15,5,15,5">
+						<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.ImageFormat, DefaultValue=Images}" />
+						<CheckBox Style="{DynamicResource CbrCheckBox}" IsChecked="{Binding ElementName=lbDevices, Path=SelectedItem.CanImages}" VerticalAlignment="Center" />
+						<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.RARFormat, DefaultValue=Rar based}" />
+						<CheckBox Style="{DynamicResource CbrCheckBox}" IsChecked="{Binding ElementName=lbDevices, Path=SelectedItem.CanRAR}" VerticalAlignment="Center" />
+						<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.ZIPFormat, DefaultValue=Zip based}" />
+						<CheckBox Style="{DynamicResource CbrCheckBox}" IsChecked="{Binding ElementName=lbDevices, Path=SelectedItem.CanZIP}" VerticalAlignment="Center" />
+						<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.PDFFormat, DefaultValue=PDF}" />
+						<CheckBox Style="{DynamicResource CbrCheckBox}" IsChecked="{Binding ElementName=lbDevices, Path=SelectedItem.CanPDF}" VerticalAlignment="Center" />
+						<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.XPSFormat, DefaultValue=XPS}" />
+						<CheckBox Style="{DynamicResource CbrCheckBox}" IsChecked="{Binding ElementName=lbDevices, Path=SelectedItem.CanXPS}" VerticalAlignment="Center" />
+						<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.EPUBFormat, DefaultValue=EPUB}" />
+						<CheckBox Style="{DynamicResource CbrCheckBox}" IsChecked="{Binding ElementName=lbDevices, Path=SelectedItem.CanEPUB}" VerticalAlignment="Center" />
+				</UniformGrid>
+
+				<Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+            
+				<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						  Text="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Add, DefaultValue=Add a new device}" />
+				<StackPanel>
+					<Grid Margin="5">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" SharedSizeGroup="LabelCol" />
+								<ColumnDefinition Width="*" SharedSizeGroup="ValueCol" />
+							</Grid.ColumnDefinitions>
+							<Label Style="{DynamicResource CbrLabel}" Margin="5"
+								   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Model, DefaultValue=Model}"/>
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Name="tbModel" Grid.Column="1"/>
+							<Label Style="{DynamicResource CbrLabel}" Margin="5" Grid.Row="1"
+								   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Manufacturer, DefaultValue=Manufacturer}" />
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Name="tbManufacturer" Grid.Column="1" Grid.Row="1"/>
+					</Grid>
+						<Button Style="{DynamicResource CbrStandardButton}" Height="25" Margin="30,10,30,10" Name="btnAddDevice"  Click="btnAddDevice_Click"
+							Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Add, DefaultValue=Add}" />
+				</StackPanel>
+
+			</StackPanel>
+
+			<Line Grid.Column="3" X1="0" Y2="1" Style="{DynamicResource CbrVerticalSeparator}" />
+
+			<StackPanel Grid.Column="5" Orientation="Vertical" Margin="10" >
+					<Button Style="{DynamicResource CbrStandardButton}" Width="80" Height="80" Margin="10"
+						Content="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Save, DefaultValue=Save}" Name="btnSave" Click="btnSave_Click" />
+			</StackPanel>
+        
+		</Grid>
+	</Grid>
+	</ScrollViewer>
+</UserControl>

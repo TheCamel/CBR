@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!--Background-->
+	<Color x:Key="CbrDarkBackgroundColor">#1C1C1C</Color>
+	<SolidColorBrush x:Key="CbrDarkBackgroundBrush" Color="#1C1C1C"/>
+	<SolidColorBrush x:Key="CbrLightBackground" Color="#2D2D30"/>
+
+	<!--Foreground-->
+	<Color x:Key="CbrForegroundColor">#FFFFFF</Color>
+	<SolidColorBrush x:Key="CbrForegroundBrush" Color="#FFFFFF"/>
+	<!--TODO-->
+	<SolidColorBrush x:Key="CbrForegroundDisabledBrush" Color="#2D2D30"/>
+
+	<!--General-->
+	<SolidColorBrush x:Key="CbrBackgroundHighlighted" Color="#54545C"/>
+	<SolidColorBrush x:Key="CbrBorderBrushHighlighted" Color="#6A6A75"/>
+	<SolidColorBrush x:Key="CbrBackgroundSelected" Color="#007ACC"/>
+	<SolidColorBrush x:Key="CbrBorderBrushSelected" Color="#1C97EA"/>
+	<SolidColorBrush x:Key="CbrBackgroundNormal" Color="#3F3F46"/>
+	<SolidColorBrush x:Key="CbrBorderBrushNormal" Color="#54545C"/>
+	<!--TODO-->
+	<SolidColorBrush x:Key="CbrBackgroundDisabledBrush" Color="#3F3F46"/>
+	
+	<!--Text Box-->
+	<SolidColorBrush x:Key="CbrTextBoxBackground" Color="#333337"/>
+	<SolidColorBrush x:Key="CbrTextBoxBackgroundSelected" Color="#3F3F46"/>
+
+	<!--Search Text Box-->
+	<SolidColorBrush x:Key="CbrSearchTextForeground" Color="#999999"/>
+
+	<!--Link Button-->
+	<SolidColorBrush x:Key="CbrLinkButtonForeground" Color="#1297FB"/>
+	<SolidColorBrush x:Key="CbrLinkButtonForegroundHighlighted" Color="#55AAFF"/>
+
+	<!--Tab Close Button-->
+	<SolidColorBrush x:Key="CbrCloseButtonBackgroundHighlighted" Color="#39ADFB"/>
+	<SolidColorBrush x:Key="CbrCloseButtonBackgroundPressed" Color="#084E7D"/>
+	<SolidColorBrush x:Key="CbrCloseButtonStroke" Color="#AAFFFFFF"/>
+	<SolidColorBrush x:Key="CbrCloseButtonStrokeHighlighted" Color="#FFFFFF"/>
+
+	<!--Menu-->
+	<SolidColorBrush x:Key="CbrMenuSeparatorBorderBrush" Color="#333337"/>
+	<SolidColorBrush x:Key="CbrMenuItemHighlightedBackground" Color="#3E3E40"/>
+	<SolidColorBrush x:Key="CbrSubmenuItemBackground" Color="#1B1B1C"/>
+	<SolidColorBrush x:Key="CbrSubmenuItemBackgroundHighlighted" Color="#333334"/>
+	<SolidColorBrush x:Key="CbrMenuDisabledForeground" Color="#656565"/>
+
+	<!--Scroll Bar-->
+	<SolidColorBrush x:Key="CbrScrollBarPageButtonBackgroundHighlighted" Color="#05FFFFFF"/>
+
+</ResourceDictionary>

@@ -1,0 +1,188 @@
+﻿<UserControl x:Class="CBR.Views.FeedConfigView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="700" d:DesignWidth="800"
+             xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+			 xmlns:Controls="clr-namespace:CBR.Components.Controls"
+             xmlns:Converters="clr-namespace:CBR.Components.Converters"
+			 xmlns:Models="clr-namespace:CBR.Core.Models;assembly=CBR.Core"
+			 Background="{DynamicResource CbrDarkBackgroundBrush}">
+
+	<UserControl.Resources>
+
+		<DataTemplate x:Key="FeedItemTemplate" DataType="{x:Type Models:FeedItemInfo }">
+			<Grid Margin="2">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.7*" SharedSizeGroup="LabelCol" />
+					<ColumnDefinition Width="3*" SharedSizeGroup="ValueCol" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+
+				<Label Style="{DynamicResource CbrLabel}" Grid.Column="0" Grid.Row="0" Margin="2"
+					   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.DataName, DefaultValue=Name}" />
+				<TextBlock Style="{DynamicResource CbrTextBlockSmall}" FontWeight="Bold" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Text="{Binding Name}" />
+				<Label Style="{DynamicResource CbrLabel}" Grid.Column="0" Grid.Row="1" Margin="2"
+					   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.DataUrl, DefaultValue=Url}" />
+				<TextBlock Style="{DynamicResource CbrTextBlockSmall}" FontWeight="Bold" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Text="{Binding Url}" />
+			</Grid>
+		</DataTemplate>
+
+	</UserControl.Resources>
+
+
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{DynamicResource CbrScrollViewer}">
+		<Grid Margin="15" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+
+			<StackPanel>
+				<TextBlock Style="{DynamicResource CbrTitleLabel}" Margin="5" 
+                       Text="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Title, DefaultValue=Rss feeds management}" />
+				<Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+			</StackPanel>
+
+			<Grid Grid.Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*" />
+					<ColumnDefinition Width="20" />
+					<ColumnDefinition Width="2*" />
+					<ColumnDefinition Width="20" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<StackPanel Orientation="Vertical" Margin="10" Name="stack1">
+					<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						   Text="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.FeedList, DefaultValue=Feed(s)}" />
+
+					<Controls:FilterControl MinHeight="29" Margin="5" FilterText="{Binding SearchedText, Mode=TwoWay}"
+						  Header="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Filter, DefaultValue=Type your criteria}"/>
+
+					<ListBox Style="{DynamicResource CbrStandardListBox}" Name="lbFeeds" Margin="5" Padding="5" MaxHeight="450"
+							 ItemsSource="{Binding FeedsView}"
+							 ItemTemplate="{StaticResource FeedItemTemplate}"
+							 MinHeight="400" >
+					</ListBox>
+
+					<Button Style="{DynamicResource CbrStandardButton}" Margin="30,10,30,10"
+						Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Delete, DefaultValue=Delete}"
+						Name="btnDeleteDevice" Click="btnDelete_Click" />
+
+				</StackPanel>
+
+				<Line Grid.Column="1" X1="0" Y2="1" Style="{DynamicResource CbrVerticalSeparator}" />
+
+				<StackPanel Grid.Column="2" Margin="10" Name="stack2">
+
+					<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						  Text ="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.FeedInfo, DefaultValue=Feed informations}" />
+
+					<Grid Margin="5">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" SharedSizeGroup="LabelCol" />
+							<ColumnDefinition Width="*" SharedSizeGroup="ValueCol" />
+						</Grid.ColumnDefinitions>
+						<Label Style="{DynamicResource CbrLabel}" Margin="5"
+							   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Name, DefaultValue=Name}"  />
+						<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1"
+								 Text="{Binding ElementName=lbFeeds, Path=SelectedItem.Name}" />
+						<Label Style="{DynamicResource CbrLabel}" Margin="5" Grid.Row="1"
+							   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Url, DefaultValue=Url}"  />
+						<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1" Grid.Row="1" 
+								 Text="{Binding ElementName=lbFeeds, Path=SelectedItem.Url}" />
+
+						<Label Style="{DynamicResource CbrLabel}" Margin="5" Grid.Row="2"
+							   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Language, DefaultValue=Language}"  />
+						<ComboBox Style="{DynamicResource CbrStandardComboBox}" Grid.Column="1" Grid.Row="2" Margin="5"
+								  SelectedItem="{Binding ElementName=lbFeeds, Path=SelectedItem.Language, Mode=TwoWay}"
+								  ItemsSource="{Binding Cultures}" />
+					</Grid>
+					
+					<Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+
+					<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						  Text="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Add, DefaultValue=Add a new feed}" />
+					<StackPanel>
+						<Grid Margin="5">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" SharedSizeGroup="LabelCol" />
+								<ColumnDefinition Width="*" SharedSizeGroup="ValueCol" />
+							</Grid.ColumnDefinitions>
+
+							<Label Style="{DynamicResource CbrLabel}" Margin="5"
+								   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Name, DefaultValue=Name}"/>
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Grid.Column="1" Margin="5" Name="tbName"></TextBox>
+
+							<Label Style="{DynamicResource CbrLabel}" Margin="5" Grid.Row="1"
+								   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Url, DefaultValue=Url}" />
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Grid.Column="1" Grid.Row="1" Margin="5" Name="tbUrl"></TextBox>
+
+							<Label Style="{DynamicResource CbrLabel}" Margin="5" Grid.Row="2"
+							   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Language, DefaultValue=Language}"  />
+
+							<ComboBox Style="{DynamicResource CbrStandardComboBox}" Grid.Column="1" Grid.Row="2" Margin="5"
+								  ItemsSource="{Binding Cultures}" Name="cbLanguage" />
+
+						</Grid>
+						<Button Style="{DynamicResource CbrStandardButton}" Height="25" Margin="30,10,30,10" Name="btnAddDevice"
+							Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Add, DefaultValue=Add}" Click="btnAdd_Click" />
+					</StackPanel>
+
+					<Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+
+					<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						  Text="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Options, DefaultValue=General options}" />
+					<StackPanel Margin="15,5,15,5">
+						
+						<RadioButton Margin="5" IsChecked="{Binding AskForDownloadFolder, Mode=OneWay}"
+							Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.AskForDowloadFolder, DefaultValue=Ask folder for each download}"
+									 Checked="RadioButton_Checked" Style="{DynamicResource CbrRadioButton}" />
+						<RadioButton Margin="5" Name="rbDownloadFolder"
+							Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.DowloadFolder, DefaultValue=Allways in the following folder}"
+							IsChecked="{Binding AllDownloadInFolder, Mode=OneWay}" VerticalAlignment="Center" Style="{DynamicResource CbrRadioButton}" />
+
+						<Controls:BrowseForControl x:Name="ctrlBrowse" IsEnabled="{Binding ElementName=rbDownloadFolder, Path=IsChecked}" Margin="10,5,10,5" 
+								Mode="ForFolder" Selection="{Binding DownloadFolder}" />
+						<CheckBox IsChecked="{Binding UpdateCatalog}" Margin="5"
+								  Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.CheckUpdateCatalog, DefaultValue=Update the current catalog}"
+								  Style="{DynamicResource CbrCheckBox}" />
+						<CheckBox IsChecked="{Binding AutomaticOpen}" Margin="5"
+								  Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.CheckAutomaticOpen, DefaultValue=Automatically open after download}"
+								  Style="{DynamicResource CbrCheckBox}" />
+						<StackPanel>
+							<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.CacheDuration, DefaultValue=Cache duration (days)}"/>
+							<Controls:SpinBox Margin="10,5,10,5" Value="{Binding CacheDuration}" />
+						</StackPanel>
+					</StackPanel>
+
+				</StackPanel>
+
+				<Line Grid.Column="3" X1="0" Y2="1" Style="{DynamicResource CbrVerticalSeparator}" />
+
+				<StackPanel Grid.Column="5" Orientation="Vertical" Margin="10" >
+					<Button Style="{DynamicResource CbrStandardButton}" Width="80" Height="80" Margin="10"
+						Content="{LocalizationExtension ResModul=CBR.Backstage, Key=FeedConfigView.Save, DefaultValue=Save}"
+						Name="btnSave" Click="btnSave_Click" />
+				</StackPanel>
+
+			</Grid>
+		</Grid>
+	</ScrollViewer>
+	
+</UserControl>

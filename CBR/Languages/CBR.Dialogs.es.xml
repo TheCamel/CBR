@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LocalizationDictionary xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" IetfLanguageTag="es" Module="CBR.Dialogs">
+  <LocalizationItems>
+    <Item Key="About.Title" Default="#About" Translated="Acerca de C.B.R." />
+    <Item Key="About.Version" Default="#Version" Translated="Versión" />
+    <Item Key="About.Copy" Default="#Copyright ©" Translated="Copyright ©" />
+    <Item Key="About.Modules" Default="#Modules" Translated="Módulos" />
+    <Item Key="LocalizeView.Title" Default="#Localize_Translate" Translated="Localizar" />
+    <Item Key="LocalizeView.GroupSource" Default="#Source" Translated="Fuente" />
+    <Item Key="LocalizeView.CbLanguage" Default="#Language" Translated="Lenguaje" />
+    <Item Key="LocalizeView.CbModule" Default="#Module" Translated="Módulo" />
+    <Item Key="LocalizeView.BtnSelect" Default="#Select" Translated="Seleccionar" />
+    <Item Key="LocalizeView.BtnRefresh" Default="#Refresh" Translated="Actualizar" />
+    <Item Key="LocalizeView.BtnReload" Default="#Reload" Translated="Recargar" />
+    <Item Key="LocalizeView.BtnDelete" Default="#Delete" Translated="Eliminar" />
+    <Item Key="LocalizeView.GroupNew" Default="#New" Translated="Nuevo" />
+    <Item Key="LocalizeView.CbCultures" Default="#Culture(s)" Translated="Cultura(s)" />
+    <Item Key="LocalizeView.BtnCreate" Default="#Create" Translated="Crear" />
+    <Item Key="LocalizeView.GroupCommands" Default="#Commands" Translated="Dominios" />
+    <Item Key="LocalizeView.BtnSave" Default="#Save" Translated="Guardar" />
+    <Item Key="LocalizeView.BtnExit" Default="#Exit" Translated="Salir" />
+    <Item Key="LocalizeView.ColKey" Default="#Key" Translated="Clave" />
+    <Item Key="LocalizeView.ColDefault" Default="#Default" Translated="Defecto" />
+    <Item Key="LocalizeView.ColTranslated" Default="#Translated" Translated="Traducción" />
+    <Item Key="LocalizeView.ColUsed" Default="#Used" Translated="Usado" />
+    <Item Key="PasswordDialog.Title" Default="#Protection" Translated="Protección" />
+    <Item Key="PasswordDialog.lblExplain" Default="#Enter the password to release or set protection" Translated="Escribe la contraseña para poner o liberar protección" />
+    <Item Key="PasswordDialog.BtnOk" Default="#OK" Translated="OK" />
+    <Item Key="OptionExtended.Title" Default="#Extended options" Translated="Opciones adicionales" />
+    <Item Key="OptionExtended.DisplayTitle" Default="#Display options" Translated="Mostrar opciones" />
+    <Item Key="OptionExtended.chkUseOptimScreen" Default="#Use optimized full screen" Translated="Usar pantalla completa optimizada" />
+    <Item Key="OptionExtended.chkShowZoomSlider" Default="#Show zoom slider on book content" Translated="Mostrar zoom deslizador en el libro" />
+    <Item Key="OptionExtended.chkShowTooltip" Default="#Show tooltip on explorer items" Translated="Mostrar ayuda emergente" />
+    <Item Key="OptionExtended.chkDisplayCover" Default="#Display cover column in explorer grid" Translated="Mostrar columna cover en tabla exploradora" />
+    <Item Key="OptionExtended.lblDefaultExplorerView" Default="#Default explorer view" Translated="Vista normal" />
+    <Item Key="OptionExtended.itemSimpleView" Default="#Simple thumbnail view" Translated="Vista thumbnail simple" />
+    <Item Key="OptionExtended.itemExtendedView" Default="#Extended thumbnail view" Translated="Vista thumbnail extendida" />
+    <Item Key="OptionExtended.itemGridView" Default="#Grid view" Translated="Vista de la tabla" />
+    <Item Key="OptionExtended.BehaveTitle" Default="#Behaviour options" Translated="Comportamiento" />
+    <Item Key="OptionExtended.BehaveUseTempo" Default="#Use temporised scroll at top and bottom of the pages" Translated="Usar scroll temporizado arriba y abajo de las páginas." />
+    <Item Key="OptionExtended.BehaveMultiDoc" Default="#Allow multi-documents" Translated="Permitir documentos múltiples" />
+    <Item Key="OptionExtended.DynPropTile" Default="#Dynamic properties" Translated="Propiedades dinámicas" />
+    <Item Key="OptionExtended.DynPropExist" Default="#Existing properties" Translated="Propiedades existentes" />
+    <Item Key="OptionExtended.DynPropDelete" Default="#Delete..." Translated="Eliminar..." />
+    <Item Key="OptionExtended.DynPropAddTitle" Default="#Add new property" Translated="Agregar nueva propiedad" />
+    <Item Key="OptionExtended.DynPropName" Default="#Property name" Translated="Nombre de la propiedad" />
+    <Item Key="OptionExtended.DynPropAdd" Default="#Add..." Translated="Agregar..." />
+    <Item Key="OptionExtended.RegisterTitle" Default="#Registering file type" Translated="Registrar un tipo de archivo" />
+    <Item Key="OptionExtended.RegisterExplain" Default="#Registering a file type consist of associating a programme and an icon to a certain type of file" Translated="Asociar una extensión de archivo a un programa e ícono" />
+    <Item Key="OptionExtended.ProxyTitle" Default="#Proxy Settings" Translated="Opciones proxy" />
+    <Item Key="OptionExtended.ProxyExplain" Default="#Setup the parameters for internet web acess through a proxy" Translated="Configurar parámetros para el acceso a internet a través de un proxy" />
+    <Item Key="OptionExtended.proxyAdress" Default="#Adress" Translated="Dirección" />
+    <Item Key="OptionExtended.ProxyPort" Default="#Registering file tPortype" Translated="Proxy port" />
+    <Item Key="OptionExtended.ProxyUser" Default="#User" Translated="Usuario" />
+    <Item Key="OptionExtended.ProxyPassword" Default="#Password" Translated="Contraseña" />
+    <Item Key="OptionExtended.ProxyDomain" Default="#Domain" Translated="Dominio" />
+    <Item Key="OptionExtended.BtnClose" Default="#Close" Translated="Cerrar" />
+    <Item Key="OptionExtended.TabDisplay" Default="#Display" Translated="Visualizar" />
+    <Item Key="OptionExtended.TabBehaviour" Default="#Behaviour" Translated="Comportamiento" />
+    <Item Key="OptionExtended.TabProperties" Default="#Properties" Translated="Propiedades" />
+    <Item Key="OptionExtended.TabRegistering" Default="#Registering" Translated="Registrar" />
+    <Item Key="OptionExtended.TabProxy" Default="#Proxy" Translated="Proxy" />
+    <Item Key="OptionExtended.ShareTitle" Default="#Share Settings" Translated="Compartir configuración" />
+    <Item Key="OptionExtended.shareServer" Default="#Server name" Translated="Nombre del servidor" />
+    <Item Key="OptionExtended.sharePort" Default="#Server port" Translated="Puerto del servidor" />
+    <Item Key="OptionExtended.shareStart" Default="#Start up" Translated="inicio" />
+    <Item Key="OptionExtended.shareStarting" Default="#Activate share on startup" Translated="Activa compartir en el arranque" />
+    <Item Key="OptionExtended.TabShare" Default="#Share" Translated="Compartir" />
+  </LocalizationItems>
+</LocalizationDictionary>

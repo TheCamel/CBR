@@ -1,0 +1,179 @@
+﻿<Window x:Class="CBR.Views.Others.LocalizeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:Converters="clr-namespace:CBR.Components.Converters"
+		xmlns:glob="clr-namespace:System.Globalization;assembly=mscorlib"
+		xmlns:Controls="clr-namespace:CBR.Components.Controls"
+        Title="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.Title, DefaultValue=Localize_Translate}"
+		Height="600" Width="900" ShowInTaskbar="True">
+	<Grid>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<StackPanel Orientation="Horizontal" Grid.Row="0" Background="{DynamicResource RibbonBackgoundBrush}">
+
+				<Fluent:RibbonGroupBox Header="C.B.R." IsLauncherVisible="false" >
+					<Image Margin="5" Source="/CBR;component/Resources/Images/book128.png"></Image>
+				</Fluent:RibbonGroupBox>
+
+				<Fluent:RibbonGroupBox IsLauncherVisible="false"
+									   Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.GroupSource, DefaultValue=Source}" >
+					
+					<Fluent:ComboBox SizeDefinition="Large" IsSynchronizedWithCurrentItem="True" MinWidth="200" IsReadOnly="True" SelectedIndex="0" IsEditable="False" 
+								ItemsSource="{Binding Languages}"
+                                Icon="/CBR;Component/Resources/Images/32x32/localize.png"
+								Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.CbLanguage, DefaultValue=Language}" >
+						<Fluent:ComboBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="{Binding DisplayName}"/>
+									<TextBlock> - Code =</TextBlock>
+									<TextBlock Text="{Binding IetfLanguageTag}"/>
+								</StackPanel>
+							</DataTemplate>
+						</Fluent:ComboBox.ItemTemplate>
+					</Fluent:ComboBox>
+
+					<Fluent:ComboBox SizeDefinition="Large" IsSynchronizedWithCurrentItem="True" MinWidth="200" IsReadOnly="True" SelectedIndex="0" IsEditable="False"
+								ItemsSource="{Binding Modules}"	
+                                Icon="/CBR;Component/Resources/Images/32x32/localize.png"
+								Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.CbModule, DefaultValue=Module}" />
+
+					<Separator></Separator>
+
+					<Fluent:Button SizeDefinition="Large"
+								Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.BtnSelect, DefaultValue=Select}"
+								Icon="/CBR;Component/Resources/Images/32x32/localize_select.png"
+								LargeIcon="/CBR;Component/Resources/Images/32x32/localize_select.png"
+								Command="{Binding SelectCommand}" />
+
+					<Fluent:Button SizeDefinition="Large"
+								Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.BtnRefresh, DefaultValue=Refresh}"
+                                Icon="/CBR;Component/Resources/Images/32x32/action/refresh.png"
+                                LargeIcon="/CBR;Component/Resources/Images/32x32/action/refresh.png"
+                                Command="{Binding RefreshCommand}" />
+
+					<Fluent:Button SizeDefinition="Large"
+								Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.BtnReload, DefaultValue=Reload}"
+                                Icon="/CBR;Component/Resources/Images/32x32/action/refresh.png"
+                                LargeIcon="/CBR;Component/Resources/Images/32x32/action/refresh.png"
+                                Command="{Binding ReloadCommand}"/>
+
+					<Fluent:Button SizeDefinition="Large"
+								Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.BtnDelete, DefaultValue=Delete}"
+                                Icon="/CBR;Component/Resources/Images/32x32/action/delete.png"
+                                LargeIcon="/CBR;Component/Resources/Images/32x32/action/delete.png"
+                                Command="{Binding DeleteCommand}"/>
+
+				</Fluent:RibbonGroupBox>
+
+				<Fluent:RibbonGroupBox IsLauncherVisible="false" 
+										Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.GroupNew, DefaultValue=New}" >
+					
+					<Fluent:ComboBox SizeDefinition="Large" MinWidth="200" IsReadOnly="True" SelectedIndex="0"
+                                Icon="/CBR;Component/Resources/Images/32x32/localize.png"
+                                Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.CbCultures, DefaultValue=Culture(s)}"
+								IsTextSearchEnabled="False" IsEditable="False" ItemsSource="{Binding Cultures}"
+								VerticalAlignment="Center" IsSynchronizedWithCurrentItem="True">
+						<Fluent:ComboBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="{Binding DisplayName}"/>
+									<TextBlock> - Code =</TextBlock>
+									<TextBlock Text="{Binding IetfLanguageTag}"/>
+								</StackPanel>
+							</DataTemplate>
+						</Fluent:ComboBox.ItemTemplate>
+					</Fluent:ComboBox>
+
+					<Separator></Separator>
+
+					<Fluent:Button SizeDefinition="Large"
+								Icon="/CBR;Component/Resources/Images/32x32/localize_new.png"
+								LargeIcon="/CBR;Component/Resources/Images/32x32/localize_new.png"
+								Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.BtnCreate, DefaultValue=Create}"
+								Command="{Binding CreateCommand}" />
+				</Fluent:RibbonGroupBox>
+
+				<Fluent:RibbonGroupBox IsLauncherVisible="false" 
+									   Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.GroupCommands, DefaultValue=Commands}" >
+
+					<Fluent:Button SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/action/save.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/action/save.png"
+								   Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.BtnSave, DefaultValue=Save}"
+                                   Command="{Binding SaveCommand}" />
+
+					<Separator></Separator>
+
+					<Fluent:Button SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/action/exit.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/action/exit.png"
+                                   Click="btnExit_Click" 
+								   Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.BtnExit, DefaultValue=Exit}" />
+
+				</Fluent:RibbonGroupBox>
+			</StackPanel>
+
+			<Controls:ExtendedListView x:Name="lvResources" Grid.Row="1" BorderThickness="0" ItemsSource="{Binding ResourceItems}" >
+				<Controls:ExtendedListView.View>
+					<GridView>
+						<GridView.Columns>
+							<GridViewColumn Width="150"
+											Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.ColKey, DefaultValue=Key}">
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<Label Style="{DynamicResource CbrLabel}"
+												 Content="{Binding Path=Key}" HorizontalAlignment="Stretch" />
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+							<GridViewColumn Width="290"
+											Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.ColDefault, DefaultValue=Default}">
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<Label Style="{DynamicResource CbrLabel}"
+												 Content="{Binding Path=Default}" HorizontalAlignment="Stretch" />
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+							<GridViewColumn Width="290"
+											Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.ColTranslated, DefaultValue=Translated}">
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<TextBox Style="{DynamicResource CbrStandardTextBox}"
+												 Text="{Binding Path=Translated}" HorizontalAlignment="Stretch"
+												 SpellCheck.IsEnabled="True"
+												 Language="{Binding DataContext.ActualCode, RelativeSource={RelativeSource AncestorType=ListView}, ConverterCulture={x:Static glob:CultureInfo.InvariantCulture}}"
+                                                 Foreground="{Binding Translated, Converter={x:Static Converters:LocalizeStatusToColorConverter.Instance}, Mode=OneWay}"></TextBox>
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+							<GridViewColumn Width="32">
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<Button Style="{DynamicResource CbrStandardButton}" Command="{Binding ElementName=lvResources, Path=DataContext.DeleteItemCommand}" CommandParameter="{Binding .}" >
+											<Image Source="/CBR;component/Resources/Images/32x32/action/delete.png"></Image>
+										</Button>
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+
+							<GridViewColumn Header="{LocalizationExtension ResModul=CBR.Dialogs, Key=LocalizeView.ColUsed, DefaultValue=Used}">
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<CheckBox Style="{DynamicResource CbrCheckBox}" IsEnabled="False" IsChecked="{Binding Path=IsUsed}" />
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+
+						</GridView.Columns>
+					</GridView>
+				</Controls:ExtendedListView.View>
+			</Controls:ExtendedListView>
+		</Grid>
+	</Grid>
+</Window>

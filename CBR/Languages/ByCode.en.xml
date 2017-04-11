@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LocalizationDictionary xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" IetfLanguageTag="en" Module="ByCode">
+  <LocalizationItems>
+    <Item Key="DocumentTitle.Devices" Default="Devices" Translated="Devices" />
+    <Item Key="DocumentTitle.Home" Default="Home" Translated="Home" />
+    <Item Key="Core.Properties.FilePath" Default="Core.Properties.FilePath" Translated="File path" />
+    <Item Key="Core.Properties.IsRead" Default="Core.Properties.IsRead" Translated="Is read" />
+    <Item Key="Core.Properties.IsSecured" Default="Core.Properties.IsSecured" Translated="Is secured" />
+    <Item Key="Core.Properties.PageCount" Default="Core.Properties.PageCount" Translated="Page count" />
+    <Item Key="Core.Properties.Size" Default="Core.Properties.Size" Translated="Size" />
+    <Item Key="Core.Properties.Rating" Default="Core.Properties.Rating" Translated="Rating" />
+    <Item Key="Core.Properties.HasBookmark" Default="Core.Properties.HasBookmark" Translated="Has bookmark" />
+    <Item Key="Core.Properties.FileName" Default="Core.Properties.FileName" Translated="File name" />
+    <Item Key="Core.Properties.Folder" Default="Core.Properties.Folder" Translated="Folder" />
+    <Item Key="Core.Properties.FileExtension" Default="Core.Properties.FileExtension" Translated="File extension" />
+    <Item Key="Core.Properties.Type" Default="Core.Properties.Type" Translated="Type" />
+    <Item Key="OPDS.Properties.AuthorName" Default="#OPDS.Properties.AuthorName" Translated="Author name" />
+    <Item Key="OPDS.Properties.Language" Default="#OPDS.Properties.Language" Translated="Language" />
+    <Item Key="OPDS.Properties.Title" Default="#OPDS.Properties.Title" Translated="Title" />
+    <Item Key="OPDS.Properties.UpdatedDate" Default="#OPDS.Properties.UpdatedDate" Translated="Update date" />
+    <Item Key="ExplorerView.Title" Default="#Library" Translated="Library Explorer" />
+    <Item Key="TocView.Title" Default="#TableOfContent" Translated="Table of content" />
+    <Item Key="KILO" Default="#(Kb)" Translated="(Kb)" />
+    <Item Key="MEGA" Default="#(Mb)" Translated="(Mb)" />
+    <Item Key="Convert.Start" Default="#Starting conversion..." Translated="Starting conversion..." />
+    <Item Key="Convert.ParsingFolder" Default="#Parsing folder {0}..." Translated="Parsing folder {0}..." />
+    <Item Key="Convert.Converting" Default="#Converting {0}..." Translated="Converting {0}..." />
+    <Item Key="Convert.ImageFound" Default="#{0} images founded..." Translated="{0} images founded..." />
+    <Item Key="Convert.ImageSaved" Default="#{0} images saved..." Translated="{0} images saved..." />
+    <Item Key="Convert.ImageCountingKO" Default="#Extracting {0} : {1} images for {2} pages - Try to merge !" Translated="Extracting {0} : {1} images for {2} pages - Try to merge !" />
+    <Item Key="Convert.ImageMerge" Default="#Merge to {0} new images..." Translated="Merge to {0} new images..." />
+    <Item Key="Convert.ImageError" Default="#Error extracting {0} : {1} images for {2} pages !!" Translated="Error extracting {0} : {1} images for {2} pages !!" />
+    <Item Key="Convert.ImageCountingOK" Default="#Extracting {0} images in {1} pages" Translated="Extracting {0} images in {1} pages" />
+    <Item Key="Convert.ImageExtracted" Default="#{0} images extracted..." Translated="{0} images extracted..." />
+    <Item Key="Convert.ImageZipped" Default="#{0} images zipped..." Translated="{0} images zipped..." />
+    <Item Key="Convert.Output" Default="#Output file written !" Translated="Output file written !" />
+    <Item Key="DocumentTitle.Libraries" Default="#Libraries" Translated="Libraries" />
+    <Item Key="DocumentTitle.Drives" Default="#Drives" Translated="Drives" />
+    <Item Key="DriveExplorerView.Title" Default="#Drives" Translated="Drive Explorer" />
+    <Item Key="Core.Properties.BookCount" Default="#No default on #Core.Properties.BookCount" Translated=" Book(s)" />
+    <Item Key="Core.Properties.Description" Default="#No default on #Core.Properties.Description" Translated="Description" />
+    <Item Key="Warning" Default="#Warning" Translated="Warning" />
+    <Item Key="Warning.Save" Default="#Save the catalog and book changes ?" Translated="Save the catalog and book changes ?" />
+    <Item Key="Warning.Delete" Default="#Please, confirm the deletion" Translated="Please, confirm the deletion" />
+    <Item Key="Warning.ScanFolder" Default="#Your book folder is allready defined. Do you want to replace it ? Refreshing will work only with the new one." Translated="Your book folder is already defined. Do you want to replace it ? Refreshing will work only with the new one." />
+    <Item Key="Warning.CatalogPath" Default="#Catalog path does not exist! Please check the options box" Translated="Catalog path does not exist! Please check the options box" />
+  </LocalizationItems>
+</LocalizationDictionary>

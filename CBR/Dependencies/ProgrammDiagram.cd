@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="DOCUMENTS">
+    <Position X="2.567" Y="0.569" Height="0.291" Width="1.206" />
+  </Comment>
+  <Comment CommentText="VIEW: Others">
+    <Position X="0.5" Y="6.203" Height="0.291" Width="1.688" />
+  </Comment>
+  <Comment CommentText="VIEW MODEL: Main user interface">
+    <Position X="5.842" Y="0.517" Height="0.291" Width="1.964" />
+  </Comment>
+  <Comment CommentText="VIEW MODEL: Others">
+    <Position X="4.5" Y="5.75" Height="0.291" Width="1.688" />
+  </Comment>
+  <Comment CommentText="VIEW: Main user interface">
+    <Position X="0.5" Y="0.5" Height="0.291" Width="1.688" />
+  </Comment>
+  <Comment CommentText="TOOLS">
+    <Position X="0.5" Y="2.052" Height="0.291" Width="0.896" />
+  </Comment>
+  <Class Name="CBR.Views.BookView" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAEAAABAAAAAQAAABgAAAAAAgAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\Documents\Books\BookView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.XpsBookView" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAABAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Documents\Books\XpsBookView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.ConvertView" Collapsed="true">
+    <Position X="0.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgACAAAAACAIAAAAAAAEBAAEAAAAAAAKAAAAACAAg=</HashCode>
+      <FileName>Views\Backstage\ConvertView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.InfoView" Collapsed="true">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Backstage\InfoView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.OptionsView" Collapsed="true">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Backstage\OptionsView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.RecentFileView" Collapsed="true">
+    <Position X="2.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Backstage\RecentFileView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.ExplorerView" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Tools\ExplorerView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.MainView" Collapsed="true">
+    <Position X="2.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAIAgEABAAAAAAQAAEAAIACACEEAAAAAIGAggBAA=</HashCode>
+      <FileName>Views\MainView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.MainViewModel" Collapsed="true">
+    <Position X="8" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBFhQUEO6SJQ9OQWkeiyAEEcrRB+VBmC7niPkjgG6gQ=</HashCode>
+      <FileName>ViewModels\Main\MainViewModel.Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.ComicViewModel" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAECAIACgIAQAAIgAAAACCBIACAAIIABDQIAHAoBI=</HashCode>
+      <FileName>ViewModels\Documents\Books\ComicViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.BookViewModelBase" Collapsed="true">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAKETQAg6kYAQAYCBpAKUiKRIAC4FIUAASWIAPMAjA=</HashCode>
+      <FileName>ViewModels\Documents\Books\BookViewModelBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.XpsBookViewModel" Collapsed="true">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMAAECAAAIAAAAAAAAAAIABCBIACAAAEAACSIAHAAFA=</HashCode>
+      <FileName>ViewModels\Documents\Books\XpsBookViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.ExplorerViewModel" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAgAGCEACAAIRAQAEAUAwACgAAAADgAYAAAEQAAAYE=</HashCode>
+      <FileName>ViewModels\Tools\ExplorerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.InfoViewModel" Collapsed="true">
+    <Position X="6.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAAAAAAAgAAAAEAAEAAAgAAAEAEAAQAAAKBAJAA=</HashCode>
+      <FileName>ViewModels\Backstage\InfoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.OptionsViewModel" Collapsed="true">
+    <Position X="6.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCAAABQAKAAAAAAgAAACBQAAIAAAAIASAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Backstage\OptionsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.RecentFileInfoViewModel" Collapsed="true">
+    <Position X="6.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAgAAAAAAAAAAAABAAAABAAABAAAA=</HashCode>
+      <FileName>ViewModels\Backstage\RecentFileInfoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.RecentFileViewModel" Collapsed="true">
+    <Position X="6.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAACAAAAAAAAgAAAAAAAAIgAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Backstage\RecentFileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.ViewModelBase" Collapsed="true">
+    <Position X="12" Y="5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.ViewModels.ePUBBookViewModel" Collapsed="true">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAAAAgAAgACAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>ViewModels\Documents\Books\ePUBBookViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.SysElementViewModel" Collapsed="true">
+    <Position X="11.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAQAAAAAAEAA=</HashCode>
+      <FileName>ViewModels\Documents\Devices\SysItems\TreeSysObjectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.SysFileViewModel" Collapsed="true">
+    <Position X="13.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Documents\Devices\SysItems\TreeSysObjectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.SysDirectoryViewModel" Collapsed="true">
+    <Position X="13.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Documents\Devices\SysItems\TreeSysObjectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.SysDriveViewModel" Collapsed="true">
+    <Position X="13.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Documents\Devices\SysItems\TreeSysObjectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.TreeViewItemViewModel" Collapsed="true">
+    <Position X="9.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAgAAAIEAIAAAAEAACAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Documents\Devices\SysItems\TreeViewItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.ePUBBookView" Collapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Documents\Books\ePUBBookView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.DeviceConfigView" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAYAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Backstage\DeviceConfigView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.DeviceConfigViewModel" Collapsed="true">
+    <Position X="6.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAEAAAAAAAAAABAAAAAAAAAAAIA=</HashCode>
+      <FileName>ViewModels\Backstage\DeviceConfigViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.Others.LocalizeView" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Others\LocalizeView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.HomeView" Collapsed="true">
+    <Position X="4" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Documents\HomeView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.FeedView" Collapsed="true">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Documents\FeedView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.TocView" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Tools\TocView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.FeedConfigView" Collapsed="true">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAABAAAAAAAAAAAQI=</HashCode>
+      <FileName>Views\Backstage\FeedConfigView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.OptionsViewExtended" Collapsed="true">
+    <Position X="2.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Backstage\OptionsViewExtended.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.TwoPageView" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAABEAAAAAAABAgAAAAAAgAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\Documents\Books\TwoPageView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.ViewModelMessages" Collapsed="true">
+    <Position X="13" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAEACAAAAIIgBABAAACAAIAQAAAAAQAIAgCIAAg=</HashCode>
+      <FileName>ViewModels\ViewModelMessages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.TocViewModel" Collapsed="true">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACAAAQAAAAAACAAAAAAAABAEQAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Tools\TocViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.ToolViewModel" Collapsed="true">
+    <Position X="13" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>ViewModels\Panes\ToolViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.PaneViewModel" Collapsed="true">
+    <Position X="13.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAEAAAEIAAAACAAAAAAAAAEAAAAAMAAAA=</HashCode>
+      <FileName>ViewModels\Panes\PaneViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.DocumentViewModel" Collapsed="true">
+    <Position X="13.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Panes\DocumentViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.TwoPageViewModel" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAECEAAAAIAAAgAAAAAAACBIACIAAAIAAQIADAABA=</HashCode>
+      <FileName>ViewModels\Documents\Books\TwoPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.FeedViewModel" Collapsed="true">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAkABiAMDyAgCQQJgAIwCARAAQIDWBABQg1iAAgBgiM=</HashCode>
+      <FileName>ViewModels\Documents\FeedViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.HomeViewModel" Collapsed="true">
+    <Position X="4.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAADAAgAEAAAAAAEAAAAIBAAAIQAQAAYAAAEM=</HashCode>
+      <FileName>ViewModels\Documents\HomeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.Others.LocalizeViewModel" Collapsed="true">
+    <Position X="4.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgABAAACAEAAIEAgAgEBIgQIAAAAACAIAQMICoEAQA=</HashCode>
+      <FileName>ViewModels\Others\LocalizeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.DriveView" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAiAAAgCAAAAAAAACAAA=</HashCode>
+      <FileName>Views\Documents\DriveView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.DriveExplorerView" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACQAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Tools\DriveExplorerView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.ViewModelFactory" Collapsed="true">
+    <Position X="10.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAAQAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ViewModelFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.DriveExplorerViewModel" Collapsed="true">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEACACAAEAgAAAAAAAAACACAgFgAQECAQAAAAAA=</HashCode>
+      <FileName>ViewModels\Tools\DriveExplorerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.ViewModels.CatalogViewModel" Collapsed="true">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACggAEAAAAAAAAEAAAAAABAAAAAAABAAAQQ=</HashCode>
+      <FileName>ViewModels\Documents\Books\CatalogViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Views.LibraryView" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Documents\LibraryView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

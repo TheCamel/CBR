@@ -1,0 +1,891 @@
+﻿<Fluent:RibbonWindow x:Class="CBR.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+		xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:Controls="clr-namespace:CBR.Components.Controls"
+        xmlns:Converters="clr-namespace:CBR.Components.Converters"
+        xmlns:Selectors="clr-namespace:CBR.Components.Selectors"
+		xmlns:ViewModels="clr-namespace:CBR.ViewModels"
+        xmlns:Views="clr-namespace:CBR.Views"
+        MinWidth="850" MinHeight="600" Title="{Binding Title}"
+        Icon="/CBR;Component/Resources/Images/book.ico"
+        ResizeMode="CanResizeWithGrip"
+        Drop="RibbonWindow_Drop" AllowDrop="True"
+        Loaded="RibbonWindow_Loaded" Activated="RibbonWindow_Activated"
+		Closing="RibbonWindow_Closing" PreviewKeyUp="RibbonWindow_PreviewKeyUp">
+
+	<Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--#################################################################################################-->
+        <!--RIBBON CONTROL-->
+        <Fluent:Ribbon Grid.Row="0" HorizontalAlignment="Stretch" Name="ribbonMain" AutomaticStateManagement="True"
+					   FocusManager.IsFocusScope="True">
+
+            <!--#################################################################################################-->
+            <!--Backstage Items-->
+
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage Header="{LocalizationExtension ResModul=CBR, Key=RibbonTab.File, DefaultValue=File}"
+                                  Background="{DynamicResource CbrDarkBackgroundBrush}" IsOpen="{Binding BackStageIsOpen, Mode=TwoWay}">
+                    <Fluent:BackstageTabControl Name="backstage" SelectedIndex="{Binding BackStageIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                        <Fluent:Button Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Command.Open, DefaultValue=_Open}" SizeDefinition="Small"
+                               Icon="/CBR;Component/Resources/Images/32x32/action/open_folder.png"
+                               LargeIcon="/CBR;Component/Resources/Images/32x32/action/open_folder.png" 
+                               Command="{Binding CatalogOpenWithDialogCommand}"/>
+
+                        <Fluent:Button Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Command.Save, DefaultValue=_Save}"
+                                       Icon="/CBR;Component/Resources/Images/32x32/action/save.png"
+                                       LargeIcon="/CBR;Component/Resources/Images/32x32/action/save.png"
+                                       Command="{Binding CatalogSaveCommand}"/>
+                        <Fluent:Button Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Command.SaveAs, DefaultValue=_Save as}"
+                                       Icon="/CBR;Component/Resources/Images/32x32/action/save_as.png"
+                                       LargeIcon="/CBR;Component/Resources/Images/32x32/action/save_as.png"
+                                       Command="{Binding CatalogSaveAsCommand}"/>
+
+                        <Fluent:Button Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Command.New, DefaultValue=_New}"
+                                       Icon="/CBR;Component/Resources/Images/32x32/library_new.png"
+                                       LargeIcon="/CBR;Component/Resources/Images/32x32/library_new.png"
+                                        Command="{Binding CatalogNewCommand}"
+                                       />
+
+                        <Fluent:BackstageTabItem Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Panel.Info, DefaultValue=Info}" Fluent:KeyTip.Keys="I">
+                            <Views:InfoView x:Name="InfoView" />
+                        </Fluent:BackstageTabItem>
+
+                        <Fluent:BackstageTabItem Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Panel.Recent, DefaultValue=Recent}" Fluent:KeyTip.Keys="R">
+                            <Views:RecentFileView x:Name="RecentFileView" />
+                        </Fluent:BackstageTabItem>
+
+                        <Fluent:BackstageTabItem Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Panel.Options, DefaultValue=Options}" Fluent:KeyTip.Keys="O" >
+                            <Views:OptionsView x:Name="OptionView" />
+                        </Fluent:BackstageTabItem>
+
+                        <Fluent:BackstageTabItem Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Panel.Convert, DefaultValue=Convert}"  Fluent:KeyTip.Keys="C" >
+                            <Views:ConvertView x:Name="ConvertView" />
+                        </Fluent:BackstageTabItem>
+
+                        <Fluent:BackstageTabItem Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Panel.Device, DefaultValue=Devices}" Fluent:KeyTip.Keys="D" >
+                            <Views:DeviceConfigView x:Name="DeviceConfigView" />
+                        </Fluent:BackstageTabItem>
+
+						<Fluent:BackstageTabItem Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Panel.RssFeed, DefaultValue=Rss feeds}" Fluent:KeyTip.Keys="F"  >
+							<Views:FeedConfigView x:Name="FeedConfigView" />
+						</Fluent:BackstageTabItem>
+
+						<Fluent:Button Header="{LocalizationExtension ResModul=CBR.Backstage, Key=Command.Exit, DefaultValue=Exit}"
+                                       Command="{Binding SysExitCommand}"
+                                       Icon="/CBR;Component/Resources/Images/32x32/action/exit.png"
+                                       LargeIcon="/CBR;Component/Resources/Images/32x32/action/exit.png" />
+                        
+                    </Fluent:BackstageTabControl>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+
+            <!--#################################################################################################-->
+            <!--Contextual Tab Groups-->
+            <Fluent:Ribbon.ContextualGroups>
+
+                <Fluent:RibbonContextualTabGroup x:Name="DocumentGroup" Background="Magenta" BorderBrush="DarkMagenta"
+                    Header="{LocalizationExtension ResModul=CBR, Key=RibbonTab.Documents, DefaultValue=Documents}" Visibility="Visible" />
+
+			</Fluent:Ribbon.ContextualGroups>
+
+            <!--#################################################################################################-->
+            <!--Quick Access Toolbar Items-->
+            <Fluent:Ribbon.QuickAccessItems>
+				<Fluent:QuickAccessMenuItem Target="{Binding ElementName=btnFullScreen}" IsChecked="True"/>
+				<Fluent:QuickAccessMenuItem Target="{Binding ElementName=btnOpenLib}" IsChecked="True"/>
+				<Fluent:QuickAccessMenuItem Target="{Binding ElementName=btnOpenBook}" IsChecked="True"/>
+				<Fluent:QuickAccessMenuItem Target="{Binding ElementName=btnExit}" IsChecked="True"/>
+			</Fluent:Ribbon.QuickAccessItems>
+
+            <Fluent:Ribbon.ToolBarItems>
+                <Fluent:Button Size="Small" Icon="/CBR;Component/Resources/Images/32x32/icon/help.png" Name="btnHelp" Command="{Binding SysHelpCommand}">
+                    <Fluent:Button.ToolTip>
+                        <Fluent:ScreenTip
+                            Title="{LocalizationExtension ResModul=CBR, Key=ScreenTip.HelpTitle, DefaultValue=_Help}"
+                            Text="{LocalizationExtension ResModul=CBR, Key=ScreenTip.Help, DefaultValue=You can get online help by clicking on this button.}"
+                            Image="/CBR;Component/Resources/Images/32x32/icon/help.png"
+                            Width="190" IsRibbonAligned ="True"/>
+                    </Fluent:Button.ToolTip>
+                </Fluent:Button>
+            </Fluent:Ribbon.ToolBarItems>
+
+            <!--#################################################################################################-->
+            <!--################   library / books tab   ################-->
+
+			<Fluent:RibbonTabItem Header="{LocalizationExtension ResModul=CBR, Key=RibbonTab.Library, DefaultValue=Library}" Name="ribbonTabLibrary">
+
+				<Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Library, DefaultValue=Library}" IsLauncherVisible="false" >
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.New, DefaultValue=_New}" SizeDefinition="Large"
+                                    Icon="/CBR;Component/Resources/Images/32x32/library_new.png"
+                                    LargeIcon="/CBR;Component/Resources/Images/32x32/library_new.png"
+                                    Command="{Binding CatalogNewCommand}" />
+
+					<Fluent:Button Name="btnOpenLib" SizeDefinition="Large"
+								Header="{LocalizationExtension ResModul=CBR, Key=Button.Open, DefaultValue=_Open}"
+                                Icon="/CBR;Component/Resources/Images/32x32/library_open.png"
+                                LargeIcon="/CBR;Component/Resources/Images/32x32/library_open.png"
+                                Command="{Binding CatalogOpenWithDialogCommand}" />
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Close, DefaultValue=_Close}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/library_close.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/library_close.png"
+                                   Command="{Binding CatalogCloseCommand}" />
+
+					<Separator></Separator>
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Refresh, DefaultValue=_Refresh}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/library_refresh.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/library_refresh.png"
+                                   Command="{Binding CatalogRefreshCommand}" />
+
+                </Fluent:RibbonGroupBox>
+
+				<Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Books, DefaultValue=Books}" IsLauncherVisible="True" LauncherCommand="Open" >
+
+					<Fluent:DropDownButton Header="{LocalizationExtension ResModul=CBR, Key=Button.Add, DefaultValue=_Add}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_add.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_add.png">
+						<Fluent:MenuItem Command="{Binding BookAddCommand}" CommandParameter="One" 
+                            Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.AddMenuItem, DefaultValue=Add a file}" />
+						<Fluent:MenuItem Command="{Binding BookAddCommand}" CommandParameter="Recursive"
+                            Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.AddFolderMenuItem, DefaultValue=Recursively from folder}" />
+					</Fluent:DropDownButton>
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Remove, DefaultValue=Re_move}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_remove.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_remove.png"
+                                   Command="{Binding BookRemoveCommand}"
+                                   CommandParameter="{Binding CurrentExplorerItem}" />
+
+					<Separator></Separator>
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Read, DefaultValue=_Read}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_read.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_read.png"
+                                   Command="{Binding BookReadCommand}"
+                                   CommandParameter="{Binding CurrentExplorerItem}" />
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Protect, DefaultValue=_Protect}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_protect.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_protect.png"
+                                   Command="{Binding BookProtectCommand}"
+                                   CommandParameter="{Binding CurrentExplorerItem}" />
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Delete, DefaultValue=_Delete}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_delete.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_delete.png"
+                                   Command="{Binding BookDeleteCommand}"
+                                   CommandParameter="{Binding CurrentExplorerItem}" />
+
+					<Separator></Separator>
+
+					<Fluent:Button Name="btnOpenBook" SizeDefinition="Large"
+								   Header="{LocalizationExtension ResModul=CBR, Key=Button.BookOpen, DefaultValue=_Open}" 
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_open.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_open.png"
+                                   Command="{Binding BookOpenCommand}" />
+
+                    <Separator></Separator>
+
+                    <Fluent:DropDownButton Header="{LocalizationExtension ResModul=CBR, Key=Button.RssCollection, DefaultValue=Feeds}"
+										   Icon="/CBR;Component/Resources/Images/32x32/rss/rss.png"
+										   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss.png"
+										   IsEnabled="{Binding HasNetwork}">
+                        <Fluent:Gallery ItemsSource="{Binding Feeds}"
+										MaxItemsInRow="1" 
+                                        Orientation="Vertical" GroupBy="Language" >
+                            <Fluent:Gallery.ItemTemplate>
+                                <DataTemplate>
+                                    <Fluent:MenuItem Header="{Binding Name}" Click="FeedMenuItem_Click"/>
+                                </DataTemplate>
+                            </Fluent:Gallery.ItemTemplate>
+                        </Fluent:Gallery>
+
+                        <Fluent:MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ManageRssFeed, DefaultValue=Manage feed}"
+                                         Icon="/CBR;Component/Resources/Images/32x32/rss/rss.png" Size="Middle"
+										 Command="{Binding ShowBackstageCommand}" CommandParameter="10" />
+
+                    </Fluent:DropDownButton>
+
+                </Fluent:RibbonGroupBox>
+
+				<Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Programm, DefaultValue=Programm}" IsLauncherVisible="false" >
+
+                    <Fluent:DropDownButton
+							Header="{LocalizationExtension ResModul=CBR, Key=Button.Language, DefaultValue=_Language}"
+                            Icon="/CBR;Component/Resources/Images/32x32/localize.png"
+                            LargeIcon="/CBR;Component/Resources/Images/32x32/localize.png">
+
+                        <Fluent:Gallery ItemsSource="{Binding Languages}"
+										MaxItemsInRow="1"
+                                        Orientation="Vertical"
+										SelectionChanged="languageGallery_SelectionChanged">
+                            <Fluent:Gallery.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Image Source="{Binding Icon}" Width="16" Height="16" />
+                                        <TextBlock Text="{Binding ToDisplay}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Fluent:Gallery.ItemTemplate>
+                            <Fluent:Gallery.ItemContainerStyle>
+                                <Style TargetType="{x:Type Fluent:GalleryItem}"  BasedOn="{StaticResource {x:Type Fluent:GalleryItem}}">
+                                    <Setter Property="Fluent:GalleryItem.IsSelected" Value="{Binding IsChecked}"/>
+                                </Style>
+                            </Fluent:Gallery.ItemContainerStyle>
+                        </Fluent:Gallery>
+                        <Fluent:MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.Localize, DefaultValue=Localize}"
+                                         Icon="/CBR;Component/Resources/Images/32x32/localize.png" Size="Middle" Click="btnLocalize_Click" />
+                    </Fluent:DropDownButton>
+                    
+					<Separator></Separator>
+                    
+                    <Fluent:Button Name="btnFullScreen" SizeDefinition="Large"
+								   Header="{LocalizationExtension ResModul=CBR, Key=Button.FullScreen, DefaultValue=_Full Screen}"
+                                   Icon="/CBR;Component/Resources/Images/32x32/action/full_screen.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/action/full_screen.png"
+                                   Click="btnFullScreen_Click" />
+
+					<!--<Fluent:DropDownButton Header="{LocalizationExtension ResModul=CBR, Key=Button.Colors, DefaultValue=_Colors}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/action/colors.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/action/colors.png">
+						<Fluent:MenuItem Command="{Binding SysChangeColorCommand}" CommandParameter="Black" 
+                            Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ColorBlack, DefaultValue=black}" />
+						<Fluent:MenuItem Command="{Binding SysChangeColorCommand}" CommandParameter="Silver"
+                            Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ColorSilver, DefaultValue=silver}" />
+						<Fluent:MenuItem Command="{Binding SysChangeColorCommand}" CommandParameter="Blue"
+                            Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ColorBlue, DefaultValue=blue}" />
+					</Fluent:DropDownButton>-->
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.ResetLayout, DefaultValue=_Reset layout}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/action/reset_layout.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/action/reset_layout.png"
+								   Click="ButtonResetLayout_Click" />
+
+                    <Separator></Separator>
+                    
+                    <Fluent:DropDownButton Header="{LocalizationExtension ResModul=CBR, Key=Button.View, DefaultValue=_View}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/icon/tools.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/icon/tools.png">
+                        <Fluent:MenuItem Command="{Binding ShowToolsCommand}" CommandParameter="ExplorerViewModel" 
+                            Header="{LocalizationExtension ResModul=ByCode, Key=ExplorerView.Title, DefaultValue=Library Explorer}"
+                                         Icon="/CBR;Component/Resources/Images/32x32/book_type/book_type.png"/>
+                        <Fluent:MenuItem Command="{Binding ShowToolsCommand}" CommandParameter="TocViewModel"
+                            Header="{LocalizationExtension ResModul=ByCode, Key=TocView.Title, DefaultValue=Table of content}"
+                                         Icon="/CBR;Component/Resources/Images/32x32/book/book.png"/>
+                        <Fluent:MenuItem Command="{Binding ShowToolsCommand}" CommandParameter="DriveExplorerViewModel"
+                            Header="{LocalizationExtension ResModul=ByCode, Key=DriveExplorerView.Title, DefaultValue=Drive Explorer}"
+                                         Icon="/CBR;Component/Resources/Images/32x32/device/device.png"/>
+                        
+                        <Separator></Separator>
+                        
+                        <Fluent:MenuItem Command="{Binding ShowToolsCommand}" CommandParameter="LibraryViewModel" 
+                            Header="{LocalizationExtension ResModul=ByCode, Key=DocumentTitle.Libraries, DefaultValue=Libraries}"
+                                         Icon="/CBR;Component/Resources/Images/32x32/book_type/book_type.png"/>
+
+                        <Fluent:MenuItem Command="{Binding ShowToolsCommand}" CommandParameter="DriveViewModel"
+                            Header="{LocalizationExtension ResModul=ByCode, Key=DocumentTitle.Drives, DefaultValue=Drives}"
+                                         Icon="/CBR;Component/Resources/Images/32x32/device/device.png"/>
+                        
+                    </Fluent:DropDownButton>
+
+                    <Separator></Separator>
+					
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.About, DefaultValue=_About}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/icon/info.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/icon/info.png"
+								   Click="btnAbout_Click" />
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Exit, DefaultValue=_Exit}" SizeDefinition="Large"
+								   Name="btnExit" Command="{Binding SysExitCommand}"
+                                   Icon="/CBR;Component/Resources/Images/32x32/action/exit.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/action/exit.png"
+								   />
+
+				</Fluent:RibbonGroupBox>
+			</Fluent:RibbonTabItem>
+
+			<!--#################################################################################################-->
+            <!-- Contextual Tabs -->
+
+			<Fluent:RibbonTabItem Header="{LocalizationExtension ResModul=CBR, Key=RibbonTab.Book, DefaultValue=Book}"
+								  Name="ribbonTabBook" Group="{Binding ElementName=DocumentGroup, Mode=OneWay}"
+								  Visibility="{Binding HasBookActive, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}" >
+
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Books, DefaultValue=Books}"
+									   IsLauncherVisible="True" LauncherCommand="Open" >
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Save, DefaultValue=_Save}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_save.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_save.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding BookSaveCommand}"/>
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Close, DefaultValue=_Close}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_close.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_close.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding CloseCommand}"/>
+
+                    <Separator></Separator>
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Print, DefaultValue=P_rint}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_print.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_print.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding BookPrintCommand}"/>
+
+                    <Fluent:ToggleButton Header="{LocalizationExtension ResModul=CBR, Key=Button.Edit, DefaultValue=_Edit}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_edit.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_edit.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding BookEditCommand}" />
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Reading, DefaultValue=Reading}"
+									   IsLauncherVisible="False" >
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Mark, DefaultValue=_Bookmark}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_mark.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_mark.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding BookmarkCommand}" />
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.MarkGoto, DefaultValue=_Goto}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_goto_mark.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_goto_mark.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding GotoBookmarkCommand}" />
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.MarkClear, DefaultValue=C_lear}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_clear_mark.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_clear_mark.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding ClearBookmarkCommand}" />
+
+                    <Separator></Separator>
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Previous, DefaultValue=_Previous}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_clear_mark.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_previous.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding BookChangePageCommand}" CommandParameter="-1" />
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Next, DefaultValue=_Next}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_clear_mark.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_next.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding BookChangePageCommand}" CommandParameter="1" />
+
+                    <Fluent:TextBox x:Name="PageNumber" InputWidth="30" Header="Goto" 
+                                    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,30,10,0" 
+                                    PreviewKeyUp="PageNumber_PreviewKeyUp" />
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.First, DefaultValue=_First}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_clear_mark.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_first.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding BookGotoPageCommand}" CommandParameter="1" />
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Last, DefaultValue=_Last}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_clear_mark.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_last.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding BookGotoLastPageCommand}" />
+
+                    <Separator></Separator>
+
+                    <Fluent:ToggleButton Header="{LocalizationExtension ResModul=CBR, Key=Button.FitWidth, DefaultValue=Fit _width}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/fit_width.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/fit_width.png"
+								   IsChecked="{Binding FitMode, Converter={x:Static Converters:EnumToBoolConverter.Instance}, ConverterParameter=Width, Mode=OneWay}"
+								   DataContext="{Binding ActiveDocument}" 
+								   Command="{Binding FitModeCommand}" CommandParameter="Width" />
+
+                    <Fluent:ToggleButton Header="{LocalizationExtension ResModul=CBR, Key=Button.FitHeight, DefaultValue=Fit _height}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/fit_height.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/fit_height.png"
+								   IsChecked="{Binding FitMode, Converter={x:Static Converters:EnumToBoolConverter.Instance}, ConverterParameter=Height, Mode=OneWay}"
+								   DataContext="{Binding ActiveDocument}"	
+								   Command="{Binding FitModeCommand}" CommandParameter="Height" />
+
+					<Fluent:ToggleButton Header="{LocalizationExtension ResModul=CBR, Key=Button.FitNone, DefaultValue=No fit}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/fit_no.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/fit_no.png"
+								   IsChecked="{Binding FitMode, Converter={x:Static Converters:EnumToBoolConverter.Instance}, ConverterParameter=None, Mode=OneWay}"
+                                   DataContext="{Binding ActiveDocument}"
+								   Command="{Binding FitModeCommand}" CommandParameter="None" />
+					
+					<Separator></Separator>
+
+					<Fluent:ToggleButton Header="{LocalizationExtension ResModul=CBR, Key=Button.TwoPage, DefaultValue=Two _pages}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_two_page.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_two_page.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   Command="{Binding TwoPageCommand}" />
+
+					<Separator></Separator>
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.FullScreen, DefaultValue=_Full Screen}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/action/full_screen.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/action/full_screen.png"
+                                   Click="btnFullScreen_Click" />
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Simulate, DefaultValue=Simulate}"
+									   IsLauncherVisible="False" DataContext="{Binding ActiveDocument}"
+									   Visibility="{Binding IsDynamic, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}">
+
+                    <Fluent:Button Header="Test book" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_test.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_test.png"
+                                   Command="{Binding DebugBookCommand}"/>
+
+                    <Fluent:Button Header="Test page" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_test.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_test.png"
+                                   Command="{Binding DebugPageCommand}"/>
+
+					<Fluent:DropDownButton Header="Preview..." SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/page_test.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/page_test.png" >
+						<Fluent:MenuItem Header="7 Phone"
+                                         Icon="/CBR;Component/Resources/Images/16x16/view_details.png"
+										 Command="{Binding SimulateCommand}"
+										 CommandParameter="Phone" />
+						<Fluent:MenuItem Header="Tablets"
+                                         Icon="/CBR;Component/Resources/Images/16x16/view_details.png" >
+							<Fluent:MenuItem Header="10 pouces"
+										 Command="{Binding SimulateCommand}"
+										 CommandParameter="260;175" />
+							<Fluent:MenuItem Header="12 pouces"
+										 Command="{Binding SimulateCommand}"
+										 CommandParameter="420;284" />
+						</Fluent:MenuItem>
+					</Fluent:DropDownButton>
+
+                    <Fluent:ToggleButton Header="Display zones" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/picture_zone.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/picture_zone.png"
+                                   Command="{Binding }" />
+
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="{LocalizationExtension ResModul=CBR, Key=RibbonTab.Libraries, DefaultValue=Libraries}"
+								  Name="ribbonTabLibraries" Group="{Binding ElementName=DocumentGroup, Mode=OneWay}"
+								  Visibility="{Binding HasLibraryActive, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}" >
+
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Sharing, DefaultValue=Sharing}"
+									   IsLauncherVisible="False" >
+
+                    <Fluent:ToggleButton Header="{LocalizationExtension ResModul=CBR, Key=Button.AllowShare, DefaultValue=Allow _Share}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/icon/web.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/icon/web.png"
+                                   IsChecked="{Binding IsSharing}" />
+
+                </Fluent:RibbonGroupBox>
+                
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Libraries, DefaultValue=Libraries}"
+									   IsLauncherVisible="False" >
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Add, DefaultValue=Add}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/library_add.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/library_add.png"
+                                   Command="{Binding CatalogAddCommand}" />
+
+                    <Separator></Separator>
+
+                    <!--<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Remove, DefaultValue=Remove}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/action/library_remove.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/library_remove.png"
+                                   Command="{Binding CatalogRemoveCommand}" />-->
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RefreshCover, DefaultValue=Refresh cover}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/library_refresh.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/library_refresh.png"
+                                   Command="{Binding CatalogRefreshCoverCommand}" />
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.Delete, DefaultValue=Delete}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/library_delete.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/library_delete.png"
+                                   Command="{Binding CatalogDeleteCommand}" />
+
+                    <Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.ToggleShare, DefaultValue=Toggle share}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/library_share.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/library_share.png"
+                                   Command="{Binding CatalogShareCommand}" />
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.View, DefaultValue=View}"
+									   IsLauncherVisible="False" >
+
+                    <Fluent:ToggleButton Header="{LocalizationExtension ResModul=CBR, Key=Button.LibraryThumbView, DefaultValue=Thumbnails}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/library_view.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/library_view.png"
+								   DataContext="{Binding ActiveDocument}"
+                                   IsChecked="{Binding IsViewThumb}" />
+
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="{LocalizationExtension ResModul=CBR, Key=RibbonTab.Rss, DefaultValue=Rss}"
+								  Name="ribbonTabRss" Group="{Binding ElementName=DocumentGroup, Mode=OneWay}" 
+								  Visibility="{Binding HasRssActive, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}">
+
+				<Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.RssFeed, DefaultValue=Rss Feeds}"
+									   IsLauncherVisible="false" >
+
+					<Fluent:DropDownButton Header="{LocalizationExtension ResModul=CBR, Key=Button.RssCollection, DefaultValue=Feeds}"
+										   Icon="/CBR;Component/Resources/Images/32x32/rss/rss.png"
+										   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss.png"
+										   IsEnabled="{Binding HasNetwork}">
+						<Fluent:Gallery ItemsSource="{Binding Feeds}"
+										MaxItemsInRow="1" 
+                                        Orientation="Vertical" GroupBy="Language" >
+							<Fluent:Gallery.ItemTemplate>
+								<DataTemplate>
+									<Fluent:MenuItem Header="{Binding Name}" Click="FeedMenuItem_Click"/>
+								</DataTemplate>
+							</Fluent:Gallery.ItemTemplate>
+						</Fluent:Gallery>
+
+						<Fluent:MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ManageRssFeed, DefaultValue=Manage feed}"
+                                         Icon="/CBR;Component/Resources/Images/32x32/rss/rss.png" Size="Middle"
+										 Command="{Binding ShowBackstageCommand}" CommandParameter="10" />
+
+					</Fluent:DropDownButton>
+
+					<Separator></Separator>
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RssClose, DefaultValue=Close}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/rss/rss_close.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss_close.png"
+								   DataContext="{Binding ActiveDocument}"
+								   Command="{Binding RssCloseCommand}" />
+
+				</Fluent:RibbonGroupBox>
+
+				<Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.RssNavigate, DefaultValue=Navigate}"
+									   IsLauncherVisible="false" >
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RssHome, DefaultValue=Home}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/rss/rss_home.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss_home.png"
+								   DataContext="{Binding ActiveDocument}"
+								   Command="{Binding RssHomeCommand}" />
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RssRefresh, DefaultValue=Refresh}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/rss/rss_refresh.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss_refresh.png"
+								   DataContext="{Binding ActiveDocument}"
+								   Command="{Binding RssRefreshCommand}" />
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RssPrevious, DefaultValue=Previous}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/rss/rss_previous.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss_previous.png"
+								   DataContext="{Binding ActiveDocument}"
+								   Command="{Binding RssPreviousCommand}" />
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RssNext, DefaultValue=Next}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/rss/rss_next.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss_next.png"
+								   DataContext="{Binding ActiveDocument}"
+								   Command="{Binding RssNextCommand}" />
+
+					<Separator></Separator>
+
+					<Fluent:RibbonToolBar>
+						<Fluent:RibbonToolBar.LayoutDefinitions>
+							<Fluent:RibbonToolBarLayoutDefinition Size="Large" RowCount="2">
+								<Fluent:RibbonToolBarRow>
+									<Fluent:RibbonToolBarControlDefinition Target="RssSearchBox" Width="200" />
+								</Fluent:RibbonToolBarRow>
+								<Fluent:RibbonToolBarRow>
+									<Fluent:RibbonToolBarControlDefinition Target="btnRssSearch" Size="Middle" />
+								</Fluent:RibbonToolBarRow>
+							</Fluent:RibbonToolBarLayoutDefinition>
+						</Fluent:RibbonToolBar.LayoutDefinitions>
+
+						<Controls:FilterControl x:Name="RssSearchBox"  MinHeight="27" FilterText="{Binding SearchedText, Mode=TwoWay}"
+						  Header="{LocalizationExtension ResModul=CBR.Backstage, Key=DeviceConfigView.Filter, DefaultValue=Type your criteria}" VerticalAlignment="Center" />
+
+						<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RssSearch, DefaultValue=Search}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/rss/rss_search.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss_search.png"
+								Name="btnRssSearch" />
+
+					</Fluent:RibbonToolBar>
+
+				</Fluent:RibbonGroupBox>
+
+				<Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.RssResults, DefaultValue=In results}"
+									   IsLauncherVisible="false" DataContext="{Binding ActiveDocument}"
+									   Visibility="{Binding HasPaging, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}">
+
+					<Fluent:RibbonToolBar>
+						<Fluent:RibbonToolBar.LayoutDefinitions>
+							<Fluent:RibbonToolBarLayoutDefinition Size="Large" RowCount="2">
+								<Fluent:RibbonToolBarRow>
+									<Fluent:RibbonToolBarControlDefinition Target="lblSort" />
+									<Fluent:RibbonToolBarControlDefinition Target="cbSortBy" Width="150" />
+									<Fluent:RibbonToolBarControlDefinition Target="lblCategory" />
+									<Fluent:RibbonToolBarControlDefinition Target="cbCategoryFilter" Width="150" />
+								</Fluent:RibbonToolBarRow>
+								<Fluent:RibbonToolBarRow>
+									<Fluent:RibbonToolBarControlDefinition Target="lblFilter" />
+									<Fluent:RibbonToolBarControlDefinition Target="RssFilterBox" Width="350" />
+								</Fluent:RibbonToolBarRow>
+							</Fluent:RibbonToolBarLayoutDefinition>
+
+						</Fluent:RibbonToolBar.LayoutDefinitions>
+
+						<Label Name="lblSort">Sort by</Label>
+						<Fluent:ComboBox Header="Sort by" Name="cbSortBy" ItemsSource="{Binding SortBy}">
+							<Fluent:ComboBox.ItemTemplate>
+								<DataTemplate>
+									<Fluent:MenuItem Style="{DynamicResource SortMenuItemStyle}"></Fluent:MenuItem>
+								</DataTemplate>
+							</Fluent:ComboBox.ItemTemplate>
+						</Fluent:ComboBox>
+
+						<Label Name="lblCategory">Category filter</Label>
+						<Fluent:ComboBox ItemsSource="{Binding Categories}" Name="cbCategoryFilter" />
+
+						<Label Name="lblFilter">Filter</Label>
+						<Controls:FilterControl x:Name="RssFilterBox" MinHeight="27" FilterText="{Binding FilterText, Mode=TwoWay}"
+						  Header="{LocalizationExtension ResModul=CBR, Key=FilterControl.RssFilter, DefaultValue=Type your criteria}" VerticalAlignment="Center" />
+
+					</Fluent:RibbonToolBar>
+
+					<Separator></Separator>
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RssPrevious, DefaultValue=Previous}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/rss/rss_page_previous.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss_page_previous.png"
+								   Command="{Binding RssChangePageCommand}" CommandParameter="{Binding Content.PreviousUrl}" />
+
+					<Fluent:Button Header="{LocalizationExtension ResModul=CBR, Key=Button.RssNext, DefaultValue=Next}" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/rss/rss_page_next.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/rss/rss_page_next.png"
+								   Command="{Binding RssChangePageCommand}" CommandParameter="{Binding Content.NextUrl}" />
+
+				</Fluent:RibbonGroupBox>
+
+			</Fluent:RibbonTabItem>
+
+			<Fluent:RibbonTabItem Header="{LocalizationExtension ResModul=CBR, Key=RibbonTab.Phone, DefaultValue=Phone}"
+								  Name="ribbonTabPhone" Visibility="Collapsed" IsEnabled="False">
+
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Phone, DefaultValue=Phone}" IsLauncherVisible="False" >
+
+                    <Fluent:Button Header="Open" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_open.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_open.png" />
+
+                    <Fluent:Button Header="Close" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_close.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_close.png" />
+
+                    <Fluent:Button Header="Refresh" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_close.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_close.png" />
+
+                    <Fluent:Button Header="Informations" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/book/book_close.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/book/book_close.png" />
+
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Content" IsLauncherVisible="False" >
+
+                    <Fluent:Button Header="Add folder" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/picture_zone.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/picture_zone.png" />
+
+                    <Fluent:Button Header="Add file" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/picture_order.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/picture_order.png" />
+
+                    <Fluent:Button Header="Delete" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/picture_time.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/picture_time.png" />
+
+                    <Fluent:Button Header="Download" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/picture_time.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/picture_time.png" />
+
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="{LocalizationExtension ResModul=CBR, Key=RibbonTab.USB, DefaultValue=USB}"
+                                  Name="ribbonTabUSB" Group="{Binding ElementName=DocumentGroup, Mode=OneWay}"
+								  Visibility="{Binding HasDriveActive, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}" >
+
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Device, DefaultValue=Device}"
+									   IsLauncherVisible="False" >
+
+                    <Fluent:ComboBox Header="{LocalizationExtension ResModul=CBR, Key=Combo.Disks, DefaultValue=Disks}"
+                                     IsEditable="False" MinWidth="240" Height="22" BorderBrush="Gainsboro" Foreground="#FF222222" IsReadOnly="True"
+                                     IsTextSearchEnabled="False" ResizeMode="Both" Fluent:KeyTip.Keys="FF"  SizeDefinition="Large" Margin="4"
+                                     ItemsSource="{Binding Drives}" DisplayMemberPath="Name" SelectedItem="{Binding CurrentDrive}"
+									 DataContext="{Binding ActiveDocument}" >
+                    </Fluent:ComboBox>
+
+                    <Fluent:ComboBox Header="{LocalizationExtension ResModul=CBR, Key=Combo.Device, DefaultValue=Device}"
+                                     IsEditable="False" MinWidth="240" Height="22" BorderBrush="Gainsboro" Foreground="#FF222222" GroupBy="Manufacturer"
+                                     IsTextSearchEnabled="True" ResizeMode="Both" Fluent:KeyTip.Keys="FF" SizeDefinition="Large" Margin="4" IsReadOnly="True"
+                                     ItemsSource="{Binding DeviceTypes}" DisplayMemberPath="Model" SelectedItem="{Binding CurrentDriveType}"
+									 DataContext="{Binding ActiveDocument}">
+                    </Fluent:ComboBox>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="{LocalizationExtension ResModul=CBR, Key=Group.Content, DefaultValue=Content}"
+									   IsLauncherVisible="False" >
+                                       
+                    <Fluent:Button Header="Refresh" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/device/device_refresh.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/device/device_refresh.png" 
+								   DataContext="{Binding ActiveDocument}"/>
+                    
+                    <Separator></Separator>
+
+                    <Fluent:Button Header="Synchronize" SizeDefinition="Large"
+                                   Icon="/CBR;Component/Resources/Images/32x32/device/device_sync.png"
+                                   LargeIcon="/CBR;Component/Resources/Images/32x32/device/device_sync.png"
+								   DataContext="{Binding ActiveDocument}"/>
+
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+            
+        </Fluent:Ribbon>
+
+        <!--#################################################################################################-->
+        <!--CONTENT-->
+
+		<avalonDock:DockingManager x:Name="dockManager" Grid.Row="1"
+				AnchorablesSource="{Binding Tools}"  
+				DocumentsSource="{Binding Documents}"
+				ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={x:Static Converters:ActiveDocumentConverter.Instance}}" >
+
+			<avalonDock:DockingManager.Theme>
+                <avalonDock:AeroTheme/>
+            </avalonDock:DockingManager.Theme>
+			
+			<avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+				<Selectors:PanesStyleSelector>
+                    <Selectors:PanesStyleSelector.ToolStyle>
+						<Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
+							<Setter Property="Title" Value="{Binding Model.DisplayName}"/>
+							<Setter Property="IconSource" Value="{Binding Model.Icon}"/>
+							<Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+							<Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+							<Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+							<Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
+						</Style>
+                    </Selectors:PanesStyleSelector.ToolStyle>
+                    <Selectors:PanesStyleSelector.DocumentStyle>
+						<Style TargetType="{x:Type avalonDock:LayoutItem}">
+							<Setter Property="Title" Value="{Binding Model.DisplayName}"/>
+							<Setter Property="ToolTip" Value="{Binding Model.DisplayName}"/>
+							<Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
+							<Setter Property="IconSource" Value="{Binding Model.Icon}"/>
+							<Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                            <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+						</Style>
+                    </Selectors:PanesStyleSelector.DocumentStyle>
+                </Selectors:PanesStyleSelector>
+			</avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+
+			<avalonDock:LayoutRoot>
+				<avalonDock:LayoutPanel Orientation="Horizontal">
+					
+					<avalonDock:LayoutAnchorablePane Name="ToolsPane" DockWidth="250" />
+					<avalonDock:LayoutDocumentPane/>
+					
+				</avalonDock:LayoutPanel>
+			</avalonDock:LayoutRoot>
+		</avalonDock:DockingManager>
+
+        <!--#################################################################################################-->
+        <!-- STATUS BAR -->
+
+        <StatusBar Grid.Row="2" Height="23" VerticalAlignment="Bottom" Foreground="White" ForceCursor="True" Name="statusBarInfo">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.1*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <!-- book info -->
+            <Fluent:StatusBarItem Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Margin="5,0,0,0"
+                             Text="{Binding CatalogItemCount}" />
+                    <TextBlock VerticalAlignment="Center" Margin="5,0,0,0"
+                             Text="{LocalizationExtension ResModul=CBR, Key=StatusBar.Counter, DefaultValue=Book(s)}" />
+                </StackPanel>
+            </Fluent:StatusBarItem>
+            <Separator Grid.Column="0" HorizontalAlignment="Right"/>
+
+            <!-- page info -->
+            <Fluent:StatusBarItem Grid.Column="1">
+                <TextBlock VerticalAlignment="Center" Name="PageInfo" 
+                           DataContext="{Binding ActiveDocument}" Text="{Binding PageInfo}" Margin="5,0,0,0" />
+            </Fluent:StatusBarItem>
+            <Separator HorizontalAlignment="Right" Grid.Column="1"/>
+
+            <!-- cache info -->
+            <Fluent:StatusBarItem Grid.Column="2">
+                <TextBlock VerticalAlignment="Center"
+                           DataContext="{Binding ActiveDocument}" Text="{Binding CacheInfo}" Margin="5,0,0,0"/>
+            </Fluent:StatusBarItem>
+            <Separator HorizontalAlignment="Right" Grid.Column="2"/>
+
+            <!-- pourcent and slider -->
+            <Fluent:StatusBarItem Grid.Column="3" VerticalAlignment="Center"
+                Value="{Binding Path=Value, ElementName=zoomSlider, StringFormat={}{0:0}\%, Converter={x:Static Converters:ScaleToPercentConverter.Instance}}"/>
+            <Separator HorizontalAlignment="Right" Grid.Column="3"/>
+
+            <Fluent:StatusBarItem HorizontalAlignment="Right" Grid.Column="4" Margin="0,0,8,0">
+                <Slider Name="zoomSlider" Minimum="0.01" Maximum="5" 
+                        LargeChange="0.1" SmallChange="0.01" TickFrequency="0.01"
+                        VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                        DataContext="{Binding ActiveDocument}"
+                        Value="{Binding Scale, Mode=TwoWay}"
+                        IsDirectionReversed="False" IsTabStop="False"
+                        Style="{DynamicResource ZoomSliderStyle}" />
+            </Fluent:StatusBarItem>
+
+            <Separator Grid.Column="5" HorizontalAlignment="Left" />
+            <Fluent:StatusBarItem Grid.Column="5" Margin="0,0,8,0">
+                <Image Source="/CBR;component/Resources/Images/32x32/icon/web.png" Margin="2,0,0,0"
+                        Visibility="{Binding IsSharing, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}" />
+            </Fluent:StatusBarItem>
+            
+        </StatusBar>
+    </Grid>
+</Fluent:RibbonWindow>

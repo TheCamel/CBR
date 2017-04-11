@@ -1,0 +1,171 @@
+﻿<UserControl x:Class="CBR.Views.FeedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+			 xmlns:Controls="clr-namespace:CBR.Components.Controls"
+			 xmlns:Converters="clr-namespace:CBR.Components.Converters"
+			 xmlns:CoreModels="clr-namespace:CBR.Core.Formats.OPDS;assembly=CBR.Core"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
+			 Background="{DynamicResource CbrDarkBackgroundBrush}">
+
+    <UserControl.Resources>
+
+		<Style x:Key="HorizontalSeparator" TargetType="{x:Type Line}">
+			<Setter Property="SnapsToDevicePixels" Value="true" />
+			<Setter Property="Stretch" Value="Fill" />
+			<Setter Property="Stroke" Value="#FF666666" />
+			<Setter Property="Margin" Value="5,5,5,5" />
+		</Style>
+		
+		<DataTemplate DataType="{x:Type CoreModels:OpdsCategory}">
+			<StackPanel Orientation="Vertical" Margin="10,10,10,25" >
+				<TextBlock Style="{DynamicResource CbrTextBlock}" Text="{Binding Title}" FontWeight="Bold" TextAlignment="Left" />
+				<Line Style="{StaticResource HorizontalSeparator}" X1="0.1" X2="0.9" />
+				<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Text="{Binding Content}" TextAlignment="Left" />
+				<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Text="{Binding Updated}" TextAlignment="Left" />
+			</StackPanel>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type CoreModels:OpdsItem}">
+			<StackPanel Orientation="Vertical" Margin="10" d:DesignWidth="500" d:DesignHeight="110" >
+				<!--title-->
+				<DockPanel LastChildFill="True">
+					<TextBlock Style="{DynamicResource CbrTextBlock}" Text="{Binding Title}" FontWeight="Bold" TextAlignment="Left" />
+					<DockPanel HorizontalAlignment="Right">
+
+						<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Text="{Binding CategoriesLabel}" TextAlignment="Right" />
+
+						<Separator Margin="5,2,5,2"/>
+
+						<Image Width="16" Source="/CBR;component/Resources/Images/32x32/icon/web.png" />
+						<TextBlock VerticalAlignment="Center">
+							<Hyperlink NavigateUri="{Binding AuthorWeb}" TextDecorations="None" 
+									   Command="{Binding Path=DataContext.LinkCommand,ElementName=feedItemList}"
+									   CommandParameter="{Binding AuthorWeb}">
+								<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Text="{Binding AuthorName}" TextAlignment="Left" HorizontalAlignment="Stretch" />
+							</Hyperlink>
+						</TextBlock>
+						
+						<Separator Margin="5,2,5,2"/>
+
+						<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Text="{Binding Updated}" TextAlignment="Left" />
+						
+					</DockPanel>
+				</DockPanel>
+				<Line Style="{StaticResource HorizontalSeparator}" X1="0.1" X2="0.9" StrokeThickness="3" />
+				<!--content-->
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Image Source="{Binding ThumbnailUrl}" Margin="5" MaxWidth="50"/>
+					<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Text="{Binding Content}" Grid.Column="1" TextAlignment="Left" TextWrapping="Wrap" />
+				</Grid>	
+				<Line Style="{StaticResource HorizontalSeparator}" X1="0.1" X2="0.9" StrokeThickness="1" />
+				<!--footer-->
+				<DockPanel LastChildFill="True">
+					<Image Source="/CBR;component/Resources/Images/32x32/icon/web.png" Width="16"></Image>
+					<TextBlock VerticalAlignment="Center">
+						<Hyperlink NavigateUri="{Binding AlternateUrl}" TextDecorations="None" 
+								   Command="{Binding Path=DataContext.LinkCommand,ElementName=feedItemList}"
+								   CommandParameter="{Binding AlternateUrl}">
+							<TextBlock Style="{DynamicResource CbrTextBlockSmall}"
+									   Text="{LocalizationExtension ResModul=CBR, Key=FeedView.WebPageLink, DefaultValue=Web page}"
+									   TextAlignment="Left" HorizontalAlignment="Stretch" />
+						</Hyperlink>
+					</TextBlock>
+					<Separator Margin="5,2,5,2"/>
+					<Image Source="/CBR;component/Resources/Images/32x32/rss/rss.png" Width="16"></Image>
+					<TextBlock VerticalAlignment="Center">
+						<Hyperlink NavigateUri="{Binding SameAuthorUrl}" TextDecorations="None" 
+								   Command="{Binding Path=DataContext.NavigateCommand,ElementName=feedItemList}"
+								   CommandParameter="{Binding SameAuthorUrl}">
+							<TextBlock Style="{DynamicResource CbrTextBlockSmall}"
+									   Text="{LocalizationExtension ResModul=CBR, Key=FeedView.SameAuthorLink, DefaultValue=Same Author}"
+									   TextAlignment="Left" HorizontalAlignment="Stretch" />
+						</Hyperlink>
+					</TextBlock>
+					<DockPanel LastChildFill="False" HorizontalAlignment="Right">
+						<!--DOWNLOADs-->
+						<ItemsControl ItemsSource="{Binding Downloads}">
+							<ItemsControl.ItemsPanel>
+								<ItemsPanelTemplate>
+									<StackPanel Orientation="Horizontal"></StackPanel>
+								</ItemsPanelTemplate>
+							</ItemsControl.ItemsPanel>
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<TextBlock VerticalAlignment="Center">
+										<Hyperlink NavigateUri="{Binding Link}" TextDecorations="None" 
+												   Command="{Binding Path=DataContext.DownloadCommand,ElementName=feedItemList}"
+												   CommandParameter="{Binding .}">
+											<Image Cursor="Hand" Width="32" Margin="5,0,0,0" 
+													Source="{Binding Path=Type, Converter={x:Static Converters:TypeToImageConverter.Instance}}"/>
+										</Hyperlink>
+									</TextBlock>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>	
+					</DockPanel>	
+				</DockPanel>
+			</StackPanel>
+		</DataTemplate>
+
+    </UserControl.Resources>
+	
+	<Grid>
+		<Grid Name="contentGrid">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid Margin="2">
+				<Grid Margin="10,1,10,1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Image Source="{Binding Content.Icon}" MaxWidth="30"></Image>
+					<Grid Grid.Column="1">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Label Style="{DynamicResource CbrLabel}" Content="{Binding Content.Author}" FontWeight="Bold" FontSize="15" Grid.Row="0" />
+						<DockPanel Grid.Row="1">
+							<Label Style="{DynamicResource CbrLabel}" Content="{Binding Content.PageTitle}" FontSize="12" />
+							<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" 
+										Visibility="{Binding HasPaging, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}">
+								<Label Style="{DynamicResource CbrLabel}" Content="{Binding Content.ItemPerPage}" />
+								<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR, Key=FeedView.OverCountLabel, DefaultValue=over}"/>
+								<Label Style="{DynamicResource CbrLabel}" Content="{Binding Content.TotalResults}" FontWeight="Bold" />
+								<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR, Key=FeedView.OverCountLabel2, DefaultValue=book(s)}"/>
+							</StackPanel>
+						</DockPanel>
+					</Grid>
+					
+					<TextBlock Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right">
+						<Hyperlink NavigateUri="{Binding Content.WebUrl}" TextDecorations="None" 
+								   Command="{Binding Path=DataContext.LinkCommand,ElementName=feedItemList}"
+								   CommandParameter="{Binding Content.WebUrl}">
+							<Image Width="30" VerticalAlignment="Center"
+								   Source="/CBR;component/Resources/Images/32x32/icon/web.png" />
+						</Hyperlink>
+					</TextBlock>
+				</Grid>	
+			</Grid>
+			<ListBox Style="{DynamicResource CbrStandardListBox}" Name="feedItemList" ItemsSource="{Binding FeedItemView}"
+					 Grid.Row="1" Margin="5" MouseDoubleClick="ListBox_MouseDoubleClick"
+					 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+				<ListBox.LayoutTransform>
+					<ScaleTransform CenterX="0" CenterY="0" ScaleX="{Binding Scale}" ScaleY="{Binding Scale}" ></ScaleTransform>
+				</ListBox.LayoutTransform>
+			</ListBox>
+			<Controls:WaitSpin Grid.Row="1" AutoPlay="False" IsPlaying="{Binding IsLoading}" AssociatedElement="{Binding ElementName=contentGrid}"/>
+		</Grid>
+	</Grid>	
+</UserControl>

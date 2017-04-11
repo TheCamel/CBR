@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LocalizationDictionary xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" IetfLanguageTag="fr" Module="CBR">
+  <LocalizationItems>
+    <Item Key="RibbonTab.File" Default="#File" Translated="Fichier" />
+    <Item Key="Button.New" Default="#_New" Translated="_Nouveau" />
+    <Item Key="Button.Open" Default="#_Open" Translated="_Ouvrir" />
+    <Item Key="Button.Close" Default="#_Close" Translated="_Fermer" />
+    <Item Key="Button.Refresh" Default="#_Refresh" Translated="_Rafraichir" />
+    <Item Key="ScreenTip.Help" Default="#You can get online help by clicking on this button." Translated="Une aide est disponible en ligne" />
+    <Item Key="ScreenTip.HelpTitle" Default="#_Help" Translated="Aide" />
+    <Item Key="Group.Library" Default="#Library" Translated="Bibliothèque" />
+    <Item Key="Button.ExplorerView" Default="#_Explorer View" Translated="Mode d'affichage" />
+    <Item Key="Group.Books" Default="#Books" Translated="Livres" />
+    <Item Key="Group.Programm" Default="#Programm" Translated="Programme" />
+    <Item Key="Group.Reading" Default="#Reading" Translated="Lecture" />
+    <Item Key="Group.Simulate" Default="#Simulate" Translated="Simulation" />
+    <Item Key="Group.Phone" Default="#Phone" Translated="Téléphone" />
+    <Item Key="Group.Device" Default="#Device" Translated="Appareils" />
+    <Item Key="Combo.Disks" Default="#Disks" Translated="Disques" />
+    <Item Key="Combo.Device" Default="#Device" Translated="Appareil" />
+    <Item Key="Group.Content" Default="#Content" Translated="Contenu" />
+    <Item Key="StatusBar.Counter" Default="#Book(s)" Translated="Livre(s)" />
+    <Item Key="RibbonTab.Library" Default="#Library" Translated="Bibliothèque" />
+    <Item Key="Button.Add" Default="#_Add" Translated="_Ajouter" />
+    <Item Key="Button.Remove" Default="#_Remove" Translated="_Supprimer" />
+    <Item Key="Button.Read" Default="#_Read" Translated="_Lire" />
+    <Item Key="Button.Protect" Default="#_Protect" Translated="_Protéger" />
+    <Item Key="Button.Edit" Default="#_Edit" Translated="_Editer" />
+    <Item Key="Button.Delete" Default="#_Delete" Translated="Supprimer" />
+    <Item Key="RibbonTab.Book" Default="#Book" Translated="Livre" />
+    <Item Key="RibbonTab.Phone" Default="#Phone" Translated="Téléphone" />
+    <Item Key="RibbonTab.USB" Default="#USB" Translated="USB" />
+    <Item Key="Button.Mark" Default="#_Bookmark" Translated="_Placer un signet" />
+    <Item Key="Button.MarkGoto" Default="#_Goto" Translated="_Aller au signet" />
+    <Item Key="Button.MarkClear" Default="#C_lear" Translated="S_upprimer le signet" />
+    <Item Key="Button.FitWidth" Default="#Fit _width" Translated="Ajuster en largeur" />
+    <Item Key="Button.FitHeight" Default="#Fit _height" Translated="Ajuster en hauteur" />
+    <Item Key="Button.FullScreen" Default="#_Full Screen" Translated="Plein écran" />
+    <Item Key="Button.Language" Default="#_Language" Translated="Langue" />
+    <Item Key="Button.About" Default="#_About" Translated="_A propos" />
+    <Item Key="Button.Exit" Default="#_Exit" Translated="_Quitter" />
+    <Item Key="Explorer.Filter" Default="#Type your search here..." Translated="Taper vos critères de recherche" />
+    <Item Key="Button.Save" Default="#_Save" Translated="_Sauvegarder" />
+    <Item Key="Button.Previous" Default="#_Previous" Translated="_Précédent" />
+    <Item Key="Button.Next" Default="#_Next" Translated="_Suivant" />
+    <Item Key="Button.First" Default="#_First" Translated="Prem_ier" />
+    <Item Key="Button.Last" Default="#_Last" Translated="Dernie_r" />
+    <Item Key="HomeView.LblActions" Default="#Quick Actions" Translated="Raccourcis" />
+    <Item Key="HomeView.LblRssFeed" Default="#Headlines" Translated="Nouveautés" />
+    <Item Key="HomeView.LblSlogan" Default="#The new standard to manage and read your eBooks !" Translated="Le nouveau standard pour la gestion et la lecture de vos livres électroniques !" />
+    <Item Key="HomeView.LblAuthor" Default="#Author:" Translated="Auteur:" />
+    <Item Key="HomeView.LblCopyRight" Default="#- Copyright:" Translated="- Copyright:" />
+    <Item Key="HomeView.LblVersion" Default="#- Version:" Translated="- Version:" />
+    <Item Key="HomeView.LblWebSite" Default="#- Web site:" Translated="- Site web:" />
+    <Item Key="HomeView.LblActionNew" Default="#Start a new library" Translated="Créer une nouvelle bibliothèque" />
+    <Item Key="HomeView.LblActionRead" Default="#Read a book" Translated="Lire un livre" />
+    <Item Key="ContextMenu.AddMenuItem" Default="#Add a file" Translated="Un fichier" />
+    <Item Key="ContextMenu.AddFolderMenuItem" Default="#Recursively from folder" Translated="Un répertoire (récursif)" />
+    <Item Key="ContextMenu.Localize" Default="#Localize" Translated="Traduire" />
+    <Item Key="ContextMenu.ExplorerView.ViewGrid" Default="#Grid" Translated="Grille" />
+    <Item Key="ContextMenu.ExplorerView.ThumbnailSimple" Default="#Thumbnail simple" Translated="Aperçu simple" />
+    <Item Key="ContextMenu.ExplorerView.ThumbnailDetails" Default="#Thumbnail details" Translated="Aperçu détaillé" />
+    <Item Key="ContextMenu.ExplorerView.Read" Default="#Read" Translated="Lire" />
+    <Item Key="ContextMenu.ExplorerView.MarkRead" Default="#Mark as (un)read" Translated="Marquer en tant que (non) lu" />
+    <Item Key="ContextMenu.ExplorerView.Protect" Default="#Protect" Translated="Protéger" />
+    <Item Key="ContextMenu.ExplorerView.Remove" Default="#Remove" Translated="Enlever" />
+    <Item Key="ContextMenu.ExplorerView.Delete" Default="#Delete" Translated="Supprimer" />
+    <Item Key="ContextMenu.ExplorerView.Properties" Default="#Properties" Translated="Propriétés" />
+    <Item Key="Button.FitNone" Default="#No fit" Translated="Libre" />
+    <Item Key="Button.TwoPage" Default="#Two _pages" Translated="2 Pages" />
+    <Item Key="Button.RssCollection" Default="#Feeds" Translated="Flux" />
+    <Item Key="ContextMenu.ManageRssFeed" Default="#Manage feed" Translated="Gérer les flux" />
+    <Item Key="RibbonTab.Rss" Default="#Rss" Translated="Flux rss" />
+    <Item Key="Group.RssFeed" Default="#Rss Feeds" Translated="Flux Rss" />
+    <Item Key="Group.RssNavigate" Default="#Navigate" Translated="Naviguer" />
+    <Item Key="Button.RssRefresh" Default="#Refresh" Translated="Rafraichir" />
+    <Item Key="Button.RssPrevious" Default="#Previous" Translated="Précédent" />
+    <Item Key="Button.RssNext" Default="#Next" Translated="Suivant" />
+    <Item Key="Button.RssSearch" Default="#Search" Translated="Chercher" />
+    <Item Key="Button.RssClose" Default="#Close" Translated="Fermer" />
+    <Item Key="Button.RssHome" Default="#Home" Translated="Accueil" />
+    <Item Key="Button.Tooltip.RssHome" Default="#Go to the home page of the current feed" Translated="Aller sur la page d'accueil du flux" />
+    <Item Key="Group.RssResults" Default="#In results" Translated="dans les résultats" />
+    <Item Key="FilterControl.RssFilter" Default="#Type your criteria" Translated="Taper vos critères de recherche" />
+    <Item Key="FeedView.OverCountLabel" Default="#over" Translated=" sur " />
+    <Item Key="FeedView.OverCountLabel2" Default="#book(s)" Translated="livres(s)" />
+    <Item Key="FeedView.WebPageLink" Default="#Web page" Translated="Page web" />
+    <Item Key="FeedView.SameAuthorLink" Default="#Same Author" Translated="Du même auteur" />
+    <Item Key="Button.Print" Default="#P_rint" Translated="Imp_rimer" />
+    <Item Key="HomeView.LblActionTutorial" Default="#Quick start tutorial" Translated="Guide de démarrage" />
+    <Item Key="RibbonTab.Documents" Default="#Documents" Translated="Documents" />
+    <Item Key="Button.BookOpen" Default="#_Open" Translated="_Ouvrir" />
+    <Item Key="ExplorerView.DataFileSize" Default="#Size" Translated="Taille" />
+    <Item Key="ExplorerView.DataPageCount" Default="#Page(s)" Translated="Page(s)" />
+    <Item Key="RibbonTab.Libraries" Default="#Libraries" Translated="Bibliothèques" />
+    <Item Key="Group.Sharing" Default="#Sharing" Translated="Partage" />
+    <Item Key="Button.AllowShare" Default="#Allow _Share" Translated="Partager" />
+    <Item Key="Group.Libraries" Default="#Libraries" Translated="Bibliothèques" />
+    <Item Key="Button.ToggleShare" Default="#Toggle share" Translated="Changer le partage" />
+    <Item Key="Group.View" Default="#View" Translated="Affichage" />
+    <Item Key="Button.LibraryThumbView" Default="#Thumbnails" Translated="Aperçu" />
+    <Item Key="ContextMenu.LibraryView.Open" Default="#Open" Translated="Ouvrir" />
+    <Item Key="ContextMenu.LibraryView.Delete" Default="#Delete" Translated="Supprimer" />
+    <Item Key="ContextMenu.LibraryView.ToggleShare" Default="#Toggle share" Translated="Partager" />
+    <Item Key="Button.ResetLayout" Default="#_Reset layout" Translated="Raz fenêtres" />
+    <Item Key="Button.View" Default="#_View" Translated="Afficher" />
+  </LocalizationItems>
+</LocalizationDictionary>

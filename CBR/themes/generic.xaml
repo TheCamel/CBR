@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="/Fluent;Component/Themes/Office2010/Black.xaml" />
+        <!--<ResourceDictionary Source="/Fluent;Component/Themes/Metro/White.xaml" />-->
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Colors/Colors.Black.xaml" />
+		<!--<ResourceDictionary Source="/CBR;Component/Resources/XAML/Custom/AvalonDock.xaml" />-->
+		<ResourceDictionary Source="/CBR;Component/Resources/XAML/Common.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	
+</ResourceDictionary>

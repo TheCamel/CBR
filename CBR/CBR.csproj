@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{12BDD651-04DF-4DB9-BAF4-4346520B7027}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CBR</RootNamespace>
+    <AssemblyName>CBR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\PROJECTS\CBR\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.7.0.1</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Images\book.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Custom</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F3D9D6B16C445365C658816E2698C5C4FB3C4A85</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>cbr_strong.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CBR.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fluent, Version=3.6.0.221, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fluent.Ribbon.3.6.0.221\lib\net45\Fluent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.2.0.37226, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationUI" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fluent.Ribbon.3.6.0.221\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Expression">
+      <HintPath>..\packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.Themes.Expression.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
+      <HintPath>..\packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\Controls\BrowseForControl.cs" />
+    <Compile Include="Components\Controls\ProcessPanel\ProcessItem.cs" />
+    <Compile Include="Components\Controls\ProcessPanel\ProcessPanel.cs" />
+    <Compile Include="Components\Controls\SpinBox.cs" />
+    <Compile Include="Components\Controls\TwoPages\TwoPageBook.cs" />
+    <Compile Include="Components\Controls\TwoPages\TripleSheet.Compute.cs" />
+    <Compile Include="Components\Controls\TwoPages\TripleSheet.xaml.cs">
+      <DependentUpon>TripleSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Controls\TwoPages\LinearGradientHelper.cs" />
+    <Compile Include="Components\Controls\TwoPages\TripleSheetParameters.cs" />
+    <Compile Include="Components\Controls\ExtendedListView.cs" />
+    <Compile Include="Components\Controls\FilterControl.cs" />
+    <Compile Include="Components\Controls\PageControl.cs" />
+    <Compile Include="Components\Controls\SortAdorner.cs" />
+    <Compile Include="Components\Controls\WaitSpin.cs" />
+    <Compile Include="Components\Controls\ZoomFlyer.cs" />
+    <Compile Include="Components\Converters\ActiveDocumentConverter.cs" />
+    <Compile Include="Components\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Components\Converters\EnumToBoolConverter.cs" />
+    <Compile Include="Components\Converters\InversedBoolToVisibilityConverter.cs" />
+    <Compile Include="Components\Converters\LocalizeStatusToColorConverter.cs" />
+    <Compile Include="Components\Converters\LongToFileSizeConverter.cs" />
+    <Compile Include="Components\Converters\StringToResourceConverter.cs" />
+    <Compile Include="Components\Converters\TypeToImageConverter.cs" />
+    <Compile Include="Components\Converters\BoolToWindowStateConverter.cs" />
+    <Compile Include="Components\Converters\IntToRadioConverter.cs" />
+    <Compile Include="Components\Converters\IntToVisibilityConverter.cs" />
+    <Compile Include="Components\Converters\InvertBooleanConverter.cs" />
+    <Compile Include="Components\Converters\ReadStatusToColorConverter.cs" />
+    <Compile Include="Components\Converters\ScaleToPercentConverter.cs" />
+    <Compile Include="Components\Designer\Adorners\SizeAdorner.cs" />
+    <Compile Include="Components\Designer\Adorners\SizeChrome.cs" />
+    <Compile Include="Components\Designer\DrawingLayer.cs" />
+    <Compile Include="Components\Designer\Thumbs\MoveThumb.cs" />
+    <Compile Include="Components\Designer\Thumbs\ResizeThumb.cs" />
+    <Compile Include="Components\Dialogs\PasswordDialog.xaml.cs">
+      <DependentUpon>PasswordDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Designer\Adorners\ResizeAdorner.cs" />
+    <Compile Include="Components\Designer\Adorners\ResizeChrome.cs" />
+    <Compile Include="Components\Designer\Adorners\RubberbandAdorner.cs" />
+    <Compile Include="Components\Designer\DesignerItem.cs" />
+    <Compile Include="Components\Designer\ResizeDecorator.cs" />
+    <Compile Include="Components\Helpers\Wpf32Window.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ViewModels\Backstage\Extended\ShareOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Documents\Books\CatalogViewModel.cs" />
+    <Compile Include="ViewModels\Documents\Books\ComicViewModel.cs" />
+    <Compile Include="ViewModels\Documents\Books\BookViewModelBase.cs" />
+    <Compile Include="ViewModels\Documents\Books\ePUBBookViewModel2.cs" />
+    <Compile Include="ViewModels\Documents\Books\ePUBBookViewModel.cs" />
+    <Compile Include="ViewModels\Documents\Books\TwoPageViewModel.cs" />
+    <Compile Include="ViewModels\Documents\Books\XpsBookViewModel.cs" />
+    <Compile Include="ViewModels\Documents\Devices\SysItems\ListSysObjectViewModel.cs" />
+    <Compile Include="ViewModels\Documents\Devices\SysItems\TreeSysObjectViewModel.cs" />
+    <Compile Include="ViewModels\Documents\Devices\SysItems\TreeViewItemViewModel.cs" />
+    <Compile Include="ViewModels\Documents\DriveViewModel.cs" />
+    <Compile Include="ViewModels\Documents\LibraryViewModel.cs" />
+    <Compile Include="ViewModels\Messages\TocNotifications.cs" />
+    <Compile Include="ViewModels\Tools\DriveExplorerViewModel.cs" />
+    <Compile Include="ViewModels\Tools\ExplorerViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\DeviceConfigViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\Extended\BehaveOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\Extended\DynPropertyViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\Extended\ProxyOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\Extended\RegFileTypeViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\Extended\RegisterTypeViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\FeedConfigViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\InfoViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\KeyValueProperty.cs" />
+    <Compile Include="ViewModels\Backstage\RecentFileInfoViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\RecentFileViewModel.cs" />
+    <Compile Include="ViewModels\Main\MainViewModel.Book.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Main\MainViewModel.cs" />
+    <Compile Include="ViewModels\Backstage\OptionsViewModel.cs" />
+    <Compile Include="ViewModels\Others\LanguageMenuItemViewModel.cs" />
+    <Compile Include="ViewModels\Documents\FeedViewModel.cs" />
+    <Compile Include="ViewModels\Others\HeadlineModel.cs" />
+    <Compile Include="ViewModels\Documents\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Others\LocalizeViewModel.cs" />
+    <Compile Include="Components\Selectors\PanesStyleSelector.cs" />
+    <Compile Include="ViewModels\Panes\PaneViewModel.cs" />
+    <Compile Include="ViewModels\Panes\ToolViewModel.cs" />
+    <Compile Include="ViewModels\Tools\TocViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelFactory.cs" />
+    <Compile Include="ViewModels\ViewModelMessages.cs" />
+    <Compile Include="ViewModels\Panes\DocumentViewModel.cs" />
+    <Compile Include="Views\Documents\Books\BookView.xaml.cs">
+      <DependentUpon>BookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\Books\ePUBBookView2.xaml.cs">
+      <DependentUpon>ePUBBookView2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\Books\ePUBBookView.xaml.cs">
+      <DependentUpon>ePUBBookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\Books\TwoPageView.xaml.cs">
+      <DependentUpon>TwoPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Selectors\SysObjectItemStyleSelector.cs" />
+    <Compile Include="Views\Documents\DriveView.xaml.cs">
+      <DependentUpon>DriveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\LibraryView.xaml.cs">
+      <DependentUpon>LibraryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\SplashContent.xaml.cs">
+      <DependentUpon>SplashContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tools\DriveExplorerView.xaml.cs">
+      <DependentUpon>DriveExplorerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tools\ExplorerView.xaml.cs">
+      <DependentUpon>ExplorerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Controls\ThumbView.cs" />
+    <Compile Include="Views\Backstage\ConvertView.xaml.cs">
+      <DependentUpon>ConvertView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Backstage\DeviceConfigView.xaml.cs">
+      <DependentUpon>DeviceConfigView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Backstage\InfoView.xaml.cs">
+      <DependentUpon>InfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Backstage\PublishView.xaml.cs">
+      <DependentUpon>PublishView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Backstage\RecentFileView.xaml.cs">
+      <DependentUpon>RecentFileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Backstage\FeedConfigView.xaml.cs">
+      <DependentUpon>FeedConfigView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Backstage\OptionsView.xaml.cs">
+      <DependentUpon>OptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Backstage\OptionsViewExtended.xaml.cs">
+      <DependentUpon>OptionsViewExtended.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\FeedView.xaml.cs">
+      <DependentUpon>FeedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\LocalizeView.xaml.cs">
+      <DependentUpon>LocalizeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\Books\XpsBookView.xaml.cs">
+      <DependentUpon>XpsBookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Dialogs\SimulateDialog.xaml.cs">
+      <DependentUpon>SimulateDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tools\TocView.xaml.cs">
+      <DependentUpon>TocView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Controls\MagnifyGlass.cs" />
+    <Compile Include="Components\Controls\RatingControl.cs" />
+    <Compile Include="Components\Dialogs\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dependencies\Devices.xlsx" />
+    <None Include="Dependencies\Quickstart.de.docx" />
+    <Content Include="Dependencies\QuickStart.de.xps">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Dependencies\x64_wow32_ie_mode.reg" />
+    <None Include="Dependencies\x64_x32_ie_mode.reg" />
+    <None Include="Dependencies\ProgrammDiagram.cd" />
+    <None Include="Dependencies\QuickStart.en.docx" />
+    <Content Include="Dependencies\QuickStart.en.xps">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Dependencies\QuickStart.fr.docx" />
+    <Content Include="Dependencies\QuickStart.fr.xps">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Page Include="Resources\XAML\Controls\SpinBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\System\Slider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\GroupBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\ListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\ScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\TabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\System\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dependencies\feeds.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\Images\16x16\window.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss_next.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss_previous.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss_refresh.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss_search.png" />
+    <None Include="Languages\ByCode.de.xml" />
+    <None Include="Languages\ByCode.es.xml" />
+    <None Include="Languages\CBR.Backstage.de.xml" />
+    <None Include="Languages\CBR.Backstage.es.xml" />
+    <None Include="Languages\CBR.de.xml" />
+    <None Include="Languages\CBR.Dialogs.de.xml" />
+    <None Include="Languages\CBR.Dialogs.es.xml" />
+    <None Include="Languages\CBR.es.xml" />
+    <None Include="Languages\de.png" />
+    <Resource Include="Resources\Images\32x32\icon\web.png" />
+    <Resource Include="Resources\Images\16x16\key.png" />
+    <Resource Include="Resources\Images\16x16\winshield.png" />
+    <Resource Include="Resources\Images\16x16\behaviour.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss_home.png" />
+    <Resource Include="Resources\Images\32x32\icon\properties.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss_close.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss_page_next.png" />
+    <Resource Include="Resources\Images\32x32\rss\rss_page_previous.png" />
+    <None Include="Languages\es.png" />
+    <Resource Include="Resources\Images\32x32\action\colors.png" />
+    <Resource Include="Resources\Images\32x32\action\reset_layout.png" />
+    <Resource Include="Resources\Images\book128.png" />
+    <Resource Include="Resources\Images\32x32\action\add.png" />
+    <Resource Include="Resources\Images\32x32\action\remove.png" />
+    <Resource Include="Resources\Images\32x32\library_add.png" />
+    <Resource Include="Resources\Images\32x32\library_delete.png" />
+    <Resource Include="Resources\Images\32x32\library_remove.png" />
+    <Resource Include="Resources\Images\32x32\library_share.png" />
+    <Resource Include="Resources\Images\32x32\book\book_print.png" />
+    <Resource Include="Resources\Images\32x32\icon\home.png" />
+    <Resource Include="Resources\Images\32x32\device\device.png" />
+    <Content Include="Templates\HTMLPage1.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\HTML\simple.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Resource Include="Components\Dialogs\toolbar_Files\**\*.jpg;Components\Dialogs\toolbar_Files\**\*.jpeg;Components\Dialogs\toolbar_Files\**\*.png;Components\Dialogs\toolbar_Files\**\*.bmp;Components\Dialogs\toolbar_Files\**\*.gif;Components\Dialogs\toolbar_Files\**\*.tif;Components\Dialogs\toolbar_Files\**\*.tiff" />
+    <Resource Include="Resources\Images\32x32\fit_no.png" />
+    <Resource Include="Resources\Images\32x32\book\book_two_page.png" />
+    <Resource Include="Resources\Images\32x32\book_type\book_type.png" />
+    <Resource Include="Resources\Images\32x32\book_type\book_type_img.png" />
+    <Resource Include="Resources\Images\32x32\book_type\book_type_pdf.png" />
+    <Resource Include="Resources\Images\32x32\icon\is_read.png" />
+    <Resource Include="Resources\Images\32x32\icon\lock.png" />
+    <Resource Include="Resources\Images\32x32\action\delete.png" />
+    <Resource Include="Resources\Images\32x32\action\refresh.png" />
+    <Resource Include="Resources\Images\32x32\localize_select.png" />
+    <Resource Include="Resources\Images\32x32\localize_new.png" />
+    <None Include="Languages\CBR.Dialogs.en.xml" />
+    <None Include="Languages\CBR.Dialogs.fr.xml" />
+    <None Include="Languages\ByCode.en.xml" />
+    <None Include="Languages\ByCode.fr.xml" />
+    <None Include="Languages\en.png" />
+    <None Include="Languages\fr.png" />
+    <Resource Include="Resources\Images\32x32\localize.png" />
+    <None Include="Languages\CBR.Backstage.en.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Languages\CBR.Backstage.fr.xml" />
+    <None Include="Languages\CBR.fr.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Languages\CBR.en.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <Resource Include="Resources\Images\32x32\action\search.png" />
+    <Resource Include="Resources\Images\32x32\book\book_new.png" />
+    <Resource Include="Resources\Images\32x32\device\device_view.png" />
+    <Resource Include="Resources\Images\32x32\page_previous.png" />
+    <Resource Include="Resources\Images\32x32\page_next.png" />
+    <Resource Include="Resources\Images\32x32\page_last.png" />
+    <Resource Include="Resources\Images\32x32\page_first.png" />
+    <Resource Include="Resources\Images\32x32\device\device_sync.png" />
+    <Resource Include="Resources\Images\32x32\device\device_refresh.png" />
+    <Resource Include="Resources\Images\32x32\book\book_remove.png" />
+    <Resource Include="Resources\Images\32x32\book_type\book_type_epub.png" />
+    <None Include="Dependencies\todo.txt" />
+    <Content Include="Dependencies\devices.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\Images\16x16\disk.png" />
+    <Resource Include="Resources\Images\16x16\file.png" />
+    <Resource Include="Resources\Images\16x16\folder.png" />
+    <Resource Include="Resources\Images\32x32\book_type\book_type_none.png" />
+    <Resource Include="Resources\Images\32x32\book_type\book_type_xps.png" />
+    <Resource Include="Resources\Images\32x32\book_type\book_type_rar.png" />
+    <Resource Include="Resources\Images\32x32\book_type\book_type_zip.png" />
+    <Resource Include="Resources\Images\phone_horizontal.png" />
+    <Resource Include="Resources\Images\16x16\pin_no.png" />
+    <Resource Include="Resources\Images\16x16\pin_yes.png" />
+    <Resource Include="Resources\Images\32x32\library_view.png" />
+    <Resource Include="Resources\Images\32x32\book\book_convert.png" />
+    <Resource Include="Resources\Images\16x16\sort_category.png" />
+    <Resource Include="Resources\Images\16x16\sort_alpha.png" />
+    <Resource Include="Resources\Images\16x16\view_details.png" />
+    <Resource Include="Resources\Images\16x16\view_thumb.png" />
+    <Resource Include="Resources\Images\32x32\book\book.png" />
+    <Resource Include="Resources\Images\32x32\book\book_add.png" />
+    <Resource Include="Resources\Images\32x32\book\book_close.png" />
+    <Resource Include="Resources\Images\32x32\book\book_delete.png" />
+    <Resource Include="Resources\Images\32x32\book\book_edit.png" />
+    <Resource Include="Resources\Images\32x32\book\book_open.png" />
+    <Resource Include="Resources\Images\32x32\book\book_protect.png" />
+    <Resource Include="Resources\Images\32x32\book\book_read.png" />
+    <Resource Include="Resources\Images\32x32\book\book_save.png" />
+    <Resource Include="Resources\Images\32x32\book\book_test.png" />
+    <Resource Include="Resources\Images\32x32\action\exit.png" />
+    <Resource Include="Resources\Images\32x32\fit_height.png" />
+    <Resource Include="Resources\Images\32x32\fit_width.png" />
+    <Resource Include="Resources\Images\32x32\icon\forbidden.png" />
+    <Resource Include="Resources\Images\32x32\action\full_screen.png" />
+    <Resource Include="Resources\Images\32x32\icon\help.png" />
+    <Resource Include="Resources\Images\32x32\icon\info.png" />
+    <Resource Include="Resources\Images\32x32\library_close.png" />
+    <Resource Include="Resources\Images\32x32\library_new.png" />
+    <Resource Include="Resources\Images\32x32\library_open.png" />
+    <Resource Include="Resources\Images\32x32\action\open_folder.png" />
+    <Resource Include="Resources\Images\32x32\page_clear_mark.png" />
+    <Resource Include="Resources\Images\32x32\page_goto_mark.png" />
+    <Resource Include="Resources\Images\32x32\page_mark.png" />
+    <Resource Include="Resources\Images\32x32\page_test.png" />
+    <Resource Include="Resources\Images\32x32\picture_order.png" />
+    <Resource Include="Resources\Images\32x32\picture_time.png" />
+    <Resource Include="Resources\Images\32x32\picture_zone.png" />
+    <Resource Include="Resources\Images\32x32\icon\push_pin.png" />
+    <Resource Include="Resources\Images\32x32\action\read.png" />
+    <Resource Include="Resources\Images\32x32\library_refresh.png" />
+    <Resource Include="Resources\Images\32x32\action\save.png" />
+    <Resource Include="Resources\Images\32x32\action\save_as.png" />
+    <Resource Include="Resources\Images\32x32\icon\tools.png" />
+    <Resource Include="Resources\Images\book.ico" />
+    <Resource Include="Resources\Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CBR.Core\CBR.Core.csproj">
+      <Project>{0C5E9FE4-0393-4662-A253-4F5F45621204}</Project>
+      <Name>CBR.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Components\Controls\TwoPages\TripleSheet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\Dialogs\AboutDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\Dialogs\PasswordDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Colors\Colors.Black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Colors\Colors.Blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Colors\Colors.Silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Common.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Controls\BrowseForControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Controls\Designer\DesignerItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\Designer\DrawingLayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\Designer\ResizeChrome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\Designer\SizeChrome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\ExtendedListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Controls\FilterControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\ProcessPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\ThumbView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\PageControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\MagnifyGlass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Controls\RatingControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\TwoPageBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\XAML\Controls\WaitSpin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\XAML\Controls\ZoomFlyer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\Books\BookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\Books\ePUBBookView2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Documents\Books\ePUBBookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\Books\TwoPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\DriveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\LibraryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Others\SplashContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tools\DriveExplorerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tools\ExplorerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Backstage\ConvertView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Backstage\DeviceConfigView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Backstage\InfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Backstage\PublishView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Backstage\RecentFileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Backstage\FeedConfigView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Backstage\OptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Backstage\OptionsViewExtended.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\FeedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Others\LocalizeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\Books\XpsBookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Dialogs\SimulateDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tools\TocView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\XAML\Custom\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Q /E /Y /I  "$(ProjectDir)Languages" "C:\Users\Guill\Documents\Comic Book Reader\Languages"</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

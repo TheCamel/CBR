@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="CBR.Views.ConvertView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="650" d:DesignWidth="800"
+             xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+			 xmlns:Controls="clr-namespace:CBR.Components.Controls"
+             xmlns:Models="clr-namespace:CBR.Core.Models;assembly=CBR.Core"
+             xmlns:Converters="clr-namespace:CBR.Components.Converters"
+			 Background="{DynamicResource CbrDarkBackgroundBrush}"
+			 Loaded="UserControl_Loaded">
+    
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="BookTypeTemplate" DataType="{x:Type Models:DocumentInfo}">
+        	<Grid Margin="3" >
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="1*"/>
+        			<ColumnDefinition Width="3*"/>
+        		</Grid.ColumnDefinitions>
+				<Image Width="24" Margin="1,1,10,1" Source="{Binding Type, Converter={x:Static Converters:TypeToImageConverter.Instance}}" />
+				<StackPanel Grid.Column="1" Margin="2">
+					<TextBlock Text="{Binding Extension}" />
+					<TextBlock Text="{Binding DialogDescription}" />
+				</StackPanel>
+        	</Grid>
+        </DataTemplate>
+        
+    </UserControl.Resources>
+
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{DynamicResource CbrScrollViewer}" >
+		<Grid Margin="15" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+
+			<StackPanel>
+				<TextBlock Style="{DynamicResource CbrTitleLabel}" Margin="5" 
+						   Text="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.Title, DefaultValue=Convert}" />
+				<Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+			</StackPanel>
+
+			<Grid Grid.Row="1" x:Name="paramGrid">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*" />
+					<ColumnDefinition Width="20" />
+					<ColumnDefinition Width="2*" />
+					<ColumnDefinition Width="20" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<StackPanel Orientation="Vertical" Margin="10">
+					<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+						   Text="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblSource, DefaultValue=Source(s)}" />
+					<RadioButton Style="{DynamicResource CbrRadioButton}" GroupName="Source" Margin="5" Name="rbOneSource" Click="rbSource_Click" 
+								 Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblSingleFile, DefaultValue=Single file}" />
+
+					<Controls:BrowseForControl x:Name="ctrlBrowseSourceFile"
+									   IsEnabled="{Binding ElementName=rbOneSource, Path=IsChecked}"
+									   Mode="ForFile" OnBrowseEvent="ctrlBrowseSourceFile_OnBrowseEvent" />
+
+					<RadioButton Style="{DynamicResource CbrRadioButton}" GroupName="Source" Margin="5" Name="rbMultipleSource" Click="rbSource_Click"
+								 Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblFolder, DefaultValue=Folder content (recursively)}" />
+
+					<Controls:BrowseForControl x:Name="ctrlBrowseSourceFolder"
+									   IsEnabled="{Binding ElementName=rbMultipleSource, Path=IsChecked}"
+									   Mode="ForFolder" />
+
+					<Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+
+					<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+							   Text="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblFormat, DefaultValue=Format}" />
+
+					<ComboBox Style="{DynamicResource CbrStandardComboBox}" Name="comboBoxImputFormat" Margin="5" ItemTemplate="{StaticResource BookTypeTemplate}"
+							  IsEnabled="{Binding ElementName=rbMultipleSource, Path=IsChecked}"
+							  SelectionChanged="comboBoxImputFormat_SelectionChanged" />
+            
+				</StackPanel>
+
+				<Line Grid.Column="1" Style="{DynamicResource CbrVerticalSeparator}" />
+
+				<StackPanel Grid.Column="2" Grid.Row="1" Margin="10" Name="stack2">
+            
+            <TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+                Text="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblDestination, DefaultValue=Destination(s)}" />
+
+					<RadioButton Style="{DynamicResource CbrRadioButton}" GroupName="Destination" Margin="5" Name="rbSameAsSource" Click="rbSameAsSource_Click"
+                         Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblOutSame, DefaultValue=Same_as_the_source}" />
+					<RadioButton Style="{DynamicResource CbrRadioButton}" GroupName="Destination" Margin="5" Name="rbInOneFolder"
+                         Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblOutUnique, DefaultValue=In a unique folder to define below :}" />
+
+			<Controls:BrowseForControl x:Name="ctrlBrowseDestination"
+									   IsEnabled="{Binding ElementName=rbInOneFolder, Path=IsChecked}"
+									   Mode="ForFolder" />
+					
+            <Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+
+            <TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+					   Text="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblFormat, DefaultValue=Format}" />
+					<ComboBox Style="{DynamicResource CbrStandardComboBox}" Name="comboBoxOuputFormat" Margin="5"
+							  ItemTemplate="{StaticResource BookTypeTemplate}"/>
+            
+            <Line Style="{DynamicResource CbrDashedSeparator}" X1="0" X2="1" />
+        
+            <TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+                       Text="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblControl, DefaultValue=Control}" />
+					<CheckBox Style="{DynamicResource CbrCheckBox}" Margin="5" Name="chkVerify"
+                      Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.chkVerify, DefaultValue=Verify page/image count}" IsChecked="True" />
+					<CheckBox Style="{DynamicResource CbrCheckBox}" Margin="30,5,5,5" Name="chkJoin" IsEnabled="{Binding ElementName=chkVerify, Path=IsChecked}"
+                      Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.chkJoin, DefaultValue=Join images when splitted}" IsChecked="True" />
+					<CheckBox Style="{DynamicResource CbrCheckBox}" Margin="5" Name="chkUpdate" 
+					  Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.chkUpdateLib, DefaultValue=Update library}" />
+
+        </StackPanel>
+
+				<Line Grid.Column="3" Style="{DynamicResource CbrVerticalSeparator}" />
+
+				<StackPanel Grid.Column="5" Orientation="Vertical" Margin="10" >
+					<Button Style="{DynamicResource CbrStandardButton}" Width="80" Height="80" Margin="10" Name="btnConvert"
+							Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.BtnConvert, DefaultValue=Convert}" Click="btnConvert_Click" />
+					<Button Style="{DynamicResource CbrStandardButton}" Width="80" Height="80" Margin="10" Name="btnCancel"
+							Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.BtnCancel, DefaultValue=Cancel}" Click="btnCancel_Click" Visibility="Hidden" />
+				</StackPanel>
+				
+			</Grid>
+			
+			<StackPanel Grid.Row="2" x:Name="ResultPanel" Visibility="Collapsed">
+				<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+					Text="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblResults, DefaultValue=Result(s)}" />
+				<Label Style="{DynamicResource CbrLabel}" Foreground="{DynamicResource CbrLinkButtonForegroundHighlighted}" Margin="10,0,10,0" ForceCursor="True"
+					Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblResultsWarning, DefaultValue=Before_deleting_your_files_allways_check_the_resulting_files}" />
+				<Label Style="{DynamicResource CbrLabel}" Margin="10,0,10,0"
+					   Content="{LocalizationExtension ResModul=CBR.Backstage, Key=ConvertView.LblResultsSteps, DefaultValue=Current conversion step}" />
+				<ListBox Style="{DynamicResource CbrStandardListBox}" Margin="10,0,10,0" MinHeight="100" MaxHeight="100" Name="lbResults"></ListBox>
+				<ProgressBar Margin="10,5,10,5" Height="22" Name="progressResults" IsIndeterminate="True"></ProgressBar>
+			</StackPanel>
+		</Grid>
+	</ScrollViewer>	
+</UserControl>

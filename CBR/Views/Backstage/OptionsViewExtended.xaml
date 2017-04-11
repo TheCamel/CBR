@@ -1,0 +1,234 @@
+﻿<Window x:Class="CBR.Views.OptionsViewExtended"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Models="clr-namespace:CBR.Core.Models;assembly=CBR.Core"
+        xmlns:Converters="clr-namespace:CBR.Components.Converters"
+		Background="{DynamicResource CbrDarkBackgroundBrush}"
+		Title="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.Title, DefaultValue=Extended options}"
+		Height="500" Width="500" ShowInTaskbar="False">
+    <Window.Resources>
+
+		<DataTemplate x:Key="BookTypeTemplate" DataType="{x:Type Models:DocumentInfo }">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+				<CheckBox Style="{DynamicResource CbrCheckBox}" Margin="15,5,15,5" IsChecked="{Binding IsChecked}" Command="{Binding CheckCommand}" VerticalAlignment="Center" />
+                <Image Grid.Column="1" Width="24" Source="{Binding Icon}" />
+                <StackPanel Grid.Column="2" Margin="5">
+					<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Text="{Binding Extension}" />
+					<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Text="{Binding ToDisplay}" />
+                </StackPanel>
+            </Grid>
+
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+		<TabControl TabStripPlacement="Left" Name="tabGroup" Style="{DynamicResource CbrStandardTabControl}">
+			
+			<!--TAB-->
+			<TabItem Name="tabItemBehave" Height="Auto" Header="test">
+				<TabItem.HeaderTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Vertical" Margin="2">
+							<Image Width="16" Source="/CBR;component/Resources/Images/16x16/behaviour.png" />
+							<Label Style="{DynamicResource CbrLabel}"  Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.TabBehaviour, DefaultValue=Behaviour}"/>
+						</StackPanel>
+					</DataTemplate>
+				</TabItem.HeaderTemplate>
+				<ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource CbrScrollViewer}">
+					<StackPanel Orientation="Vertical" Margin="10">
+
+                        <TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+								   Text="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.DisplayTitle, DefaultValue=Display options}" />
+                        
+                        <CheckBox Style="{DynamicResource CbrCheckBox}" Margin="5" IsChecked="{Binding FullScreenOptimized}"
+								  Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.chkUseOptimScreen, DefaultValue=Use optimized full screen}" />
+                        <CheckBox Style="{DynamicResource CbrCheckBox}" Margin="5" IsChecked="{Binding ShowZoomContent}" 
+								  Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.chkShowZoomSlider, DefaultValue=Show zoom slider on book content}" />
+                        <CheckBox Style="{DynamicResource CbrCheckBox}" Margin="5" IsChecked="{Binding ShowTooltipExplorer}"
+								  Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.chkShowTooltip, DefaultValue=Show tooltip on explorer items}"/>
+                        <CheckBox Style="{DynamicResource CbrCheckBox}" Margin="5" IsChecked="{Binding ShowGridCover}"
+								  Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.chkDisplayCover, DefaultValue=Display cover column in explorer grid}"/>
+                        <CheckBox Style="{DynamicResource CbrCheckBox}" Margin="5" IsChecked="{Binding BehavePageTempo}"
+								  Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.BehaveUseTempo, DefaultValue=Use temporised scroll at top and bottom of the pages}"/>
+
+                        <Label Style="{DynamicResource CbrLabel}" Margin="5" HorizontalAlignment="Stretch"
+							   Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.lblDefaultExplorerView, DefaultValue=Default explorer view}"/>
+                        <ListBox Style="{DynamicResource CbrStandardListBox}" Margin="15,0,15,0">
+                            <ListBoxItem IsSelected="{Binding IsViewThumbSimple}"
+										 Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.itemSimpleView, DefaultValue=Simple thumbnail view}" />
+                            <ListBoxItem IsSelected="{Binding IsViewThumbDetails}"
+										 Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.itemExtendedView, DefaultValue=Extended thumbnail view}" />
+                            <ListBoxItem IsSelected="{Binding IsViewGrid}"
+										 Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.itemGridView, DefaultValue=Grid view}"/>
+                        </ListBox>
+
+					</StackPanel>
+				</ScrollViewer>
+			</TabItem>
+			<!--TAB-->
+			<TabItem Name="tabItemProperties" Height="Auto">
+				<TabItem.HeaderTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Vertical" Margin="2">
+							<Image Width="16" Source="/CBR;component/Resources/Images/32x32/icon/properties.png" />
+							<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.TabProperties, DefaultValue=Properties}"/>
+						</StackPanel>
+					</DataTemplate>
+				</TabItem.HeaderTemplate>
+				<ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource CbrScrollViewer}">
+                    <StackPanel Orientation="Vertical" Margin="10">
+						<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+								   Text="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.DynPropTile, DefaultValue=Dynamic properties}" />
+						<Label Style="{DynamicResource CbrLabel}" Margin="5" HorizontalAlignment="Stretch"
+							    Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.DynPropExist, DefaultValue=Existing properties}" />
+                        <StackPanel Margin="5">
+							<ListBox Style="{DynamicResource CbrStandardListBox}" ItemsSource="{Binding Dynamics}" Name="lbProperties" MinHeight="100" />
+							<Button Style="{DynamicResource CbrStandardButton}" Margin="30,10,30,10"
+									Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.DynPropDelete, DefaultValue= Delete...}"
+									Command="{Binding DeletePropertyCommand}" CommandParameter="{Binding ElementName=lbProperties, Path=SelectedValue}" />
+                        </StackPanel>
+						<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+								   Text="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.DynPropAddTitle, DefaultValue=Add new property}" />
+                        <StackPanel>
+							<Label Style="{DynamicResource CbrLabel}" Margin="5" HorizontalAlignment="Stretch"
+								   Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.DynPropName, DefaultValue=Property name}" />
+
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="30,0,30,0" Name="tbProperty"></TextBox>
+                            <Button Style="{DynamicResource CbrStandardButton}"  Margin="30,10,30,10"
+									Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.DynPropAdd, DefaultValue=Add...}"
+									Command="{Binding AddPropertyCommand}" CommandParameter="{Binding ElementName=tbProperty, Path=Text}" />
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+			<!--TAB-->
+			<TabItem Name="tabItemRegister" Height="Auto">
+				<TabItem.HeaderTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Vertical" Margin="2">
+							<Image Width="16" Source="/CBR;component/Resources/Images/16x16/key.png" />
+							<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.TabRegistering, DefaultValue=Registering}"/>
+						</StackPanel>
+					</DataTemplate>
+				</TabItem.HeaderTemplate>
+
+				<ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource CbrScrollViewer}">
+                    <StackPanel Orientation="Vertical" Margin="10">
+						<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+								   Text="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.RegisterTitle, DefaultValue=Registering file type}" />
+						<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Margin="5" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
+								   Text="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.RegisterExplain, DefaultValue=Registering a file type consist of associating a programme and an icon to a certain type of file}" />
+                        <ItemsControl ItemsSource="{Binding FileTypes}" ItemTemplate="{StaticResource BookTypeTemplate}" />
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+			<!--TAB-->
+			<TabItem Name="tabItemProxy" Height="Auto">
+				<TabItem.HeaderTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Vertical" Margin="2">
+							<Image Width="16" Source="/CBR;component/Resources/Images/16x16/winshield.png" />
+							<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.TabProxy, DefaultValue=Proxy}"/>
+						</StackPanel>
+					</DataTemplate>
+				</TabItem.HeaderTemplate>
+				<ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource CbrScrollViewer}">
+					<StackPanel Orientation="Vertical" Margin="10">
+						<TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+								   Text="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.ProxyTitle, DefaultValue=Proxy Settings}" />
+						<TextBlock Style="{DynamicResource CbrTextBlockSmall}" Margin="5" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
+								   Text="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.ProxyExplain, DefaultValue=Setup the parameters for internet web acess through a proxy}" />
+						<Grid Margin="10">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.proxyAdress, DefaultValue=Adress}" />
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1" Text="{Binding Address}"/>
+
+							<Label Style="{DynamicResource CbrLabel}" Grid.Row="1"
+								   Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.ProxyPort, DefaultValue=Registering file tPortype}" />
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1" Grid.Row="1" Text="{Binding Port}" />
+
+							<Label  Style="{DynamicResource CbrLabel}" Grid.Row="2"
+								   Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.ProxyUser, DefaultValue=User}" />
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1" Grid.Row="2" Text="{Binding UserName}" />
+
+							<Label Style="{DynamicResource CbrLabel}" Grid.Row="3"
+								   Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.ProxyPassword, DefaultValue=Password}" />
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1" Grid.Row="3" Text="{Binding Password}"/>
+
+							<Label Style="{DynamicResource CbrLabel}" Grid.Row="4"
+								   Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.ProxyDomain, DefaultValue=Domain}" />
+							<TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1" Grid.Row="4" Text="{Binding Domain}" />
+					</Grid>
+					</StackPanel>
+				</ScrollViewer>
+			</TabItem>
+            <!--TAB-->
+            <TabItem Name="tabItemShare" Height="Auto">
+                <TabItem.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="2">
+                            <Image Width="16" Source="/CBR;component/Resources/Images/32x32/icon/web.png" />
+                            <Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.TabShare, DefaultValue=Share}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </TabItem.HeaderTemplate>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource CbrScrollViewer}">
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <TextBlock Style="{DynamicResource CbrSubTitleLabel}" Margin="5"
+								   Text="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.ShareTitle, DefaultValue=Share Settings}" />
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Style="{DynamicResource CbrLabel}" Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.shareServer, DefaultValue=Server name}" />
+                            <TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1" Text="{Binding ShareAdress}"/>
+
+                            <Label Style="{DynamicResource CbrLabel}" Grid.Row="1"
+                                   Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.sharePort, DefaultValue=Server port}" />
+                            <TextBox Style="{DynamicResource CbrStandardTextBox}" Margin="5" Grid.Column="1" Grid.Row="1" 
+                                     Text="{Binding SharePort}"/>
+
+                            <Label Style="{DynamicResource CbrLabel}" Grid.Row="2"
+								   Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.shareStart, DefaultValue=Start up}" />
+                            <CheckBox Grid.Column="1" Grid.Row="2" Margin="5" 
+                                Style="{DynamicResource CbrCheckBox}" IsChecked="{Binding ShareOnStartup}" 
+								  Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.shareStarting, DefaultValue=Activate share on startup}"/>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+
+		<Button Grid.Row="1" Style="{DynamicResource CbrStandardButton}" Margin="10" Name="btnClose" Click="btnClose_Click"
+				Content="{LocalizationExtension ResModul=CBR.Dialogs, Key=OptionExtended.BtnClose, DefaultValue=Close}"/>
+    </Grid>
+</Window>

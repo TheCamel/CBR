@@ -1,0 +1,78 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:CBR.Components.Controls">
+
+    <Style x:Key="{x:Type controls:MagnifyGlass}" TargetType="{x:Type controls:MagnifyGlass}">
+        <Setter Property="Visibility" Value="Hidden" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:MagnifyGlass}">
+					<Canvas>
+						<Canvas x:Name="PART_magnifierCanvas" Canvas.Left="0" Canvas.Top="0">
+							<Ellipse x:Name="outer_ellipse" Width="262.667" Height="262.667" Canvas.Left="0" Canvas.Top="3.05176e-005" Stretch="Fill" StrokeThickness="10" StrokeLineJoin="Round">
+								<Ellipse.Stroke>
+									<LinearGradientBrush StartPoint="-0.107934,0.498174" EndPoint="1.4111,0.49627">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="#AF000000" Offset="0"/>
+											<GradientStop Color="#AFFFFFFF" Offset="1"/>
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Ellipse.Stroke>
+							</Ellipse>
+							<Ellipse x:Name="PART_magnifierView" Width="243.687" Height="243.687" Canvas.Left="10.4999" Canvas.Top="9.33334" Stretch="Fill" StrokeThickness="3" StrokeLineJoin="Round" Stroke="#FFCECECE">
+								<Ellipse.Fill>
+									<VisualBrush ViewboxUnits="Absolute" Viewbox="0,0,150,150" ViewportUnits="RelativeToBoundingBox" Viewport="0,0,1,1" />
+								</Ellipse.Fill>
+							</Ellipse>
+							<Path x:Name="Path" Width="64.5573" Height="63.25" Canvas.Left="191" Canvas.Top="195.274" Stretch="Fill" StrokeThickness="2" StrokeLineJoin="Round" Stroke="#FF141414" Data="F1 M 192,247.417L 204.057,257.524L 215.25,256.667L 253,218.917L 254.557,209.024L 243.641,196.274L 192,247.417 Z ">
+								<Path.Fill>
+									<LinearGradientBrush StartPoint="-0.0615579,1.136" EndPoint="1.53753,1.136">
+										<LinearGradientBrush.RelativeTransform>
+											<TransformGroup>
+												<SkewTransform CenterX="-0.0615579" CenterY="1.136" AngleX="-1.20878" AngleY="0"/>
+												<RotateTransform CenterX="-0.0615579" CenterY="1.136" Angle="-44.3771"/>
+											</TransformGroup>
+										</LinearGradientBrush.RelativeTransform>
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="#AF000000" Offset="0"/>
+											<GradientStop Color="#AFFFFFFF" Offset="1"/>
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Path.Fill>
+							</Path>
+							<Path x:Name="Path_0" Width="77.6667" Height="77.75" Canvas.Left="215.083" Canvas.Top="217.917" Stretch="Fill" StrokeThickness="2" StrokeLineJoin="Round" Stroke="#FF525252" Data="F1 M 216.083,256.333L 253.5,294.667L 291.75,257.167L 253.25,218.917L 216.083,256.333 Z ">
+								<Path.Fill>
+									<LinearGradientBrush StartPoint="0.240088,0.801981" EndPoint="0.788028,0.801981">
+										<LinearGradientBrush.RelativeTransform>
+											<TransformGroup>
+												<SkewTransform CenterX="0.240088" CenterY="0.801981" AngleX="0.0628626" AngleY="0"/>
+												<RotateTransform CenterX="0.240088" CenterY="0.801981" Angle="-44.9686"/>
+											</TransformGroup>
+										</LinearGradientBrush.RelativeTransform>
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="#AF000000" Offset="0"/>
+											<GradientStop Color="#AFFFFFFF" Offset="1"/>
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Path.Fill>
+							</Path>
+							<Path x:Name="Path_1" Width="107.5" Height="93.25" Canvas.Left="250.25" Canvas.Top="252.917" Stretch="Fill" StrokeThickness="2" StrokeLineJoin="Round" Stroke="#AF000000" Data="F1 M 282.75,345.167L 251.25,310.667L 251.5,296.417L 292.5,256.167L 306.75,253.917L 356.75,299.667C 352.574,303.361 348.398,307.055 344.064,310.888C 339.731,314.722 335.241,318.694 330.666,320.314C 326.091,321.933 321.432,321.2 316.932,320.491C 312.432,319.783 308.091,319.1 304.534,319.441C 300.977,319.783 298.203,321.149 295.43,322.515C 292.62,323.899 289.81,325.283 288.089,327.349C 286.369,329.415 285.737,332.164 285.029,335.248C 284.32,338.331 283.535,341.749 282.75,345.167 Z ">
+								<Path.Fill>
+									<LinearGradientBrush StartPoint="-5.78532e-007,0.500001" EndPoint="0.999999,0.500001">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="#AF000000" Offset="0"/>
+											<GradientStop Color="#AFFFFFFF" Offset="1"/>
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Path.Fill>
+							</Path>
+							<Path x:Name="Line" Width="46.25" Height="43" Canvas.Left="299.566" Canvas.Top="260.437" Stretch="Fill" StrokeThickness="5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Stroke="#57FFFFFF" Data="F1 M 302.066,262.937L 343.316,300.937"/>
+							<Path x:Name="Line_2" Width="23.75" Height="26" Canvas.Left="258.066" Canvas.Top="302.687" Stretch="Fill" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Stroke="#FF7E7E7E" Data="F1 M 259.566,304.187L 280.316,327.187"/>
+						</Canvas>
+					</Canvas>
+				</ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

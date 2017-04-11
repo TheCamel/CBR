@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LocalizationDictionary xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" IetfLanguageTag="es" Module="CBR.Backstage">
+  <LocalizationItems>
+    <Item Key="ConvertView.Title" Default="#Convert" Translated="Convertir" />
+    <Item Key="ConvertView.LblSource" Default="#Source(s)" Translated="Fuente(s)" />
+    <Item Key="ConvertView.LblSingleFile" Default="#Single file" Translated="Archivo único" />
+    <Item Key="ConvertView.LblFolder" Default="#Folder content (recursively)" Translated="Contenido de carpeta (y subcarpetas)" />
+    <Item Key="ConvertView.LblFormat" Default="#Format" Translated="Formato" />
+    <Item Key="ConvertView.LblDestination" Default="#Destination(s)" Translated="Destino(s)" />
+    <Item Key="ConvertView.LblOutSame" Default="#In a unique folder to define below :" Translated="Mismo de la fuente" />
+    <Item Key="ConvertView.LblControl" Default="#Control" Translated="Control" />
+    <Item Key="ConvertView.chkVerify" Default="#Verify page/image count" Translated="Verificar conteo de página" />
+    <Item Key="ConvertView.chkUpdateLib" Default="#Update library" Translated="Actualizar biblioteca" />
+    <Item Key="ConvertView.BtnConvert" Default="#Convert" Translated="Convertir" />
+    <Item Key="ConvertView.BtnCancel" Default="#Cancel" Translated="Cancelar" />
+    <Item Key="ConvertView.LblResults" Default="#Result(s)" Translated="Resultado(s)" />
+    <Item Key="ConvertView.LblResultsWarning" Default="#Before_deleting_your_files_allways_check_the_resulting_files" Translated="Antes de borrar tus archivos siempre revisar los archivos resultantes" />
+    <Item Key="ConvertView.LblResultsSteps" Default="#Current conversion step" Translated="Paso actual de conversión" />
+    <Item Key="Command.Open" Default="#_Open" Translated="Abrir" />
+    <Item Key="Command.Save" Default="#_Save" Translated="Guardar" />
+    <Item Key="Command.SaveAs" Default="#_Save as" Translated="Guardar como" />
+    <Item Key="Command.New" Default="#_New" Translated="Nuevo" />
+    <Item Key="Panel.Info" Default="#Info" Translated="Información" />
+    <Item Key="Panel.Recent" Default="#Recent" Translated="Reciente" />
+    <Item Key="Panel.New" Default="#New" Translated="Nuevo" />
+    <Item Key="Panel.Options" Default="#Options" Translated="Opciones" />
+    <Item Key="Panel.Convert" Default="#Convert" Translated="Convertir" />
+    <Item Key="Panel.Device" Default="#Devices" Translated="Dispositivos" />
+    <Item Key="Command.Exit" Default="#Exit" Translated="Salir" />
+    <Item Key="InfoView.Cover" Default="#Cover" Translated="Portada" />
+    <Item Key="InfoView.Properties" Default="#Properties" Translated="Propiedades" />
+    <Item Key="InfoView.Type" Default="#Type" Translated="Tipo" />
+    <Item Key="InfoView.Size" Default="#Size" Translated="Tamaño" />
+    <Item Key="InfoView.PageCount" Default="#Page count" Translated="Número de páginas" />
+    <Item Key="InfoView.Rating" Default="#Rating" Translated="Puntuación" />
+    <Item Key="InfoView.HasBeenRead" Default="#Has been read" Translated="Leído" />
+    <Item Key="InfoView.IsSecured" Default="#Is secured" Translated="Seguro" />
+    <Item Key="InfoView.DynProperties" Default="#Dynamic properties" Translated="Propiedades Dinámicas" />
+    <Item Key="InfoView.DynHelp" Default="#Comming from the option panel_you can define these values here" Translated="Viniendo del panel de control puede definir estos valores aquí" />
+    <Item Key="RecentFileView.Files" Default="#Recent files" Translated="Archivos recientes" />
+    <Item Key="RecentFileView.Libraries" Default="#Recent libraries" Translated="Bibliotecas Recientes" />
+    <Item Key="DeviceConfigView.Title" Default="#Supported device configuration" Translated="Configuración de dispositivos soportados" />
+    <Item Key="DeviceConfigView.Devices" Default="#Device(s)" Translated="Dispositivo(s)" />
+    <Item Key="DeviceConfigView.Filter" Default="#Type your criteria" Translated="Escribir criterio" />
+    <Item Key="DeviceConfigView.Delete" Default="#Delete" Translated="Eliminar" />
+    <Item Key="DeviceConfigView.DeviceInfo" Default="#Device informations" Translated="Información de dispositivo" />
+    <Item Key="DeviceConfigView.Model" Default="#Model" Translated="Modelo" />
+    <Item Key="DeviceConfigView.Manufacturer" Default="#Manufacturer" Translated="Fabricante" />
+    <Item Key="DeviceConfigView.SupportedFormat" Default="#Supported format(s)" Translated="Formatos soportado(s)" />
+    <Item Key="DeviceConfigView.Add" Default="#Add" Translated="Agregar un nuevo dispositivo" />
+    <Item Key="DeviceConfigView.Save" Default="#Save" Translated="Guardar" />
+    <Item Key="OptionView.Title" Default="#Application Settings" Translated="Configuración de la aplicación" />
+    <Item Key="OptionView.LblImages" Default="#Images" Translated="Imágenes" />
+    <Item Key="OptionView.lblNbImage" Default="#Image in cache" Translated="Imagen en caché" />
+    <Item Key="OptionView.lblImageDuration" Default="#Image duration (sec. after expiration)" Translated="Duración de la imagen (seg. después de expiración)" />
+    <Item Key="OptionView.lblAutoFitMode" Default="#Default auto fit mode" Translated="Modo de autoajuste por defecto" />
+    <Item Key="OptionView.lblFitNo" Default="#None : the images are displayed with the zoom factor" Translated="Ninguno : las imágenes son mostradas con el factor de ampliación" />
+    <Item Key="OptionView.lblFitWidth" Default="#Width : each time an image is displayed it is adjusted to fill in width" Translated="Ancho : cada vez la imagen es mostrada para ajustarse al ancho de la ventana" />
+    <Item Key="OptionView.lblFitHeight" Default="#Height : each time an image is displayed it is adjusted to fill in height" Translated="Alto : cada vez la imagen es mostrada para ajustarse al alto de la ventana" />
+    <Item Key="OptionView.lblMagnifier" Default="#Magnifier" Translated="Lupa" />
+    <Item Key="OptionView.lblMagnifierSize" Default="#Size of the magnifier" Translated="Tamaño de lupa" />
+    <Item Key="OptionView.lblMagnifierScale" Default="#Scaling factor" Translated="Factor de ampliación" />
+    <Item Key="OptionView.BtnSave" Default="#Save" Translated="Guardar" />
+    <Item Key="OptionView.BtnReset" Default="#Reset" Translated="Restablecer" />
+    <Item Key="ConvertView.LblOutUnique" Default="#In a unique folder to define below :" Translated="En esta carpeta:" />
+    <Item Key="OptionView.lblOthers" Default="#Others" Translated="Otros" />
+    <Item Key="OptionView.lblMaxRecent" Default="#Maximum mumber of recent book or library in the recent file list" Translated="Máximo número de libros o bibliotecas recientes en la lista de archivos recientes" />
+    <Item Key="OptionView.lblStartLanguage" Default="#Starting language if not system default" Translated="Lenguaje inicial si no es el del sistema" />
+    <Item Key="ConvertView.chkJoin" Default="#Join images when splitted" Translated="Unir imágenes divididas" />
+    <Item Key="DeviceConfigView.ImageFormat" Default="#Images" Translated="Imágenes" />
+    <Item Key="DeviceConfigView.RARFormat" Default="#Rar based" Translated="RAR" />
+    <Item Key="DeviceConfigView.ZIPFormat" Default="#Zip based" Translated="ZIP" />
+    <Item Key="DeviceConfigView.PDFFormat" Default="#PDF" Translated="PDF" />
+    <Item Key="DeviceConfigView.XPSFormat" Default="#XPS" Translated="XPS" />
+    <Item Key="DeviceConfigView.EPUBFormat" Default="#EPUB" Translated="EPUB" />
+    <Item Key="Panel.Publish" Default="#Publish" Translated="Publicar" />
+    <Item Key="PublishView.Title" Default="#Publish" Translated="Publicar" />
+    <Item Key="PublishView.LblColumns" Default="#Columns(s)" Translated="Columna(s)" />
+    <Item Key="PublishView.LblGroupBy" Default="#Group by" Translated="Agrupar por" />
+    <Item Key="PublishView.LblSortBy" Default="#Sort by" Translated="Ordenar por" />
+    <Item Key="PublishView.LblTemplate" Default="#Template" Translated="Patrón" />
+    <Item Key="PublishView.LblFormat" Default="#Format" Translated="Formato" />
+    <Item Key="PublishView.BtnConvert" Default="#Publish" Translated="Publicar" />
+    <Item Key="PublishView.BtnCancel" Default="#Cancel" Translated="Cancelar" />
+    <Item Key="Panel.RssFeed" Default="#Rss feeds" Translated="RSS feeds" />
+    <Item Key="FeedConfigView.Title" Default="#Rss feeds management" Translated="Gestor de RSS feeds" />
+    <Item Key="FeedConfigView.FeedList" Default="#Feed(s)" Translated="Feed(s)" />
+    <Item Key="FeedConfigView.Delete" Default="#Delete" Translated="Eliminar" />
+    <Item Key="FeedConfigView.FeedInfo" Default="#Feed informations" Translated="Información de feed(s)" />
+    <Item Key="FeedConfigView.Name" Default="#Name" Translated="Nombre" />
+    <Item Key="FeedConfigView.Url" Default="#Url" Translated="URL" />
+    <Item Key="FeedConfigView.Add" Default="#Add a new feed" Translated="Agregar un nuevo feed" />
+    <Item Key="FeedConfigView.Save" Default="#Save" Translated="Guardar" />
+    <Item Key="FeedConfigView.Language" Default="#Language" Translated="Idioma" />
+    <Item Key="FeedConfigView.Options" Default="#Options" Translated="Opciones" />
+    <Item Key="FeedConfigView.AskForDowloadFolder" Default="#Ask folder for each download" Translated="Preguntar carpeta para cada descarga" />
+    <Item Key="FeedConfigView.DowloadFolder" Default="#Allways in the following folder" Translated="Siempre en esta carpeta" />
+    <Item Key="FeedConfigView.CheckUpdateCatalog" Default="#Update the current catalog" Translated="Actualizar el catálogo" />
+    <Item Key="FeedConfigView.CheckAutomaticOpen" Default="#Automatically open after download" Translated="Abrir automáticamente después de descargado" />
+    <Item Key="FeedConfigView.CacheDuration" Default="#Cache duration (days)" Translated="Duración del caché (días)" />
+    <Item Key="InfoView.Title" Default="#Information about" Translated="Acerca de" />
+    <Item Key="FeedConfigView.DataName" Default="#Name" Translated="Nombre" />
+    <Item Key="FeedConfigView.DataUrl" Default="#Url" Translated="URL" />
+  </LocalizationItems>
+</LocalizationDictionary>

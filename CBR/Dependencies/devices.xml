@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDeviceInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DeviceInfo Manufacturer="Aluratek" Model="Liber Touch eBook Reader">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Aluratek" Model="Libre Air eBook Reader">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Aluratek" Model="Libre Color eBook Reader">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Aluratek" Model="Libre Pro eBook Reader">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Amazon" Model="Kindle 3 Wi-Fi + 3G">
+    <SupportedFormats>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Amazon" Model="Kindle DX">
+    <SupportedFormats>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Amazon" Model="Kindle 2">
+    <SupportedFormats>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Amazon" Model="Kindle">
+    <SupportedFormats />
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="ASUS" Model="Eee Reader DR900">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ZIPBased</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Barnes + Noble" Model="Nook Color">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Barnes + Noble" Model="nook">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Barnes + Noble" Model="Nook Touch">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Bookeen" Model="Cybook Orizon">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Bookeen" Model="Cybook Opus">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Bookeen" Model="Cybook Gen3">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="bq" Model="movistar ebook bq">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Condor Technology Associates" Model="eGriver IDEO">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Condor Technology Associates" Model="eGriver Touch">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="EBS Technology" Model="Agebook+6">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Elonex" Model="eBook">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Endless ideas" Model="BeBook One (Hanlin V3 clone)">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Endless ideas" Model="BeBook Mini (Hanlin V5 clone)">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Foxit Software" Model="eSlick">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Hanvon" Model="WISEreader N516">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Hanvon" Model="WISEreader N518">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Hanvon" Model="WISEreader N520">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Hanvon" Model="WISEreader N526">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Interead" Model="COOL-ER">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="iPapyrus Inc." Model="iPapyrus 6">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="iRex Technologies" Model="Digital Reader 800">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="iRex Technologies" Model="Digital Reader 1000">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="iRex Technologies" Model="iLiad">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Iriver" Model="Story">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Iriver" Model="IRiver Story HD">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ZIPBased</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="italica GmbH" Model="Paperback 1.0">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Jinke" Model="Hanlin V2">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Jinke" Model="Hanlin V3">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Jinke" Model="Hanlin V5">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Kobo" Model="eReader">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Kobo" Model="eReader WiFi">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>RARBased</DocumentType>
+      <DocumentType>ZIPBased</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Kobo" Model="eReader Touch">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>RARBased</DocumentType>
+      <DocumentType>ZIPBased</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Kogan Technologies" Model="Kogan eBook Reader">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Kolporter" Model="eClicto">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Newsmy" Model="e6210">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Onyx International" Model="Boox 60">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>RARBased</DocumentType>
+      <DocumentType>ZIPBased</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Onyx International" Model="Boox X61S">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Onyx International" Model="Boox M90">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>RARBased</DocumentType>
+      <DocumentType>ZIPBased</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="PocketBook" Model="PocketBook 360 Plus">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="PocketBook" Model="PocketBook Pro 602">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="PocketBook" Model="PocketBook Pro 603">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="PocketBook" Model="PocketBook Pro 902">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="PocketBook" Model="PocketBook Pro 903">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Samsung" Model="Papyrus">
+    <SupportedFormats />
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Samsung" Model="E6">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Sony" Model="Librié">
+    <SupportedFormats />
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Sony" Model="Reader Pocket Edition PRS-300">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Sony" Model="Reader PRS-500">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Sony" Model="Reader PRS-505">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Sony" Model="Reader Touch Edition PRS-600">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Sony" Model="Reader PRS-700">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Sony" Model="Reader Daily Edition PRS-900">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Spring Design" Model="Alex eReader">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Stereo International Enterprise Co, Ltd (Taiwan)" Model="ES600">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="TrekStor" Model="eBook Reader 3.0">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+      <DocumentType>ImageFile</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Velocity Micro" Model="Cruz Reader">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Velocity Micro" Model="Cruz Tablet T103">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Velocity Micro" Model="Cruz Tablet T301">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+  <DeviceInfo Manufacturer="Wolder Electronics" Model="Boox-S">
+    <SupportedFormats>
+      <DocumentType>ePUB</DocumentType>
+      <DocumentType>PDF</DocumentType>
+    </SupportedFormats>
+  </DeviceInfo>
+</ArrayOfDeviceInfo>

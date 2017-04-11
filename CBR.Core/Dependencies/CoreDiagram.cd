@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CBR.Core.Models.Zone">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAACAAAAAAAAAEQAAAAAAAAAAQBAAAAAYAA=</HashCode>
+      <FileName>Models\Book\Zone.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Models.Page">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAEAAAAQAAAAAAAABQAIAFQAABAAAE=</HashCode>
+      <FileName>Models\Book\Page.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Parent" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Frames" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Models.Catalog">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACBAAAAAAAAhAUAEAAAEBAEAgoAAAAAEAYABAIAAAAQ=</HashCode>
+      <FileName>Models\Intern\Catalog.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Books" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Models.Book">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AiCAAAAAAABggEAkgEACEAJACAACJBECIQFBACJAJAA=</HashCode>
+      <FileName>Models\Book\Book.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Pages" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Services.WorkspaceService">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAgAAAAAwAAAAAAAAAA=</HashCode>
+      <FileName>Services\Workspace\WorkspaceService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Instance" />
+      <Property Name="Settings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Models.WorkspaceInfo">
+    <Position X="3" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAJgQAAAAAAAgAAAQCRQAACAAAAIACAAgAAAAAAAA=</HashCode>
+      <FileName>Models\Workspace\WorkspaceInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Extended" />
+      <Property Name="Feed" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="RecentFileList" />
+      <Property Name="RecentCatalogList" />
+      <Property Name="DeviceInfoList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Models.RecentFileInfo" Collapsed="true">
+    <Position X="6" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAABAAABAAAA=</HashCode>
+      <FileName>Models\Workspace\RecentFileInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Services.CatalogService">
+    <Position X="0.5" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAwIACAABQIAAAACAABIgIQAAQAABAQDABDIAAAAQ=</HashCode>
+      <FileName>Services\Intern\CatalogService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Services.XpsBookService" Collapsed="true">
+    <Position X="8.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Services\Books\XpsBookService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Services.BookServiceBase">
+    <Position X="5.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AqACACAAAgAwCAAACAAAIAABAAkCBAIAAAAIABMEACA=</HashCode>
+      <FileName>Services\Books\BookServiceBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Services.BookService" Collapsed="true">
+    <Position X="8.25" Y="12" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AoCCACAAAgAgQACQCAAAIAAAAEAABAAgAAAAAAAAACg=</HashCode>
+      <FileName>Services\Books\BookService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Services.BookInfoService">
+    <Position X="3" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAAAAACAAAACA=</HashCode>
+      <FileName>Services\Intern\BookInfoService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.ContractParameters">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAIAAAAAIoCAAQAAAgAAAAAEAAAAgAAAgA=</HashCode>
+      <FileName>Files\Conversion\Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.BookFileConverter">
+    <Position X="13.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CAAAABAAQAAQAAAAIIIAAAAAAgAAAAAAgAAAAACAAAA=</HashCode>
+      <FileName>Files\Conversion\BookFileConverter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Settings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.ImageFileReader" Collapsed="true">
+    <Position X="18.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files\Conversion\IMG\ImageFileReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.ImageFileWriter" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Files\Conversion\IMG\ImageFileWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.PDFImageReader" Collapsed="true">
+    <Position X="20.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files\Conversion\PDF\PDFImageReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.RARImageReader" Collapsed="true">
+    <Position X="18.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files\Conversion\RAR\RARImageReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.ZIPWriter" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Files\Conversion\RAR\ZIPWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.XPSImageReader" Collapsed="true">
+    <Position X="20.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files\Conversion\XPS\XPSImageReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.Core.Files.Conversion.XPSImageWriter" Collapsed="true">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Files\Conversion\XPS\XPSImageWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.Core.Models.DeviceInfo" Collapsed="true">
+    <Position X="6" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAgABA=</HashCode>
+      <FileName>Models\Workspace\DeviceInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.CultureManager">
+    <Position X="0.5" Y="16" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAhIAEAABEBAAAAAAAEBBQEGBAACAgQAAAAQAACAQ=</HashCode>
+      <FileName>Helpers\WPF\Localization\CultureManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Instance" />
+      <Property Name="Provider" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.LocalizationExtension">
+    <Position X="6" Y="18.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAQEAACAAAAAAABAAAAABAEACAAAEgA=</HashCode>
+      <FileName>Helpers\WPF\Localization\LocalizationExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.ManagedMarkupExtension">
+    <Position X="3" Y="16" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAICAAEIAAAAAAAAAAACAAAAAQAAAAAAAAAAAAAKEA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Core\ManagedMarkupExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.MarkupExtensionManager">
+    <Position X="6" Y="16" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAACAAAACAAAEAAAAAAAAAABAAIAAAAQAgAAAAAAAA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Core\MarkupExtensionManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Instance" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Extensions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Infralution.Localization.Wpf.ResourceEnumConverter" Collapsed="true">
+    <Position X="9" Y="16" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAhAgAYAAAAAigAAAAAAAAQAAAACAAQAAAAAAAAQA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Core\ResourceEnumConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.ResxProvider" Collapsed="true">
+    <Position X="0.5" Y="25.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAIgAAAgAAAAAABAAAAAAA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\Resx\ResxProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.ProviderBase">
+    <Position X="0.5" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAhAAAAAAAIAAABAIAEADAEAAAAAAQAAAAAAAACAA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\ProviderBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.FileBaseProvider">
+    <Position X="3" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABApAAAAAAAIAAABAAAEABAGAAAAgAAAAkAAEAACAA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\Files\FileBaseProvider.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_localizationFileList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.BinProvider" Collapsed="true">
+    <Position X="5" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAEAAAAAEA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\Files\BinProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.XmlProvider">
+    <Position X="7" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAEAAAAAEA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\Files\XmlProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.LocalizationFile">
+    <Position X="5.25" Y="24.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\Files\LocalizationFile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Dictionnaries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.LocalizationDictionary">
+    <Position X="7.75" Y="24.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAAACABAABA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\Files\LocalizationFile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="LocalizationItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Helpers.Localization.LocalizationItem">
+    <Position X="10.25" Y="24.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAQAAAAAIAAEAAAAAAAAAAAAAAAAABQ=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\Files\LocalizationFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Models.ExtendedInfo" Collapsed="true">
+    <Position X="6" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAACAACAAAIAAAAAAACAAAAAABAAAAAAAAAAgAACI=</HashCode>
+      <FileName>Models\Workspace\ExtendedInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Models.FeedInfo" Collapsed="true">
+    <Position X="6" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABQAAAAAAAAABAAAAAAAAAAAAQAAAAAAAACA=</HashCode>
+      <FileName>Models\Workspace\FeedInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Feeds" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Models.FeedItemInfo" Collapsed="true">
+    <Position X="8.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\Workspace\FeedInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Models.ProxyInfo" Collapsed="true">
+    <Position X="8.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACgAAAAACAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Workspace\ProxyInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Services.ePUBBookService" Collapsed="true">
+    <Position X="8.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Services\Books\ePUBBookService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Services.DocumentFactory">
+    <Position X="10.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAEgAIAoAIQAAAAAAAAAIAAoCAQAQAAAAACEA=</HashCode>
+      <FileName>Services\Intern\DocumentFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="allExtension" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Models.DocumentInfo" Collapsed="true">
+    <Position X="12.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACBAAACgAAIACAAAAAAAEAAAQQAAAQoAAQAAAAA=</HashCode>
+      <FileName>Models\Intern\DocumentInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.OPDS.OpdsManager">
+    <Position X="0.5" Y="27.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAIAAACCQAAgAAAgCQAAEkAIgEAAAoAAAAAg=</HashCode>
+      <FileName>Formats\OPDS\OpdsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.OPDS.OpdsItemBase">
+    <Position X="5" Y="27.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Formats\OPDS\Model\OpdsItemBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.OPDS.OpdsItem">
+    <Position X="7.5" Y="27.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAgAAACAACAEgAAAAAEAAAAAEAAAEQAAA=</HashCode>
+      <FileName>Formats\OPDS\Model\OpdsItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Downloads" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.OPDS.OpdsFeed">
+    <Position X="2.5" Y="27.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAEgAAAAQAAAQACAIBAEAAAAAEAAAA=</HashCode>
+      <FileName>Formats\OPDS\Model\OpdsFeed.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.OPDS.OpdsDownload">
+    <Position X="10" Y="27.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAQAAQAAAAAA=</HashCode>
+      <FileName>Formats\OPDS\Model\OpdsDownload.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.OPDS.OpdsCategory">
+    <Position X="5" Y="30.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Formats\OPDS\Model\OpdsCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBManager" Collapsed="true">
+    <Position X="0.5" Y="33" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAgAABAAIAAAAICBAAIAAACBQACAABAQIAGAAEA=</HashCode>
+      <FileName>Formats\ePUB\ePUBManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBHelper" Collapsed="true">
+    <Position X="2.25" Y="33" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Formats\ePUB\ePUBHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUB">
+    <Position X="0.5" Y="33.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAQAAAQAAAAAAAAIBAAAAAAAAAAAACBBQAEAAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\ePUB.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Container" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBContainer">
+    <Position X="2.75" Y="33.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\ePUBContainer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Package" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBPackage">
+    <Position X="5" Y="33.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABBAABIEIAAAAACAEAAAAAAAAAAAAAQAAEAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\ePUBPackage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Manifest" />
+      <Property Name="Metadata" />
+      <Property Name="TableOfContent" />
+      <Property Name="Spine" />
+      <Property Name="Guide" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBNavPoint" Collapsed="true">
+    <Position X="9.5" Y="33.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAkgAACAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Toc\ePUBNavPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBTableNCX" Collapsed="true">
+    <Position X="7.25" Y="33.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIAAAAAACEAAgABABAAAAAAAQAAEQAAAQAQAhAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Toc\ePUBTableNCX.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBSpine" Collapsed="true">
+    <Position X="7.25" Y="34.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACgAAAAAAIAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Spine\ePUBSpine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBSpineItem" Collapsed="true">
+    <Position X="9.5" Y="34.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Spine\ePUBSpineItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBMetadata" Collapsed="true">
+    <Position X="7.25" Y="35.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Meta\ePUBMetadata.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Meta" />
+      <Property Name="MetaDC" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBMetaItem" Collapsed="true">
+    <Position X="7.25" Y="36.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Meta\ePUBMetaItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBMetaDcItem" Collapsed="true">
+    <Position X="9.5" Y="36.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAIAAAACAAAAACAAAAIAAEAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Meta\ePUBMetaDcItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBManifest" Collapsed="true">
+    <Position X="2.75" Y="35.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAQAAAAAAAAAAABAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Manifest\ePUBManifest.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBManifestItem" Collapsed="true">
+    <Position X="2.75" Y="36.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAAAABAAgAAAAAIAQAAAAAAAAAAAAAgAAACAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Manifest\ePUBManifestItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBGuide" Collapsed="true">
+    <Position X="5" Y="37" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAIAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Guide\ePUBGuide.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CBR.Core.Formats.ePUB.ePUBGuideItem" Collapsed="true">
+    <Position X="5" Y="38" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAIAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Guide\ePUBGuideItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.NET.Properties.PropertyHelper">
+    <Position X="0.5" Y="39.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAFAAAAAAAgAAAAEAAAgAEAAAA=</HashCode>
+      <FileName>Helpers\NET\Properties\PropertyHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.NET.Properties.UserPropertyAttribute">
+    <Position X="7" Y="39.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAQAABAAAAAQAAAAA=</HashCode>
+      <FileName>Helpers\NET\Properties\UserPropertyAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.NET.Properties.PropertyModel">
+    <Position X="4.75" Y="39.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAIAAAAAAQAQAAAAAAAAAAAAAAAAIgAA=</HashCode>
+      <FileName>Helpers\NET\Properties\PropertyModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBR.Core.Helpers.NET.Properties.PropertyViewModel">
+    <Position X="2.5" Y="39.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACABAAQgAAAAAAAAA=</HashCode>
+      <FileName>Helpers\NET\Properties\PropertyViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Data" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="CBR.Core.Files.Conversion.IReaderContract" Collapsed="true">
+    <Position X="16" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files\Conversion\Contract.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CBR.Core.Files.Conversion.IWriterContract" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Files\Conversion\Contract.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CBR.Core.Helpers.Localization.IResourceProvider" Collapsed="true">
+    <Position X="2.75" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAhAAAAAAAIAAABAAAEADAEAAAAAAQAAAAAAAACAA=</HashCode>
+      <FileName>Helpers\WPF\Localization\Providers\IResourceProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="CBR.Core.Models.FrameType" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Book\Zone.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CBR.Core.Models.DocumentType" Collapsed="true">
+    <Position X="12.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAMAABAAAAIAAAAACAIAABAAAAAAIAAAAEAEAQ=</HashCode>
+      <FileName>Models\Intern\DocumentInfo.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CBR.Core.Formats.ePUB.ePUBMetadataType" Collapsed="true">
+    <Position X="4" Y="33" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAQAAAoAIAgACAiAAAAQAABAAAAAAQAAgAA=</HashCode>
+      <FileName>Formats\ePUB\Model\Container\Package\Meta\ePUBMetadataType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="CBR.Core.Files.Conversion.ProgressDelegate" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files\Conversion\Contract.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="CBR.Core.Helpers.Localization.GetResourceHandler" Collapsed="true">
+    <Position X="9" Y="17" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAABAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Helpers\WPF\Localization\LocalizationExtension.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

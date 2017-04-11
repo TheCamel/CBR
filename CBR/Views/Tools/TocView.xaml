@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="CBR.Views.TocView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="200"
+			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+			 xmlns:Models="clr-namespace:CBR.Core.Formats.ePUB;assembly=CBR.Core"
+			 Background="{DynamicResource CbrDarkBackgroundBrush}"
+             >
+	<UserControl.Resources>
+
+		<!--Based treeview item style-->
+		<Style x:Key="TOCTreeItemItemStyle" TargetType="{x:Type TreeViewItem}">
+			<Setter Property="Foreground" Value="{DynamicResource CbrForegroundBrush}" />
+			<Style.Triggers>
+				<Trigger Property="IsSelected" Value="True">
+					<Setter Property="FontWeight" Value="Bold" />
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+		
+		<!--TOC treeview item template-->
+		<HierarchicalDataTemplate DataType="{x:Type Models:ePUBNavPoint}" ItemsSource="{Binding Items}">
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="{Binding Label}" />
+			</StackPanel>
+		</HierarchicalDataTemplate>
+	</UserControl.Resources>
+
+	<Grid>
+		<TreeView Name="TocTree" Background="{DynamicResource CbrDarkBackgroundBrush}"  
+				  ItemsSource="{Binding Data}" SelectedItemChanged="TocTree_SelectedItemChanged"
+				  ItemContainerStyle="{DynamicResource TOCTreeItemItemStyle}">
+			<!--<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectedItemChanged" >
+					<se:CallMethodAction MethodName="NotifyColleagues" TargetObject="{Binding ElementName=TocTree, Path=SelectedItem}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>-->
+		</TreeView>
+	</Grid>
+</UserControl>

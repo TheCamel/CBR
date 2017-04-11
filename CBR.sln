@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBR", "CBR\CBR.csproj", "{12BDD651-04DF-4DB9-BAF4-4346520B7027}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBR.Core", "CBR.Core\CBR.Core.csproj", "{0C5E9FE4-0393-4662-A253-4F5F45621204}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CBR.Setup32", "Setup\CBR.Setup32\CBR.Setup32.vdproj", "{68311E97-6639-40F1-AC15-05AC447BBE2B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CBR.Setup64", "Setup\CBR.Setup64\CBR.Setup64.vdproj", "{799B3EA1-3A45-4670-B791-E8483A118D4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2C2511ED-B995-44B4-80A9-FD21437ACA6A}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs05
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CBR.Core\\CBR.Core.csproj
+		SccProjectName1 = CBR.Core
+		SccLocalPath1 = CBR.Core
+		SccProjectUniqueName2 = CBR\\CBR.csproj
+		SccProjectName2 = CBR
+		SccLocalPath2 = CBR
+		SccProjectUniqueName3 = Setup\\CBR.Setup32\\CBR.Setup32.vdproj
+		SccProjectName3 = Setup/CBR.Setup32
+		SccLocalPath3 = Setup\\CBR.Setup32
+		SccProjectUniqueName4 = Setup\\CBR.Setup64\\CBR.Setup64.vdproj
+		SccProjectName4 = Setup/CBR.Setup64
+		SccLocalPath4 = Setup\\CBR.Setup64
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12BDD651-04DF-4DB9-BAF4-4346520B7027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12BDD651-04DF-4DB9-BAF4-4346520B7027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12BDD651-04DF-4DB9-BAF4-4346520B7027}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{12BDD651-04DF-4DB9-BAF4-4346520B7027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12BDD651-04DF-4DB9-BAF4-4346520B7027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12BDD651-04DF-4DB9-BAF4-4346520B7027}.Release|x86.ActiveCfg = Release|Any CPU
+		{12BDD651-04DF-4DB9-BAF4-4346520B7027}.Release|x86.Build.0 = Release|Any CPU
+		{0C5E9FE4-0393-4662-A253-4F5F45621204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C5E9FE4-0393-4662-A253-4F5F45621204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C5E9FE4-0393-4662-A253-4F5F45621204}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0C5E9FE4-0393-4662-A253-4F5F45621204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C5E9FE4-0393-4662-A253-4F5F45621204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C5E9FE4-0393-4662-A253-4F5F45621204}.Release|x86.ActiveCfg = Release|Any CPU
+		{0C5E9FE4-0393-4662-A253-4F5F45621204}.Release|x86.Build.0 = Release|Any CPU
+		{68311E97-6639-40F1-AC15-05AC447BBE2B}.Debug|Any CPU.ActiveCfg = Debug
+		{68311E97-6639-40F1-AC15-05AC447BBE2B}.Debug|x86.ActiveCfg = Debug
+		{68311E97-6639-40F1-AC15-05AC447BBE2B}.Debug|x86.Build.0 = Debug
+		{68311E97-6639-40F1-AC15-05AC447BBE2B}.Release|Any CPU.ActiveCfg = Release
+		{68311E97-6639-40F1-AC15-05AC447BBE2B}.Release|Any CPU.Build.0 = Release
+		{68311E97-6639-40F1-AC15-05AC447BBE2B}.Release|x86.ActiveCfg = Release
+		{68311E97-6639-40F1-AC15-05AC447BBE2B}.Release|x86.Build.0 = Release
+		{799B3EA1-3A45-4670-B791-E8483A118D4C}.Debug|Any CPU.ActiveCfg = Debug
+		{799B3EA1-3A45-4670-B791-E8483A118D4C}.Debug|x86.ActiveCfg = Debug
+		{799B3EA1-3A45-4670-B791-E8483A118D4C}.Debug|x86.Build.0 = Debug
+		{799B3EA1-3A45-4670-B791-E8483A118D4C}.Release|Any CPU.ActiveCfg = Release
+		{799B3EA1-3A45-4670-B791-E8483A118D4C}.Release|Any CPU.Build.0 = Release
+		{799B3EA1-3A45-4670-B791-E8483A118D4C}.Release|x86.ActiveCfg = Release
+		{799B3EA1-3A45-4670-B791-E8483A118D4C}.Release|x86.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

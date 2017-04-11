@@ -1,0 +1,458 @@
+﻿<UserControl x:Class="CBR.Views.ExplorerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+             xmlns:Models="clr-namespace:CBR.Core.Models;assembly=CBR.Core"
+             xmlns:Converters="clr-namespace:CBR.Components.Converters"
+             xmlns:Controls="clr-namespace:CBR.Components.Controls"
+             xmlns:Views="clr-namespace:CBR.Views"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+			 Background="{DynamicResource CbrDarkBackgroundBrush}">
+	<UserControl.Resources>
+
+		<!-- TOOLTIP style and associated data template -->
+		<Style x:Key="TransparentToolTipStyle" TargetType="{x:Type ToolTip}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ToolTip}">
+						<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+										  Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<DataTemplate x:Key="BookToolTipTemplate" DataType="{x:Type Models:Book}">
+			<Grid >
+				<Border Padding="2,2,2,2" CornerRadius="8" BorderBrush="{DynamicResource CbrBorderBrushSelected}" BorderThickness="2">
+					<Border CornerRadius="6" ClipToBounds="True" Padding="6,6,6,6" Background="{DynamicResource CbrBackgroundHighlighted}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="80"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=FileName}" Style="{DynamicResource CbrSubTitleLabel}" />
+							<TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=FilePath}" Style="{DynamicResource CbrTextBlockSmall}" />
+							<Image Grid.Column="0" Grid.RowSpan="3" Source="{Binding Path=Cover}" Width="70"/>
+							<Grid Grid.Column="1" Grid.Row="2">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="12" />
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<TextBlock Grid.Column="0" Grid.Row="0" Style="{DynamicResource CbrTextBlockSmall}"
+										   Text="{LocalizationExtension ResModul=CBR, Key=ExplorerView.DataFileSize, DefaultValue=Size}" />
+								<TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding Path=Size, Converter={x:Static Converters:LongToFileSizeConverter.Instance}}"
+										   Style="{DynamicResource CbrTextBlockSmall}"/>
+								<TextBlock Grid.Column="0" Grid.Row="1" Style="{DynamicResource CbrTextBlockSmall}"
+										   Text="{LocalizationExtension ResModul=CBR, Key=ExplorerView.DataPageCount, DefaultValue=Page(s)}" />
+								<TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Path=PageCount}" Style="{DynamicResource CbrTextBlockSmall}"/>
+							</Grid>
+						</Grid>
+					</Border>
+				</Border>
+			</Grid>
+		</DataTemplate>
+
+		<!--  style for menu items in sort/group dropdown buttons -->
+		<Style x:Key="ExplorerPropertyViewModel">
+			<Setter Property="MenuItem.Header" Value="{Binding DisplayName}"/>
+			<Setter Property="MenuItem.Command" Value="{Binding GenericCommand}" />
+			<Setter Property="MenuItem.IsCheckable" Value="true" />
+		</Style>
+
+		<!--  parameter is the same as the view model message in ViewModelMessages.cs -->
+		<Style x:Key="GroupMenuItemStyle" BasedOn="{StaticResource ExplorerPropertyViewModel}" >
+			<Setter Property="MenuItem.CommandParameter" Value="ExplorerGroupChanged" />
+		</Style>
+
+		<!--  parameter is the same as the view model message in ViewModelMessages.cs -->
+		<Style x:Key="SortMenuItemStyle" BasedOn="{StaticResource ExplorerPropertyViewModel}" >
+			<Setter Property="MenuItem.CommandParameter" Value="ExplorerSortChanged" />
+		</Style>
+
+		<!--  view for explorer -->
+		<GridView x:Key="ExplorerGridView">
+			<GridView.Columns>
+				<GridViewColumn DisplayMemberBinding="{Binding Path=FileName}" Width="{PropertyStateExtension Default=140}"
+					  ElementState.Mode="Persist" ElementState.UId="ExplorerGridViewFile">
+					<GridViewColumnHeader Tag="FileName"
+										  Content="{LocalizationExtension ResModul=ByCode, Key=Core.Properties.FileName}"/>
+				</GridViewColumn>
+				<GridViewColumn DisplayMemberBinding="{Binding Path=Size, Converter={x:Static Converters:LongToFileSizeConverter.Instance}}" 
+								Width="{PropertyStateExtension Default=Auto}"
+					  ElementState.Mode="Persist" ElementState.UId="ExplorerGridViewSize" >
+					<GridViewColumnHeader Tag="Size"
+										  Content="{LocalizationExtension ResModul=ByCode, Key=Core.Properties.Size}"/>
+				</GridViewColumn>
+				<GridViewColumn DisplayMemberBinding="{Binding Path=PageCount}" Width="{PropertyStateExtension Default=Auto}"
+					  ElementState.Mode="Persist" ElementState.UId="ExplorerGridViewWidth" >
+					<GridViewColumnHeader Tag="PageCount"
+										  Content="{LocalizationExtension ResModul=ByCode, Key=Core.Properties.PageCount}"/>
+				</GridViewColumn>
+
+				<GridViewColumn Width="{PropertyStateExtension Default=Auto}"
+					  ElementState.Mode="Persist" ElementState.UId="ExplorerGridViewRating" >
+					<GridViewColumnHeader Tag="Rating"
+										  Content="{LocalizationExtension ResModul=ByCode, Key=Core.Properties.Rating}"/>
+					<GridViewColumn.CellTemplate>
+						<DataTemplate>
+							<Controls:RatingControl Grid.Row="1" HorizontalAlignment="Center" Height="15" RatingValue="{Binding Rating}" IsEnabled="False" />
+						</DataTemplate>
+					</GridViewColumn.CellTemplate>
+				</GridViewColumn>
+
+				<GridViewColumn Width="{PropertyStateExtension Default=68}"
+					  ElementState.Mode="Persist" ElementState.UId="ExplorerGridViewBookmark" >
+					<GridViewColumnHeader Tag="HasBookmark" >
+						<Image Source="/CBR;component/Resources/Images/32x32/icon/push_pin.png" Width="16" Height="16" />
+					</GridViewColumnHeader>
+					<GridViewColumn.CellTemplate>
+						<DataTemplate>
+							<Image Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"
+                             Source="/CBR;component/Resources/Images/32x32/icon/push_pin.png"
+                             Visibility="{Binding HasBookmark, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}"/>
+						</DataTemplate>
+					</GridViewColumn.CellTemplate>
+				</GridViewColumn>
+
+				<GridViewColumn Width="{PropertyStateExtension Default=68}"
+					  ElementState.Mode="Persist" ElementState.UId="ExplorerGridViewRead" >
+					<GridViewColumnHeader Tag="IsRead">
+						<Image Source="/CBR;component/Resources/Images/32x32/icon/is_read.png" Width="16" Height="16" />
+					</GridViewColumnHeader>
+					<GridViewColumn.CellTemplate>
+						<DataTemplate>
+							<Image Width="22" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center"
+                             Source="/CBR;component/Resources/Images/32x32/icon/is_read.png"
+                             Visibility="{Binding IsRead, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}"/>
+						</DataTemplate>
+					</GridViewColumn.CellTemplate>
+				</GridViewColumn>
+
+				<GridViewColumn Width="{PropertyStateExtension Default=68}"
+					  ElementState.Mode="Persist" ElementState.UId="ExplorerGridViewProtect" >
+					<GridViewColumnHeader Tag="IsSecured">
+						<Image Source="/CBR;component/Resources/Images/32x32/icon/lock.png" Width="16" Height="16" />
+					</GridViewColumnHeader>
+					<GridViewColumn.CellTemplate>
+						<DataTemplate>
+							<Image Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"
+                             Source="/CBR;component/Resources/Images/32x32/icon/lock.png"
+                             Visibility="{Binding IsSecured, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}"/>
+						</DataTemplate>
+					</GridViewColumn.CellTemplate>
+				</GridViewColumn>
+
+				<GridViewColumn Width="{PropertyStateExtension Default=68}"
+					  ElementState.Mode="Persist" ElementState.UId="ExplorerGridViewType" >
+					<GridViewColumnHeader Tag="Type">
+						<Image Source="/CBR;component/Resources/Images/32x32/book_type/book_type.png" Width="16" Height="16" />
+					</GridViewColumnHeader>
+					<GridViewColumn.CellTemplate>
+						<DataTemplate>
+							<Image Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"
+                            Source="{Binding Path=Type, Converter={x:Static Converters:TypeToImageConverter.Instance}}" />
+						</DataTemplate>
+					</GridViewColumn.CellTemplate>
+				</GridViewColumn>
+
+			</GridView.Columns>
+		</GridView>
+
+		<Style x:Key="TextBlockItemStyle" >
+			<Setter Property="TextBlock.TextTrimming" Value="CharacterEllipsis" />
+			<Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+		</Style>
+
+		<DataTemplate x:Key="ImageDetailTemplate">
+			<Grid x:Name="MainItemGrid" Margin="4" Background="Transparent">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="80"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.9*"/>
+						<RowDefinition Height="0.1*"/>
+					</Grid.RowDefinitions>
+					<Border x:Name="BorderStatus" Width="72" BorderThickness="3" BorderBrush="{DynamicResource CbrForegroundBrush}"
+							Background="{DynamicResource CbrForegroundBrush}" >
+						<Image x:Name="CoverImage" Width="70" Source="{Binding Path=Cover}" />
+					</Border>
+					<Controls:RatingControl Grid.Row="1" HorizontalAlignment="Center" Height="15" RatingValue="{Binding Rating}" />
+				</Grid>
+				<Grid Grid.Column="1" Grid.Row="2" >
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<TextBlock Grid.ColumnSpan="4" Text="{Binding Path=FileName}" FontWeight="Bold" Style="{StaticResource TextBlockItemStyle}" />
+					<TextBlock Grid.ColumnSpan="4" Grid.Row="1" Text="{Binding Path=Folder}" Style="{StaticResource TextBlockItemStyle}" />
+					<TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource TextBlockItemStyle}" 
+							   Text="{LocalizationExtension ResModul=CBR, Key=ExplorerView.DataFileSize, DefaultValue=Size}" />
+
+					<TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBlockItemStyle}"
+							   Text="{Binding Path=Size, Converter={x:Static Converters:LongToFileSizeConverter.Instance}}" />
+					<Image Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Width="24" Height="24"
+                        Source="/CBR;Component/Resources/Images/32x32/icon/push_pin.png" 
+                        Visibility="{Binding Path=HasBookmark, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}" />
+
+					<TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource TextBlockItemStyle}" 
+							   Text="{LocalizationExtension ResModul=CBR, Key=ExplorerView.DataPageCount, DefaultValue=Page(s)}"/>
+
+					<TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Path=PageCount}" Style="{StaticResource TextBlockItemStyle}" />
+					<Image Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Width="24" Height="24"
+	                    Source="{Binding Path=Type, Converter={x:Static Converters:TypeToImageConverter.Instance}}" />
+				</Grid>
+				<Grid.ToolTip>
+					<ToolTip Style="{StaticResource TransparentToolTipStyle}">
+						<ContentControl Content="{Binding}" ContentTemplate="{StaticResource BookToolTipTemplate}"/>
+					</ToolTip>
+				</Grid.ToolTip>
+			</Grid>
+			<DataTemplate.Triggers>
+				<DataTrigger Binding="{Binding IsSecured}" Value="True">
+					<Setter Property="Source" TargetName="CoverImage" Value="/CBR;component/Resources/Images/32x32/icon/forbidden.png" />
+					<Setter Property="IsEnabled" TargetName="MainItemGrid" Value="False" />
+					<Setter Property="ToolTipService.IsEnabled" Value="false" />
+				</DataTrigger>
+				<DataTrigger Binding="{Binding IsRead}" Value="True">
+					<Setter TargetName="BorderStatus" Property="BorderBrush" Value="Red" />
+				</DataTrigger>
+			</DataTemplate.Triggers>
+		</DataTemplate>
+
+		<Controls:ExtendedThumbView x:Key="ExplorerImageDetailView" ItemTemplate="{StaticResource ImageDetailTemplate}" />
+
+		<DataTemplate x:Key="ImageViewTemplate">
+			<Grid x:Name="MainItemGrid" Margin="4" Background="Transparent">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="0.9*"/>
+					<RowDefinition Height="0.1*"/>
+				</Grid.RowDefinitions>
+				<Grid>
+					<Border x:Name="BorderStatus" Width="72" BorderThickness="3" BorderBrush="{DynamicResource CbrForegroundBrush}"
+							Background="{DynamicResource CbrForegroundBrush}">
+						<Image x:Name="CoverImage" Width="70" Source="{Binding Path=Cover}" />
+					</Border>
+					<Image Source="/CBR;Component/Resources/Images/32x32/icon/push_pin.png" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"
+					        Visibility="{Binding Path=HasBookmark, Converter={x:Static Converters:BoolToVisibilityConverter.Instance}}" Grid.RowSpan="2"></Image>
+					<Image Grid.RowSpan="2"  Width="32" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Source="{Binding Path=Type, Converter={x:Static Converters:TypeToImageConverter.Instance}}" />
+				</Grid>
+
+				<Controls:RatingControl Grid.Row="1" HorizontalAlignment="Center" Height="15" RatingValue="{Binding Rating}" />
+
+				<Grid.ToolTip>
+					<ToolTip Style="{StaticResource TransparentToolTipStyle}">
+						<ContentControl Content="{Binding}" ContentTemplate="{StaticResource BookToolTipTemplate}"/>
+					</ToolTip>
+				</Grid.ToolTip>
+			</Grid>
+			<DataTemplate.Triggers>
+				<DataTrigger Binding="{Binding IsSecured}" Value="True">
+					<Setter Property="Source" TargetName="CoverImage" Value="/CBR;component/Resources/Images/32x32/icon/forbidden.png" />
+					<Setter Property="IsEnabled" TargetName="MainItemGrid" Value="False" />
+					<Setter Property="ToolTipService.IsEnabled" Value="false" />
+				</DataTrigger>
+				<DataTrigger Binding="{Binding IsRead}" Value="True">
+					<Setter TargetName="BorderStatus" Property="BorderBrush" Value="Red" />
+				</DataTrigger>
+			</DataTemplate.Triggers>
+		</DataTemplate>
+
+		<Controls:SimpleThumbView x:Key="ExplorerImageView" ItemTemplate="{StaticResource ImageViewTemplate}" />
+
+		<!-- Style for an individual list view item -->
+
+		<Style x:Key="ViewItemBase" TargetType="{x:Type ListViewItem}">
+			<EventSetter Event="MouseDoubleClick" Handler="Item_MouseDoubleClick" />
+			<Setter Property="Background" Value="Transparent" />
+			<Setter Property="BorderBrush" Value="{DynamicResource CbrForegroundBrush}" />
+			<Setter Property="Foreground" Value="{DynamicResource CbrForegroundBrush}" />
+			<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+			<Setter Property="VerticalContentAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="GridViewItemStyle" TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ViewItemBase}" >
+			<Setter Property="BorderBrush" Value="{DynamicResource CbrForegroundBrush}" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListViewItem}" >
+						<Border SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="0,0,0,1"
+								ToolTipService.IsEnabled="{Binding DataContext.ShowTooltipExplorer,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListView}}}">
+
+							<GridViewRowPresenter />
+
+							<Border.ToolTip>
+								<ToolTip Style="{StaticResource TransparentToolTipStyle}">
+									<ContentControl Content="{Binding}" ContentTemplate="{StaticResource BookToolTipTemplate}"/>
+								</ToolTip>
+							</Border.ToolTip>
+						</Border>
+
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsSelected" Value="True">
+								<Setter Property="Background" Value="{DynamicResource CbrBackgroundSelected}"/>
+							</Trigger>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="Background" Value="{DynamicResource CbrBackgroundSelected}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="ThumbnailViewItemStyle" TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ViewItemBase}" >
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListBoxItem}" >
+						<Border CornerRadius="4" SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                            Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+							<ContentPresenter />
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsSelected" Value="True">
+								<Setter Property="Background" Value="{DynamicResource CbrBackgroundSelected}"/>
+							</Trigger>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="Background" Value="{DynamicResource CbrBackgroundSelected}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+	</UserControl.Resources>
+
+	<Grid>
+		<Grid >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="38" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<DockPanel LastChildFill="True">
+
+				<Fluent:DropDownButton Header="View" SizeDefinition="Small" Icon="/CBR;Component/Resources/Images/32x32/library_view.png"
+                                       IsEnabled ="{Binding IsHeaderEnabled, Mode=OneWay}">
+
+					<Fluent:MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.ViewGrid, DefaultValue=Grid}"
+                                         Command="{Binding ViewModeCommand}" CommandParameter="ExplorerGridView" 
+                                         IsChecked="{Binding ElementName=CatalogListView, Path=DataContext.IsViewGrid, Mode=OneWay}"
+                                         Icon="/CBR;Component/Resources/Images/16x16/view_details.png" IsCheckable="True" />
+
+					<Fluent:MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.ThumbnailSimple, DefaultValue=Thumbnail simple}"
+                                         Command="{Binding ViewModeCommand}" CommandParameter="ExplorerImageView" 
+                                         IsChecked="{Binding ElementName=CatalogListView, Path=DataContext.IsViewThumbSimple, Mode=OneWay}"
+                                         Icon="/CBR;Component/Resources/Images/16x16/view_thumb.png" IsCheckable="True" />
+
+					<Fluent:MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.ThumbnailDetails, DefaultValue=Thumbnail details}"
+                                         Command="{Binding ViewModeCommand}" CommandParameter="ExplorerImageDetailView" 
+                                         IsChecked="{Binding ElementName=CatalogListView, Path=DataContext.IsViewThumbDetails, Mode=OneWay}"
+                                         Icon="/CBR;Component/Resources/Images/16x16/view_thumb.png" IsCheckable="True" />
+
+				</Fluent:DropDownButton>
+
+				<Fluent:DropDownButton Header="Sort by" SizeDefinition="Small" Icon="/CBR;Component/Resources/Images/16x16/sort_alpha.png"
+                                       ItemsSource="{Binding SortProperties}" ItemContainerStyle="{StaticResource SortMenuItemStyle}"
+                                       IsEnabled ="{Binding IsHeaderEnabled, Mode=OneWay}" />
+
+				<Fluent:DropDownButton Header="Group by" SizeDefinition="Small" Icon="/CBR;Component/Resources/Images/16x16/sort_category.png"
+                                       ItemsSource="{Binding GroupProperties}" ItemContainerStyle="{StaticResource GroupMenuItemStyle}"
+                                       IsEnabled ="{Binding IsHeaderEnabled}" />
+
+				<Controls:FilterControl Header="{LocalizationExtension ResModul=CBR, Key=Explorer.Filter, DefaultValue=Type your search here...}"
+                                        Margin="4" FilterText="{Binding SearchedText, Mode=TwoWay}"
+                                        IsEnabled ="{Binding IsHeaderEnabled}"  />
+			</DockPanel>
+
+			<Controls:ExtendedListView x:Name="CatalogListView" Grid.Row="1" BorderThickness="0"
+									   HorizontalAlignment="Stretch" Margin="1" VerticalAlignment="Stretch"
+									   DragAndDropID="CBR.Book.Path" ItemsSource="{Binding Books}"
+									   ColumnOrder="{PropertyStateExtension Default=''}"
+									   ElementState.Mode="Persist" ElementState.UId="CatalogListView"
+									   ToolTipService.IsEnabled="{Binding ShowTooltipExplorer}" >
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="SelectionChanged" >
+						<cmd:EventToCommand Command="{Binding SelectionChangedCommand, Mode=OneWay}" />
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+				<Controls:ExtendedListView.View>
+					<MultiBinding Converter="{x:Static Converters:StringToResourceConverter.Instance}">
+						<Binding RelativeSource="{RelativeSource AncestorType=UserControl}"/>
+						<Binding Path="CurrentViewMode" />
+					</MultiBinding>
+				</Controls:ExtendedListView.View>
+				<Controls:ExtendedListView.ItemContainerStyle>
+					<MultiBinding Converter="{x:Static Converters:StringToResourceConverter.Instance}">
+						<Binding RelativeSource="{RelativeSource AncestorType=UserControl}"/>
+						<Binding Path="CurrentItemStyle" />
+					</MultiBinding>
+				</Controls:ExtendedListView.ItemContainerStyle>
+				<Controls:ExtendedListView.ContextMenu>
+					<ContextMenu>
+						<MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.Read, DefaultValue=Read}"
+                                  Command="{Binding ForwardCommand}" CommandParameter="BookReadCommand">
+							<MenuItem.Icon>
+								<Image Source="/CBR;component/Resources/Images/32x32/book/book_read.png" />
+							</MenuItem.Icon>
+						</MenuItem>
+						<MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.MarkRead, DefaultValue=Mark as (un)read}"
+                                  Command="{Binding ForwardCommand}" CommandParameter="BookMarkAsReadCommand"/>
+						<Separator></Separator>
+
+						<MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.Protect, DefaultValue=Protect}"
+                                  Command="{Binding ForwardCommand}" CommandParameter="BookProtectCommand">
+							<MenuItem.Icon>
+								<Image Source="/CBR;component/Resources/Images/32x32/book/book_protect.png" />
+							</MenuItem.Icon>
+						</MenuItem>
+						<MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.Remove, DefaultValue=Remove}"
+                                  Command="{Binding ForwardCommand}" CommandParameter="BookRemoveCommand">
+							<MenuItem.Icon>
+								<Image Source="/CBR;component/Resources/Images/32x32/book/book_remove.png" />
+							</MenuItem.Icon>
+						</MenuItem>
+						<Separator></Separator>
+						<MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.Delete, DefaultValue=Delete}"
+                                  Command="{Binding ForwardCommand}" CommandParameter="BookDeleteCommand">
+							<MenuItem.Icon>
+								<Image Source="/CBR;component/Resources/Images/32x32/book/book_delete.png" />
+							</MenuItem.Icon>
+						</MenuItem>
+						<Separator></Separator>
+						<MenuItem Header="{LocalizationExtension ResModul=CBR, Key=ContextMenu.ExplorerView.Properties, DefaultValue=Properties}"
+                                  Command="{Binding ForwardCommand}" CommandParameter="BookPropertyCommand" />
+					</ContextMenu>
+				</Controls:ExtendedListView.ContextMenu>
+			</Controls:ExtendedListView>
+		</Grid>
+	</Grid>
+</UserControl>

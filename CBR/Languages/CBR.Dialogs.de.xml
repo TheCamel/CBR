@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LocalizationDictionary xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" IetfLanguageTag="de" Module="CBR.Dialogs">
+  <LocalizationItems>
+    <Item Key="About.Title" Default="#About" Translated="über C.B.R" />
+    <Item Key="About.Version" Default="#Version" Translated="Version" />
+    <Item Key="About.Copy" Default="#Copyright ©" Translated="Urheberrechtlich geschützt©" />
+    <Item Key="About.Modules" Default="#Modules" Translated="Module" />
+    <Item Key="LocalizeView.Title" Default="#Localize_Translate" Translated="übersetzen" />
+    <Item Key="LocalizeView.GroupSource" Default="#Source" Translated="Ursprung" />
+    <Item Key="LocalizeView.CbLanguage" Default="#Language" Translated="Sprache" />
+    <Item Key="LocalizeView.CbModule" Default="#Module" Translated="Module" />
+    <Item Key="LocalizeView.BtnSelect" Default="#Select" Translated="wählen" />
+    <Item Key="LocalizeView.BtnRefresh" Default="#Refresh" Translated="erfrischen" />
+    <Item Key="LocalizeView.BtnReload" Default="#Reload" Translated="nachladen" />
+    <Item Key="LocalizeView.BtnDelete" Default="#Delete" Translated="Löschen" />
+    <Item Key="LocalizeView.GroupNew" Default="#New" Translated="neu" />
+    <Item Key="LocalizeView.CbCultures" Default="#Culture(s)" Translated="Kultur" />
+    <Item Key="LocalizeView.BtnCreate" Default="#Create" Translated="Erschaffen" />
+    <Item Key="LocalizeView.GroupCommands" Default="#Commands" Translated="Befehle" />
+    <Item Key="LocalizeView.BtnSave" Default="#Save" Translated="Speichern" />
+    <Item Key="LocalizeView.BtnExit" Default="#Exit" Translated="Verlassen" />
+    <Item Key="LocalizeView.ColKey" Default="#Key" Translated="Key" />
+    <Item Key="LocalizeView.ColDefault" Default="#Default" Translated="Voreinstellung" />
+    <Item Key="LocalizeView.ColTranslated" Default="#Translated" Translated="Übersetzt" />
+    <Item Key="LocalizeView.ColUsed" Default="#Used" Translated="benutzt" />
+    <Item Key="PasswordDialog.Title" Default="#Protection" Translated="Sicherung" />
+    <Item Key="PasswordDialog.lblExplain" Default="#Enter the password to release or set protection" Translated="Geben Sie das Passwort freizugeben oder eingestellt Sicherung" />
+    <Item Key="PasswordDialog.BtnOk" Default="#OK" Translated="OK" />
+    <Item Key="OptionExtended.ShareTitle" Default="#Share Settings" Translated="Freigeben von Einstellungen" />
+    <Item Key="OptionExtended.shareServer" Default="#Server name" Translated="Server-Namen" />
+    <Item Key="OptionExtended.sharePort" Default="#Server port" Translated="Server-Port" />
+    <Item Key="OptionExtended.shareStart" Default="#Start up" Translated="Start up" />
+    <Item Key="OptionExtended.shareStarting" Default="#Activate share on startup" Translated="Aktivieren am Start" />
+    <Item Key="OptionExtended.TabShare" Default="#Share" Translated="Teilen" />
+  </LocalizationItems>
+</LocalizationDictionary>

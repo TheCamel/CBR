@@ -1,0 +1,195 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:local="clr-namespace:CBR.Components.Controls" >
+
+	<!-- white to grey horizontal styled line-->
+	<Style x:Key="HorizontalSeparator" TargetType="{x:Type Line}">
+		<Setter Property="IsHitTestVisible" Value="false" />
+		<Setter Property="StrokeThickness" Value="2" />
+		<Setter Property="Stretch" Value="Fill" />
+		<Setter Property="X1" Value="0" />
+		<Setter Property="X2" Value="1" />
+		<Setter Property="Stroke">
+			<Setter.Value>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<LinearGradientBrush.RelativeTransform>
+						<RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+					</LinearGradientBrush.RelativeTransform>
+					<GradientStop Color="{DynamicResource CbrForegroundColor}" Offset="1"/>
+					<GradientStop Color="{DynamicResource CbrDarkBackground}" Offset="0"/>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- group expander style -->
+	<Style x:Key="AlphaGroupContainerStyle" TargetType="{x:Type GroupItem}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type GroupItem}">
+					<Expander Header="{Binding Name}" HorizontalAlignment="Stretch" IsExpanded="True" OverridesDefaultStyle="True" 
+								  Foreground="{DynamicResource CbrForegroundBrush}">
+						<Expander.Template>
+							<ControlTemplate TargetType="{x:Type Expander}">
+								<Grid Margin="2" HorizontalAlignment="Stretch">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Name="ContentRow" Height="0"/>
+									</Grid.RowDefinitions>
+
+									<ToggleButton IsChecked="{Binding Path=IsExpanded,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+											OverridesDefaultStyle="True" Height="22">
+										<ToggleButton.Template>
+											<ControlTemplate TargetType="ToggleButton">
+												<Grid Background="Transparent" HorizontalAlignment="Stretch">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="Auto" />
+														<ColumnDefinition Width="*" />
+													</Grid.ColumnDefinitions>
+													<Path Width="14" Height="14" x:Name="ExpandPath" HorizontalAlignment="Center" VerticalAlignment="Center"
+											Data="M 2 1 L 11 7 L 2 13" Fill="{DynamicResource CbrBackgroundSelected}" />
+													<ContentPresenter Grid.Column="1" VerticalAlignment="Center" />
+												</Grid>
+												<ControlTemplate.Triggers>
+													<Trigger Property="IsChecked" Value="True">
+														<Setter Property="LayoutTransform" TargetName="ExpandPath">
+															<Setter.Value>
+																<RotateTransform Angle="-90"></RotateTransform>
+															</Setter.Value>
+														</Setter>
+													</Trigger>
+												</ControlTemplate.Triggers>
+											</ControlTemplate>
+										</ToggleButton.Template>
+										<Grid Grid.Row="1" HorizontalAlignment="Stretch">
+											<Line Style="{StaticResource HorizontalSeparator}" Margin="30,0,0,0" />
+											<StackPanel Orientation="Horizontal">
+												<TextBlock Text ="{Binding Name}" Margin="2,0,2,0" Padding="5,0,5,0"
+														   Background="{DynamicResource CbrDarkBackgroundBrush}" />
+												<TextBlock Margin="2,0,2,0" Background="{DynamicResource CbrDarkBackgroundBrush}" Padding="5,0,5,0"
+													Text="{Binding Path=ItemCount, StringFormat={}({0:0})}" />
+											</StackPanel>
+										</Grid>
+									</ToggleButton>
+									<ContentPresenter Grid.Row="1" Margin="12,0,4,4" />
+								</Grid>
+								<ControlTemplate.Triggers>
+									<Trigger Property="IsExpanded" Value="True">
+										<Setter TargetName="ContentRow" Property="Height" Value="{Binding ElementName=Content,Path=DesiredHeight}" />
+									</Trigger>
+								</ControlTemplate.Triggers>
+							</ControlTemplate>
+						</Expander.Template>
+						<ItemsPresenter />
+					</Expander>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- drag thumb style for grid header -->
+	<Style x:Key="GridViewColumnHeaderGripper" TargetType="Thumb">
+		<Setter Property="Width" Value="18"/>
+		<Setter Property="Background" Value="{DynamicResource CbrBackgroundHighlighted}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Thumb}">
+					<Border Padding="{TemplateBinding Padding}" Background="Transparent">
+						<Rectangle HorizontalAlignment="Center" Width="1" Fill="{TemplateBinding Background}"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- grid header style -->
+	<Style x:Key="{x:Type GridViewColumnHeader}" TargetType="GridViewColumnHeader">
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Foreground" Value="{DynamicResource CbrForegroundBrush}" />
+		<Setter Property="Padding" Value="4"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="GridViewColumnHeader">
+					<Grid>
+						<Border Name="HeaderBorder" Padding="{TemplateBinding Padding}" BorderThickness="0,1,0,1"
+                                 Background="{DynamicResource CbrLightBackground}"   >
+							<ContentPresenter Name="HeaderContent" Margin="0,0,0,1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+						</Border>
+						<Thumb x:Name="PART_HeaderGripper" HorizontalAlignment="Right" Margin="0,0,-9,0"
+                                   Style="{StaticResource GridViewColumnHeaderGripper}"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="HeaderBorder" Property="Background" Value="{DynamicResource CbrBorderBrushHighlighted}"/>
+							<Setter TargetName="HeaderContent" Property="TextElement.Foreground" Value="{DynamicResource CbrBorderBrushSelected}"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="HeaderBorder" Property="Background" Value="{DynamicResource CbrBackgroundHighlighted}"/>
+							<Setter TargetName="HeaderContent" Property="Margin" Value="1,1,0,0"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{DynamicResource CbrForegroundDisabledBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger Property="Role" Value="Floating">
+				<Setter Property="Opacity" Value="0.7"/>
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="GridViewColumnHeader">
+							<Canvas Name="PART_FloatingHeaderCanvas">
+								<Rectangle Fill="{DynamicResource CbrBackgroundHighlighted}" Width="{TemplateBinding ActualWidth}"
+                                               Height="{TemplateBinding ActualHeight}"/>
+							</Canvas>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<!-- list view minimal style -->
+	<Style x:Key="{x:Type local:ExtendedListView}" TargetType="{x:Type local:ExtendedListView}">
+		<Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
+		<Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Standard" />
+		<!--<Setter Property="AlternationCount" Value="2" />-->
+		<Setter Property="SelectionMode" Value="Single" />
+		<Setter Property="IsSynchronizedWithCurrentItem" Value="True" />
+		<Setter Property="Background" Value="{DynamicResource CbrDarkBackgroundBrush}" />
+		<Setter Property="ItemContainerStyle" Value="{DynamicResource ExtendedListViewItemStyle}" />
+	</Style>
+
+	<Style x:Key="ExtendedListViewItemStyle" TargetType="{x:Type ListViewItem}">
+		<Setter Property="BorderBrush" Value="{DynamicResource CbrForegroundBrush}" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListViewItem}" >
+					<Border SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="0,0,0,0.5">
+
+						<GridViewRowPresenter />
+
+					</Border>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter Property="Background" Value="{DynamicResource CbrBackgroundSelected}"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" Value="{DynamicResource CbrBackgroundSelected}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+</ResourceDictionary>
