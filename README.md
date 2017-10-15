@@ -1,18 +1,19 @@
 # CBR
 C.B.R. is the viewer you need to enjoy all your ebooks. It has an impressive feature list from library management, in memory reading to be quick and effective, multiple format support and conversion such as rar, zip, epub, xps. This is the most windows intuitive book reading software for any standard ebook format.
 
+![Home](https://github.com/TheCamel/CBR/blob/master/cbr_home.jpg)
+
 # Links
 C.B.R. for Windows 8...available on the store with performance improvments and sharing with CBRDesktop.
 https://www.microsoft.com/fr-fr/store/p/cbr-comic-book-reader/9wzdncrdmf1f
+
+and the little brother for UWP
+https://www.microsoft.com/fr-fr/store/p/comiko/9mvhjjlkkztk
 
 https://www.facebook.com/CBR-Comic-Book-Reader-100996856757048/
 http://guillaume.waser.free.fr/
 
 # Others
-http://reflectionstudio.codeplex.com/
-
-http://archx.codeplex.com/
-
 https://fouretcompagnie.wordpress.com/
 
 
